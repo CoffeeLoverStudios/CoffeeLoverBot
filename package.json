@@ -1,14 +1,17 @@
 {
-  "name": "coffeeloverbot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "lcomstive",
-  "license": "ISC",
-  "dependencies": {
-    "discord.io": "^2.5.3"
-  }
+	"name": "coffeeloverbot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "bin/index.js",
+	"scripts": {
+		"start": "coffee -c -o bin . && node bin/index.js"
+	},
+	"author": "lcomstive",
+	"license": "ISC",
+	"dependencies": {
+		"discord.js": "^11.2.1"
+	},
+	"devDependencies": {
+		"coffee-script": "^1.12.7"
+	}
 }
