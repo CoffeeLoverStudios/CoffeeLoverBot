@@ -4,8 +4,12 @@ const request = require('request')
 const Discord = require('discord.js')
 const FileAsync = require('lowdb/adapters/FileAsync')
 
+const Utils = require('./utils.js')
 const Commands = require('./commands/command.js')
 const About = require('./commands/about.js')
+const Shush = require('./commands/shush.js')
+const Poems = require('./commands/poems.js')
+const Play = require('./commands/play.js')
 
 const CommandToken = process.env.COMMAND_TOKEN || '!'
 
@@ -20,6 +24,7 @@ let app = new Express()
 let client = new Discord.Client()
 
 let shushed = []
+let commands = []
 
 app.get('/discord_redirect', function(req, res)
 {
@@ -52,9 +57,12 @@ setup = (db) =>
 {
 	client.on('ready', () =>
 	{
-		statuses = db.get('statuses').value()
-		index = Math.floor((Math.random() * statuses.length))
-		client.user.setGame(statuses[index])
+		client.user.setGame(Utils.getRandom(db.get('statuses').value()))
+
+		commands.push(new About(db))
+		commands.push(new Shush(db))
+		commands.push(new Poems(db))
+		commands.push(new Play(db))
 
 		client.guilds.forEach((value, key, map) =>
 		{
@@ -74,7 +82,7 @@ setup = (db) =>
 					}
 					db.get('users').push(user).write()
 				}
-				else if(user.shushed)
+				if(user.shushed)
 					shushed.push(member.id)
 				member.client.on('presenceUpdate', (oldMember, newMember) =>
 				{
@@ -93,17 +101,30 @@ setup = (db) =>
 			})
 		})
 
-		console.log('\nCoffeeLoverBot is playing ' + statuses[index])
+		console.log('\nCoffeeLoverBot is ready')
 	})
 	client.on('message', (message) =>
 	{
-		if(message.content.toLowerCase().includes('hentai'))
+		if(message.author.bot || message.member.id == client.user.id)
+			return
+		let user = db.get('users').find({ id: message.member.id }).value()
+		if(user.canMessage !== undefined && !user.canMessage)
 		{
-			message.channel.send('( ͡° ͜ʖ ͡°)')
+			Shush.shushMessage(message)
 			return
 		}
-		if(message.author.bot)
-			return
+		if(message.content[0] == CommandToken)
+		{
+			let params = Utils.getParams(message.content.substring(CommandToken.length))
+			if(params[0].toLowerCase() == 'refresh')
+				commands.forEach((command) => { command.refresh() })
+			else
+				commands.forEach((command) => { if(command.shouldCall(params[0])) command.call(message.member, message.channel, params, client) })
+		}
+		else
+			commands.forEach((command) => { command.gotMessage(message) })
+
+			/*
 		if(message.content.toLowerCase().includes('bot'))
 		{
 			let replies = [
@@ -117,72 +138,148 @@ setup = (db) =>
 				'*pretends to not be here*',
 				'Yes?',
 				'I AM BOT',
-				'Go away, I\'m playing with ___random_guild_member___'
+				'Go away, I\'m playing with ___random_guild_member___',
+              	'yes senpai?',
+              	'hey',
+              	'hai, ' + message.author + '-chan?',
+              	'sorry uhh, no speaka englis',
+              	'ugh not again...',
+              	'**the hell you just call me?!**',
+              	'can\'t you tell im busy not caring?',
+              	'*muted*',
+              	'roses are red, \n' + message.author + ' looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***',
+              	'58008',
+              	'Unsheath thou keyboard',
+              	'Woah, whats that over there?',
+              	'*deleting browser history*',
+              	'*deleting cookies*',
+				'It was me, ***Dio***',
+              	'Mmmmmm, cheque please',
+              	'@everyone, ' + message.author + ' needs help',
+              	'My liege?',
+              	'Are you scribing on a portable doohickey?!',
+              	'I came, I saw, and I **came some more!**',
+				'*My body is ready*',
+				'print("ye what?")',
+				'Yeah nah',
+				'You got the goods?',
+				'Insert food here',
+				'Love is a lie',
+				'Walla walla',
+				'**whirring**',
+				'You got the cash?',
+				'I\'m not gay but 20kb/s is 20kb/s',
+				'Go away i dont have time for *iiNet* speeds',
+				'*gone fishing, back in 5*'
 			]
-			let msg = replies[Math.floor(Math.random() * replies.length)]
-			if(msg.includes("___random_guild_member___"))
-				msg = msg.replace("___random_guild_member___", message.guild.members.filter((user) => { return user.id != client.user.id && user.id != message.author.id }).random(1)[0])
-			message.channel.send(msg)
+			message.channel.send(Commands.process(Commands.getRandom(replies), message.member, client))
 		}
 		else if(message.content.toLowerCase().includes('autism') || message.content.toLowerCase().includes('autistic'))
-			message.channel.send('*Autistic screeching*')
-		else if(message.content.length < 2 || message.content[0] != CommandToken)
+			message.channel.send(Commands.process(Commands.getRandom([
+              	'*Autistic screeching*',
+              	'I heard autism',
+              	'How many autistic people on this server? I\'d say about ' + Commands.getRandomNumber(1, message.channel.guild.memberCount)
+			]), message.author, client))
+		else if(message.content.length < 2 || message.content[0] != CommandToken || shushed.includes(message.author.id))
 		{
 			if(shushed.includes(message.author.id))
 			{
 				message.delete()
-				message.channel.send('Ssssshhhhhh')
+				let msg = ''
+				for(let i = 0; i < (Math.floor(Math.random() * 7) + 2); i++)
+					msg += 's'
+				for(let i = 0; i < (Math.floor(Math.random() * 7) + 2); i++)
+					msg += 'h'
+				message.channel.send(msg).then(message => message.delete(2500))
 			}
 			return
 		}
-
-		let input = message.content.substring(CommandToken.length)
-		let params = Commands.getParams(input)
-		if(params.length == 0)
-			return
-		if(params[0] == "about")
-			message.channel.send(About(params))
-		else if(params[0] == "shush")
+		else
 		{
-			if(params.length == 2)
+			let input = message.content.substring(CommandToken.length)
+			let params = Commands.getParams(input)
+			if(params.length == 0)
+				return
+			let paramsRaw = input.substring(params[0].length + (input.length > params[0].length ? 1 : 0))
+			if(params[0] == "about")
+				message.channel.send(About(params))
+			else if(params[0] == "shush")
 			{
-				let userID = Commands.getUserID(message.channel, params[1])
-				if(userID && userID > 0)
+				if(params.length == 2)
 				{
-					shushed.push(userID)
-					if(userID == message.author.id)
-						message.channel.send('Interesting choice. Your will is my command!')
+					let userID = Commands.getUserID(message.channel, params[1])
+					if(userID && userID > 0)
+					{
+						shushed.push(userID)
+                        let user = db.get('users').find({ id: userID }).value()
+						if(userID == message.author.id)
+							message.channel.send(Commands.getRandom([
+                              'Interesting choice. Your will is my command!',
+                              'Watch out, we got a badass over here',
+                              'Sure?'
+                              ]))
+						else
+							message.channel.send(Commands.getRandom([
+                              	'Shushed \'' + params[1] + '\'',
+                              	'*SILENCE TO THE PEASANT KNOWN AS \'' + user.name + '\'',
+                              	'rip that dude'
+                              ]))
+						db.get('users').find({ id: userID }).set('shushed', true).write()
+					}
 					else
-						message.channel.send('Shushed \'' + params[1] + '\'')
-					db.get('users').find({ id: userID }).set('shushed', true).write()
+						message.channel.send('Could not find user \'' + params[1] + '\'')
 				}
 				else
-					message.channel.send('Could not find user \'' + params[1] + '\'')
+					message.channel.send("usage: !shush <username>\n(*if a user has spaces in their name, put it in quotes, e.g. \"Coffee Bot\"*)")
 			}
-			else
-				message.channel.send("usage: !shush <username>\n(*if a user has spaces in their name, put it in quotes, e.g. \"Coffee Bot\"*)")
-		}
-		else if(params[0] = "unshush")
-		{
-			if(params.length == 2)
+			else if(params[0] == "unshush")
 			{
-				let userID = Commands.getUserID(message.channel, params[1])
-				let index = shushed.indexOf(userID)
-
-				if(userID == message.author.id)
-					message.channel.send('You fool! You can\'t unshush yourself!?')
-				else if(userID && userID > 0 && index >= 0)
+				if(params.length == 2)
 				{
-					shushed.splice(index, 1)
-					message.channel.send('*\'' + params[1] + '\'* can now speak freely again... to an extent')
-					db.get('users').find({ id: userID }).set('shushed', false).write()
+					let userID = Commands.getUserID(message.channel, params[1])
+					let index = shushed.indexOf(userID)
+
+					if(userID == message.author.id)
+						message.channel.send(Commands.getRandom([
+                          'You fool! You can\'t unshush yourself!?',
+                          'lolwut, you can\'t do that\n*...can they..?*',
+                          '**you what?!**',
+                          'Nice try'
+                          ]))
+					else if(userID && userID > 0 && index >= 0)
+					{
+						shushed.splice(index, 1)
+						message.channel.send('*\'' + db.get('users').find({ id: userID }).name + '\'* can now speak freely again... to an extent')
+						db.get('users').find({ id: userID }).set('shushed', false).write()
+					}
+					else if(!userID || userID <= 0)
+						message.channel.send('Could not find user \'' + params[1] + '\'')
 				}
-				else if(!userID || userID <= 0)
-					message.channel.send('Could not find user \'' + params[1] + '\'')
+				else
+					message.channel.send("usage: !unshush <username>\n(*if a user has spaces in their name, put it in quotes, e.g. \"Coffee Bot\"*)")
 			}
-			else
-				message.channel.send("usage: !unshush <username>\n(*if a user has spaces in their name, put it in quotes, e.g. \"Coffee Bot\"*)")
+			else if(params[0] == "play")
+			{
+				let game = paramsRaw.length > 1 ? paramsRaw : Commands.getRandom(db.get('statuses').value())
+				client.user.setGame(game)
+				message.channel.send("Now playing '" + game + "'")
+			}
+          	else if(params[0] == "poem")
+            {
+            	message.channel.send(Commands.getRandom([
+
+                  ]))
+            }
+			else if(params[0] == "woah")
+			{
+				let amount = Math.floor(Math.random() * 7) + 2
+				for(let i = 0; i < amount; i++)
+					message.channel.send('*woah!*')
+			}
+			else if(params[0] == "number")
+				message.channel.send('Your number: ' + Commands.getRandomNumber(1, 10))
 		}
+		*/
 	})
 	client.on('guildMemberAdd', (member) =>
 	{
@@ -209,25 +306,21 @@ low(adapter)
 		{
 			const user = db.get('users').find({ handle: req.params.handle }).value()
 			if(!user)
-			{
 				res.send('User \'*' + req.params.handle + '*\' not found')
-				return
-			}
-			res.send(user)
+            else
+				res.send(user)
 		})
 		app.post('/users/:handle', (req, res) =>
 		{
 			if(req.query.handle == undefined)
-			{
 				res.send('User handle required')
-				return
-			}
-			db.get('users')
-			  .push({
-				  handle: req.query.handle,
-				  games: [],
-				  currentlyPlaying: 'Nothing'
-			  }).write().then(user => res.send(user))
+			else
+            	db.get('users')
+                  .push({
+                      handle: req.query.handle,
+                      games: [],
+                      currentlyPlaying: 'Nothing'
+                  }).write().then(user => res.send(user))
 		})
 		return db.defaults({
 			users: [],
@@ -235,7 +328,24 @@ low(adapter)
 				// Playing...
 				"with itself",
 				"all the songs",
-				"TF2 on an alienware"
+				"TF2 on an alienware",
+				"definitely not porn",
+				"something worth playing",
+				"a game of will power",
+				"with a gun",
+				"with the bones of my enemies",
+				"with a small infant",
+				"my trap card",
+				"the spell Toadify",
+				"with the horniest pre-pubescent boy",
+				"lose lose",
+				"Cards Against Humanity",
+				"catch the knife",
+				"find the sausage",
+				"with gluten free flour",
+				"Supereme Comader",
+				"wheres jaxon at a lan-party",
+				"with definitely not milk"
 			]
 		}).write()
 	})

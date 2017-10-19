@@ -1,14 +1,21 @@
 {
+  "technologies": [
+    "NodeJS (https://nodejs.org)",
+    "Discord.js (https://discord.js.org)",
+    "LowDB (https://github.com/typicode/lowdb)"
+  ],
   "users": [
     {
       "id": "191069151505154048",
       "name": "lcomstive",
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "210746479403335680",
       "name": "The QA Tester",
-      "currentlyPlaying": "Grand Theft Auto V"
+      "currentlyPlaying": "Grand Theft Auto V",
+      "canMessage": true
     },
     {
       "id": "220860764976578561",
@@ -20,6 +27,48 @@
     "with itself",
     "all the songs",
     "TF2 on an alienware",
+    "definitely not porn",
+    "something worth playing",
+    "a game of will power",
+    "with a gun",
+    "with the bones of my enemies",
+    "with a small infant",
+    "my trap card",
+    "the spell Toadify",
+    "with the horniest pre-pubescent boy",
+    "lose lose",
+    "Cards Against Humanity",
+    "catch the knife",
+    "find the sausage",
+    "with gluten free flour",
+    "Supereme Comader",
+    "wheres jaxon at a lan-party",
+    "with definitely not milk",
     "with Taylah ( ͡° ͜ʖ ͡°)"
+  ],
+  "poems": [
+    "Roses are red, violets are blue\nthat's what they say, but it just isn't true.\n\nRoses are red, and apples are too\n\but violets are violet, violets aren't blue.\n\nAn orange is orange, but Greenland's not green,\na pinky's not pink, so what does it mean?\n\nTo call something blue when it's not, we defile it.\nBut eh, what the heck? It's hard to rhyme \"violet\".",
+    "Roses are red,\nmy name's Dave,\nthis poem makes no sense...\n*Microwave*",
+    "Roses have green\nbut trees are greener,\nIt makes me feel great\nwhen you touch my weiner",
+    "Roses are red,\nstars twinkle in space.\nI'd like to say \"hi\"\nand cum on your face",
+    "Roses are red,\nviolets are blue.\nIn *Soviet Russia*,\npoem writes you"
+  ],
+  "shushedSelfResponses": [
+    "Interesting choice. Your will is my command",
+    "Watch out, we got a badass over here",
+    "Sure..?"
+  ],
+  "shushedResponses": [
+    "Shushed '___username___'",
+    "*SILENCED THE PEASANT KNOWN AS '___username___'",
+    "rip that dude"
+  ],
+  "unshushSelfResponses": [
+    "You fool! You can't unshush yourself!",
+    "lolwut, you can't do that\n*....can they..?*",
+    "Nice try"
+  ],
+  "unshushResponses": [
+    "'___username___' can now speak freely again"
   ]
 }
