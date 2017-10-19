@@ -26,11 +26,7 @@ module.exports = class Play extends Command
 		}
 		let game = Utils.getRandom(this.statuses)
 		if(params.length > 1)
-		{
-			game = ''
-			for(var i = 1; i < params.length; i++)
-				game += params[i] + (i < params.length - 1 ? ' ' : '')
-		}
+			game = message.content.substring(params[0].length + 1)
 		client.user.setGame(game)
 		message.channel.send('Now playing \'' + game + '\'')
 	}

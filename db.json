@@ -1,4 +1,5 @@
 {
+  "initialChannel": "welcome",
   "technologies": [
     "NodeJS (https://nodejs.org)",
     "Discord.js (https://discord.js.org)",
@@ -9,29 +10,35 @@
       "id": "191069151505154048",
       "name": "lcomstive",
       "currentlyPlaying": "",
+      "quotes": [],
       "canMessage": true
     },
     {
       "id": "220860764976578561",
       "name": "Multusvalde",
       "currentlyPlaying": "",
+      "quotes": [],
       "canMessage": true
     },
     {
       "id": "210746479403335680",
       "games": [],
       "name": "The QA Tester",
-      "canMessage": true
+      "quotes": [],
+      "canMessage": true,
+      "currentlyPlaying": ""
     },
     {
       "id": "244751835703934976",
       "games": [],
-      "name": "blue6402"
+      "name": "blue6402",
+      "quotes": []
     },
     {
       "id": "230526318872231938",
       "name": "cartower",
       "shushed": false,
+      "quotes": [],
       "currentlyPlaying": ""
     }
   ],
@@ -62,12 +69,17 @@
     "with gluten free flour",
     "Supereme Comader",
     "wheres jaxon at a lan-party",
-    "with definitely not milk",
-    "with Taylah ( ͡° ͜ʖ ͡°)"
+    "with definitely not milk"
   ],
   "greetings": [
     "Sup, ___username___",
     "Ayy, ___username___ is here!"
+  ],
+  "farewells": [
+    "Farewell my good friend",
+    "Goodbye ___username___, you may or may not be missed",
+    "Glad they're gone",
+    "So uhh... did I do that?"
   ],
   "poems": [
     "Roses are red, violets are blue\nthat's what they say, but it just isn't true.\n\nRoses are red, and apples are too\nbut violets are violet, violets aren't blue.\n\nAn orange is orange, but Greenland's not green,\na pinky's not pink, so what does it mean?\n\nTo call something blue when it's not, we defile it.\nBut eh, what the heck? It's hard to rhyme \"violet\".",
@@ -114,7 +126,7 @@
     "sorry uhh, no speaka englis",
     "ugh not again...",
     "**the hell you just call me?!**",
-    "can\"t you tell im busy not caring?",
+    "can't you tell im busy not caring?",
     "*muted*",
     "roses are red, \n___username___ looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***",
     "58008",
@@ -156,9 +168,7 @@
     "Heil",
     "It's me... shitty bot",
     "The quotes... The terrible quotes...",
-	"test",
     "After losing most of my senses my other senses were heightened, like my sense of *bullshit*",
-    "*dialing up iiNet internet*",
-    "Testing, testing. 1, 2, 3"
+    "*dialing up iiNet internet*"
   ]
 }

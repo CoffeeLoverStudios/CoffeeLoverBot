@@ -36,8 +36,15 @@ module.exports = class Quote extends Command
 				message.channel.send('Usage: userquote <username>\n(*if username contains spaces, quote it. e.g. "Coffee Bot")')
 				return
 			}
-			let userID = Utils.getUserID(params[1])
-
+			let member = Utils.getUserByName(message.channel, params[1])
+			let lastMessage = member.lastMessage
+			if(lastMessage)
+			{
+				global.db.get('users').find({ id: member.id }).get('quotes').push(lastMessage.content).write()
+				message.channel.send('Saved "' + lastMessage.content + '"')
+			}
+			else
+				message.channel.send('Couldn\'t find a quote from that user, maybe get them to send it again?')
 		}
 	}
 }

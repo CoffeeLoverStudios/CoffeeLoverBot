@@ -64,7 +64,7 @@ module.exports = class Shush extends Command
 			if(this.shushed.includes(sender.id))
 			{
 				message.delete(1000)
-				this.send(Utils.getRandom(global.db.get('unshushSelfResponses').value()), channel, user).then(message=> message.delete(2500))
+				message.channel.send(Utils.getRandom(global.db.get('unshushSelfResponses').value()), channel, message.member).then(message=> message.delete(2500))
 				return
 			}
 			if(params.length > 1)
