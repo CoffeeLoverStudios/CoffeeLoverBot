@@ -16,21 +16,33 @@ module.exports = class Games extends Command
 		global.db.get('users').forEach(user => { if(user.games && user.games.length > 0) this.gamers.set(user.id, user.games) }).value()
 	}
 
-	shouldCall(command) { return command.toLowerCase() == 'games' }
+	shouldCall(command) { return command.toLowerCase() == 'games' || command.toLowerCase() == 'currentgames'}
 
 	call(message, params)
 	{
+		let msg = ''
+		if(params[0].toLowerCase() == 'currentgames')
+		{
+			msg = '***Games currently being played:***'
+			global.db.get('users').forEach(user =>
+			{
+				if(user.currentlyPlaying && user.currentlyPlaying != '')
+					msg += '\n - **' + user.name + '** is playing \'**' + user.currentlyPlaying + '**\''
+			}).value()
+			message.channel.send(msg)
+			return
+		}
+
 		if(params.length == 1)
 		{
 			// List all registered games
-			let msg = '**Registered Games:**'
+			msg = '**Registered Games:**'
 			this.gamers.forEach((games, id, map) => { games.forEach(game => msg += '\n - ' + game) })
 			message.channel.send(msg)
 		}
 		else
 		{
 			// List games for user(s)
-			let msg = ''
 			for(var i = 1; i < params.length; i++)
 			{
 				let user = Utils.getUserByName(message.channel, params[i])

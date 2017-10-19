@@ -11,7 +11,10 @@
       "name": "lcomstive",
       "currentlyPlaying": "",
       "quotes": [],
-      "canMessage": true
+      "canMessage": true,
+      "games": [
+        "Crawl"
+      ]
     },
     {
       "id": "220860764976578561",
