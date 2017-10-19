@@ -4,8 +4,19 @@ let CommandRegex = /\w+|[^\s"]+|"[^"]+"/g // Split words by white-space, but lea
 let ParamsReplaceRegex = /"|'/g // Replace all quotation marks, single or double
 module.exports =
 {
-	getRandom: function(list) { return list[Math.floor(SeedRandom(new Date().getTime())() * list.length)] },
-	getRandomNumber: function(min, max) { return Math.floor(SeedRandom(new Date().getTime())() * max) + min },
+	getRandom: function(list, channel)
+	{
+		let item = list[Math.floor(SeedRandom(new Date().getTime(), { entropy: true })() * list.length)]
+		if(item.startsWith('___nsfw___'))
+		{
+			if(channel.nsfw)
+				return item.substring('___nsfw___'.length)
+			else
+				return getRandom(list, channel)
+		}
+		return item
+	},
+	getRandomNumber: function(min, max) { return Math.floor(SeedRandom(new Date().getTime(), { entropy: true })() * max) + min },
 	getRandomUser: function(guild, filteredIDs) { return guild.members.filter((user) => { return !filteredIDs.includes(user.id) }).random(1) },
 
 	replaceAll: function(input, replace, value) { return input.replace(new RegExp(replace, 'g'), value) },
@@ -33,9 +44,8 @@ module.exports =
 		return userID
 	},
 
-	process: function(input, sender)
+	process: function(input, sender, channel)
 	{
-		console.log('Input: ' + input)
 		if(input == undefined)
 			return
 		if(input.includes('___random_guild_member___'))
@@ -43,10 +53,7 @@ module.exports =
 		if(input.includes('___random_number___'))
 			input = this.replaceAll(input, '___random_number___', this.getRandomNumber(1, 10))
 		if(input.includes('___username___'))
-		{
 			input = this.replaceAll(input, '___username___', sender.displayName)
-			console.log('Replaced ___username___ with \'' + sender.displayName + '\'')
-		}
 		return input
 	}
 }

@@ -6,12 +6,8 @@ module.exports = class Command
 	refresh() { }
 
 	shouldCall(command) { return false }
-	call(sender, channel, params) { }
+	call(message, params, client) { }
 
-	gotMessage(message)
-	{
-		
-	}
-
+	gotMessage(message) { }
 	send(message, channel, user) { if(user) { channel.send(Utils.process(message, user)) } else channel.send(message) }
 }

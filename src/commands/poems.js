@@ -10,5 +10,5 @@ module.exports = class Poem extends Command
 	}
 	refresh() { this.poems = this.db.get('poems').value() }
 	shouldCall(command) { return command.toLowerCase() == 'poem' }
-	call(sender, channel, params) {	channel.send(Utils.getRandom(this.poems)) }
+	call(message) {	message.channel.send(Utils.getRandom(this.poems, message.channel)) }
 }

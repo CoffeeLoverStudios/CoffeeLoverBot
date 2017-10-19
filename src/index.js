@@ -5,12 +5,8 @@ const Discord = require('discord.js')
 const FileAsync = require('lowdb/adapters/FileAsync')
 
 const Utils = require('./utils.js')
-const Commands = require('./commands/command.js')
-const About = require('./commands/about.js')
-const Shush = require('./commands/shush.js')
-const Poems = require('./commands/poems.js')
-const Play = require('./commands/play.js')
-const flipcoin = require('./commands/flip.js')
+const Command = require('./commands/command.js')
+
 const CommandToken = process.env.COMMAND_TOKEN || '!'
 
 if(process.env.BOT_TOKEN == undefined)
@@ -19,12 +15,10 @@ if(process.env.BOT_TOKEN == undefined)
 	return
 }
 
+let commands = []
 let server = undefined
 let app = new Express()
 let client = new Discord.Client()
-
-let shushed = []
-let commands = []
 
 app.get('/discord_redirect', function(req, res)
 {
@@ -59,11 +53,24 @@ setup = (db) =>
 	{
 		client.user.setGame(Utils.getRandom(db.get('statuses').value()))
 
-		commands.push(new About(db))
-		commands.push(new Shush(db))
-		commands.push(new Poems(db))
-		commands.push(new Play(db))
-		commands.push(new flipcoin(db))
+		var normalizedPath = require('path').join(__dirname, 'commands')
+		require('fs').readdirSync(normalizedPath).forEach((file) =>
+		{
+			const required = require('./commands/' + file)
+			try
+			{
+				let instance = new required(db)
+				if(instance instanceof Command)
+				{
+					commands.push(instance)
+					console.log('Loaded \'' + file + '\'')
+				}
+			} catch (e)
+			{
+				console.log('Failed to load \'' + file + '\' - ' + e.message)
+			}
+		})
+
 		client.guilds.forEach((value, key, map) =>
 		{
 			value.members.forEach((member, key, map) =>
@@ -108,7 +115,7 @@ setup = (db) =>
 		if(message.author.bot || message.member.id == client.user.id)
 			return
 		let user = db.get('users').find({ id: message.member.id }).value()
-		if(user.canMessage !== undefined && !user.canMessage)
+		if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(CommandToken + 'unshush'))
 		{
 			Shush.shushMessage(message)
 			return
@@ -117,12 +124,19 @@ setup = (db) =>
 		{
 			let params = Utils.getParams(message.content.substring(CommandToken.length))
 			if(params[0].toLowerCase() == 'refresh')
-				commands.forEach((command) => { command.refresh() })
+			{
+				commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
+				console.log('Refreshed')
+			}
 			else
-				commands.forEach((command) => { if(command.shouldCall(params[0])) command.call(message.member, message.channel, params, client) })
+				commands.forEach((command) =>
+				{
+					if(typeof command.shouldCall === 'undefined' || typeof command.call === 'undefined') return
+					if(command.shouldCall(params[0])) command.call(message, params, client)
+				})
 		}
 		else
-			commands.forEach((command) => { command.gotMessage(message) })
+			commands.forEach((command) => { if(typeof command.gotMessage !== 'undefined') command.gotMessage(message) })
 
 			/*
 		if(message.content.toLowerCase().includes('bot'))
@@ -283,7 +297,7 @@ setup = (db) =>
 	})
 	client.on('guildMemberAdd', (member) =>
 	{
-		let channel = member.guild.channels.find('name', 'member-log')
+		let channel = member.guild.channels.find('name', 'welcome')
 		if(!channel)
 			return
 		channel.send('Welcome, *' + member.displayName + '*')

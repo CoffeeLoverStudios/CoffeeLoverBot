@@ -12,16 +12,35 @@
       "canMessage": true
     },
     {
-      "id": "210746479403335680",
-      "name": "The QA Tester",
-      "currentlyPlaying": "Grand Theft Auto V",
+      "id": "220860764976578561",
+      "name": "Multusvalde",
+      "currentlyPlaying": "",
       "canMessage": true
     },
     {
-      "id": "220860764976578561",
-      "name": "Multusvalde",
+      "id": "210746479403335680",
+      "games": [],
+      "name": "The QA Tester",
+      "canMessage": true
+    },
+    {
+      "id": "244751835703934976",
+      "games": [],
+      "name": "blue6402"
+    },
+    {
+      "id": "230526318872231938",
+      "name": "cartower",
+      "shushed": false,
       "currentlyPlaying": ""
     }
+  ],
+  "adminRoles": [
+    "Coffee Admin",
+    "Coffee Brewer"
+  ],
+  "insufficientRole": [
+    "I'm sorry ___username___, I can't let you do that"
   ],
   "statuses": [
     "with itself",
@@ -46,11 +65,15 @@
     "with definitely not milk",
     "with Taylah ( ͡° ͜ʖ ͡°)"
   ],
+  "greetings": [
+    "Sup, ___username___",
+    "Ayy, ___username___ is here!"
+  ],
   "poems": [
-    "Roses are red, violets are blue\nthat's what they say, but it just isn't true.\n\nRoses are red, and apples are too\n\but violets are violet, violets aren't blue.\n\nAn orange is orange, but Greenland's not green,\na pinky's not pink, so what does it mean?\n\nTo call something blue when it's not, we defile it.\nBut eh, what the heck? It's hard to rhyme \"violet\".",
+    "Roses are red, violets are blue\nthat's what they say, but it just isn't true.\n\nRoses are red, and apples are too\nbut violets are violet, violets aren't blue.\n\nAn orange is orange, but Greenland's not green,\na pinky's not pink, so what does it mean?\n\nTo call something blue when it's not, we defile it.\nBut eh, what the heck? It's hard to rhyme \"violet\".",
     "Roses are red,\nmy name's Dave,\nthis poem makes no sense...\n*Microwave*",
-    "Roses have green\nbut trees are greener,\nIt makes me feel great\nwhen you touch my weiner",
-    "Roses are red,\nstars twinkle in space.\nI'd like to say \"hi\"\nand cum on your face",
+    "___nsfw___Roses have green\nbut trees are greener,\nIt makes me feel great\nwhen you touch my weiner",
+    "___nsfw___Roses are red,\nstars twinkle in space.\nI'd like to say \"hi\"\nand cum on your face",
     "Roses are red,\nviolets are blue.\nIn *Soviet Russia*,\npoem writes you"
   ],
   "shushedSelfResponses": [
@@ -64,11 +87,60 @@
     "rip that dude"
   ],
   "unshushSelfResponses": [
-    "You fool! You can't unshush yourself!",
+    "You fool!",
     "lolwut, you can't do that\n*....can they..?*",
-    "Nice try"
+    "Nice try",
+    "Umm... no",
+    "Psych! That's the *wrong* number"
   ],
   "unshushResponses": [
     "'___username___' can now speak freely again"
+  ],
+  "genericResponses": [
+    "Whatchu want?",
+    "Yo ___username___",
+    "___random_guild_member___, I think this guy wants you",
+    "***NANI?!***",
+    "( ͡° ͜ʖ ͡°)",
+    "Sssshhhhh",
+    "*This bot appears to be offline, leave a message after the screech*\n***SCREEEECCCCHHHH***",
+    "*pretends to not be here*",
+    "Yes?",
+    "I AM BOT",
+    "Go away, I\"m playing with ___random_guild_member___",
+    "yes senpai?",
+    "hey",
+    "hai, ___username___-chan?",
+    "sorry uhh, no speaka englis",
+    "ugh not again...",
+    "**the hell you just call me?!**",
+    "can\"t you tell im busy not caring?",
+    "*muted*",
+    "roses are red, \n___username___ looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***",
+    "58008",
+    "Unsheath thou keyboard",
+    "Woah, whats that over there?",
+    "*deleting browser history*",
+    "*deleting cookies*",
+    "It was me, ***Dio***",
+    "Mmmmmm, cheque please",
+    "@everyone, ___username___ needs help",
+    "My liege?",
+    "Are you scribing on a portable doohickey?!",
+    "I came, I saw, and I **came some more!**",
+    "*My body is ready*",
+    "print(\"ye what?\")",
+    "Yeah nah",
+    "You got the goods?",
+    "Insert food here",
+    "Love is a lie",
+    "Walla walla",
+    "**whirring**",
+    "You got the cash?",
+    "I\"m not gay but 20kb/s is 20kb/s",
+    "Go away i dont have time for *iiNet* speeds",
+    "*gone fishing, back in 5*",
+    "Omae wa moi shinderu",
+    "***YOU CAN'T HANDLE MY MEAT***"
   ]
 }

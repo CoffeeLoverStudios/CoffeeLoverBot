@@ -1,14 +1,6 @@
 const Command = require('./command.js')
 
-let technologies =
-[
-	/*
-	' - NodeJS (https://nodejs.org)',
-	' - Discord.js (https://discord.js.org)',
-	' - Heroku (https://heroku.com)',
-	' - LowDB (https://github.com/typicode/lowdb)'
-	*/
-]
+let technologies = []
 
 module.exports = class About extends Command
 {
@@ -20,10 +12,10 @@ module.exports = class About extends Command
 
 	shouldCall(command) { return command.toLowerCase() == 'about' }
 
-	call(sender, channel, params)
+	call(message, params)
 	{
 		let msg = '*CoffeeLoverBot* (by `CoffeeLover Studios`)\n*Technologies*:\n'
 		technologies.forEach((tech) => { msg += '\t' + tech + '\n' })
-		channel.send(msg)
+		message.channel.send(msg)
 	}
 }

@@ -16,10 +16,20 @@ module.exports = class Shush extends Command
 	{
 		this.shushed = []
 		this.db.get('users').filter((user) => { return user.canMessage !== undefined && !user.canMessage }).forEach((user) => { this.shushed.push(user.id) }).value()
+
+		this.adminRoles = this.db.get('adminRoles').value()
+		this.adminRefusals = this.db.get('insufficientRole').value()
 	}
 
-	call(sender, channel, params)
+	call(message, params)
 	{
+		let channel = message.channel
+		let sender = message.member
+		if(!this.adminRoles.includes(sender.highestRole.name))
+		{
+			channel.send(Utils.getRandom(this.adminRefusals), message.channel, message.member)
+			return
+		}
 		if(params[0].toLowerCase() == 'shush')
 		{
 			if(params.length > 1)
@@ -34,7 +44,7 @@ module.exports = class Shush extends Command
 					}
 					let user = channel.members.find(member => member.id === userID)
 					if(this.shushed.includes(userID))
-						this.send('\'' + user.displayName + '\' already shushed', channel)
+						this.send('\'' + (user == undefined ? params[i] : user.displayName) + '\' already shushed', channel)
 					else
 					{
 						this.shushed.push(userID)
@@ -47,10 +57,16 @@ module.exports = class Shush extends Command
 				}
 			}
 			else
-				send('Usage: !shush <username>\n(*if usernames have spaces, put them in quotes. e.g. "Coffee Bot")\n(can mass shush)')
+				this.send('Usage: !shush <username>\n(*if usernames have spaces, put them in quotes. e.g. "Coffee Bot")\n(can mass shush)')
 		}
 		else if(params[0].toLowerCase() == 'unshush')
 		{
+			if(this.shushed.includes(sender.id))
+			{
+				message.delete(1000)
+				this.send(Utils.getRandom(this.db.get('unshushSelfResponses').value()), channel, user).then(message=> message.delete(2500))
+				return
+			}
 			if(params.length > 1)
 			{
 				for(let i = 1; i < params.length; i++)
@@ -68,7 +84,10 @@ module.exports = class Shush extends Command
 					else
 					{
 						if(userID == sender.id)
+						{
 							this.send(Utils.getRandom(this.db.get('unshushSelfResponses').value()), channel, user)
+							return
+						}
 						this.shushed.splice(index, 1)
 						this.db.get('users').find({ id: userID }).set('canMessage', true).write()
 						this.send(Utils.getRandom(this.db.get('unshushResponses').value()), channel, user)
@@ -84,9 +103,9 @@ module.exports = class Shush extends Command
 	{
 		message.delete()
 		let msg = 'S'
-		for(let i = 0; i < (Math.floor(Math.random() * 6) + 1); i++)
+		for(let i = 0; i < (Math.floor(Math.random() * 7) + 2); i++)
 			msg += 's'
-		for(let i = 0; i < (Math.floor(Math.random() * 6) + 3); i++)
+		for(let i = 0; i < (Math.floor(Math.random() * 10) + 3); i++)
 			msg += 'h'
 		message.channel.send(msg).then(message => message.delete(2500))
 	}
