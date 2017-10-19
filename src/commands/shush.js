@@ -1,12 +1,12 @@
 const Utils = require('../utils.js')
 const Command = require('./command.js')
+const global = require('../global.js')
 
 module.exports = class Shush extends Command
 {
-	constructor(db)
+	constructor()
 	{
-		super(db)
-		this.db = db
+		super()
 		this.refresh()
 	}
 
@@ -15,10 +15,10 @@ module.exports = class Shush extends Command
 	refresh()
 	{
 		this.shushed = []
-		this.db.get('users').filter((user) => { return user.canMessage !== undefined && !user.canMessage }).forEach((user) => { this.shushed.push(user.id) }).value()
+		global.db.get('users').filter((user) => { return user.canMessage !== undefined && !user.canMessage }).forEach((user) => { this.shushed.push(user.id) }).value()
 
-		this.adminRoles = this.db.get('adminRoles').value()
-		this.adminRefusals = this.db.get('insufficientRole').value()
+		this.adminRoles = global.db.get('adminRoles').value()
+		this.adminRefusals = global.db.get('insufficientRole').value()
 	}
 
 	call(message, params)
@@ -48,11 +48,11 @@ module.exports = class Shush extends Command
 					else
 					{
 						this.shushed.push(userID)
-						this.db.get('users').find({ id: userID }).set('canMessage', false).write()
+						global.db.get('users').find({ id: userID }).set('canMessage', false).write()
 						if(userID == sender.id)
-							this.send(Utils.getRandom(this.db.get('shushedSelfResponses').value()), channel, user)
+							this.send(Utils.getRandom(global.db.get('shushedSelfResponses').value()), channel, user)
 						else
-							this.send(Utils.getRandom(this.db.get('shushedResponses').value()), channel, user)
+							this.send(Utils.getRandom(global.db.get('shushedResponses').value()), channel, user)
 					}
 				}
 			}
@@ -64,7 +64,7 @@ module.exports = class Shush extends Command
 			if(this.shushed.includes(sender.id))
 			{
 				message.delete(1000)
-				this.send(Utils.getRandom(this.db.get('unshushSelfResponses').value()), channel, user).then(message=> message.delete(2500))
+				this.send(Utils.getRandom(global.db.get('unshushSelfResponses').value()), channel, user).then(message=> message.delete(2500))
 				return
 			}
 			if(params.length > 1)
@@ -85,12 +85,12 @@ module.exports = class Shush extends Command
 					{
 						if(userID == sender.id)
 						{
-							this.send(Utils.getRandom(this.db.get('unshushSelfResponses').value()), channel, user)
+							this.send(Utils.getRandom(global.db.get('unshushSelfResponses').value()), channel, user)
 							return
 						}
 						this.shushed.splice(index, 1)
-						this.db.get('users').find({ id: userID }).set('canMessage', true).write()
-						this.send(Utils.getRandom(this.db.get('unshushResponses').value()), channel, user)
+						global.db.get('users').find({ id: userID }).set('canMessage', true).write()
+						this.send(Utils.getRandom(global.db.get('unshushResponses').value()), channel, user)
 					}
 				}
 			}

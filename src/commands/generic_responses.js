@@ -1,15 +1,16 @@
 const Command = require('./command.js')
 const Utils = require('../utils.js')
+const global = require('../global.js')
 
 module.exports = class GenericResponses extends Command
 {
-	constructor(db)
+	constructor()
 	{
-		super(db)
-		this.genericResponses = db.get('genericResponses').value()
+		super()
+		this.genericResponses = global.db.get('genericResponses').value()
 	}
 
-	refresh() { this.genericResponses = this.db.get('genericResponses').value() }
+	refresh() { this.genericResponses = global.db.get('genericResponses').value() }
 
 	gotMessage(message)
 	{

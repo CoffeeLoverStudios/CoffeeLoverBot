@@ -3,6 +3,7 @@ const Express = require('express')
 const request = require('request')
 const Discord = require('discord.js')
 const FileAsync = require('lowdb/adapters/FileAsync')
+let global = require('./global.js')
 
 const Utils = require('./utils.js')
 const Command = require('./commands/command.js')
@@ -27,18 +28,18 @@ app.get('/discord_redirect', function(req, res)
 
 setGame = (id, game) =>
 {
-	let user = db.get('users').find({ id: id }).value()
+	let user = global.db.get('users').find({ id: id }).value()
 	if(user == undefined)
 	{
 		console.log('Couldn\' find user with id ${id}')
 		return
 	}
-	db.get('users').find({ id: id }).set('currentlyPlaying', game).write()
+	global.db.get('users').find({ id: id }).set('currentlyPlaying', game).write()
 }
 
 getGame = (id) =>
 {
-	let user = db.get('users').find({ id: id }).value()
+	let user = global.db.get('users').find({ id: id }).value()
 	if(user == undefined)
 	{
 		console.log('Could\'nt find user with id ${id}')
@@ -47,11 +48,11 @@ getGame = (id) =>
 	return user.currentlyPlaying
 }
 
-setup = (db) =>
+setup = () =>
 {
 	client.on('ready', () =>
 	{
-		client.user.setGame(Utils.getRandom(db.get('statuses').value()))
+		client.user.setGame(Utils.getRandom(global.db.get('statuses').value()))
 
 		var normalizedPath = require('path').join(__dirname, 'commands')
 		require('fs').readdirSync(normalizedPath).forEach((file) =>
@@ -59,7 +60,7 @@ setup = (db) =>
 			const required = require('./commands/' + file)
 			try
 			{
-				let instance = new required(db)
+				let instance = new required()
 				if(instance instanceof Command)
 				{
 					commands.push(instance)
@@ -77,7 +78,7 @@ setup = (db) =>
 			{
 				if(member.id == client.user.id)
 					return
-				let user = db.get('users').find({ id: member.id }).value()
+				let user = global.db.get('users').find({ id: member.id }).value()
 				if(!user)
 				{
 					user =
@@ -87,7 +88,7 @@ setup = (db) =>
 						shushed: false,
 						currentlyPlaying: (member.presence.game ? member.presence.game.name : '')
 					}
-					db.get('users').push(user).write()
+					global.db.get('users').push(user).write()
 				}
 				if(user.shushed)
 					shushed.push(member.id)
@@ -98,10 +99,10 @@ setup = (db) =>
 					if(user.name != newMember.displayName)
 					{
 						user.name = newMember.displayName
-						db.get('users').find({ id: member.id }).set('name', newMember.displayName).write()
+						global.db.get('users').find({ id: member.id }).set('name', newMember.displayName).write()
 					}
 					if(newMember.presence == 'offline')
-						db.get('users').find({ id: member.id }).set('currentlyPlaying', '')
+						global.db.get('users').find({ id: member.id }).set('currentlyPlaying', '')
 					if(newMember.presence.game && user.currentlyPlaying != newMember.presence.game)
 						console.log('\'' + newMember.displayName + '\' is now playing \'' + newMember.presence.game + '\'')
 				})
@@ -114,7 +115,7 @@ setup = (db) =>
 	{
 		if(message.author.bot || message.member.id == client.user.id)
 			return
-		let user = db.get('users').find({ id: message.member.id }).value()
+		let user = global.db.get('users').find({ id: message.member.id }).value()
 		if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(CommandToken + 'unshush'))
 		{
 			Shush.shushMessage(message)
@@ -122,7 +123,8 @@ setup = (db) =>
 		}
 		if(message.content[0] == CommandToken)
 		{
-			let params = Utils.getParams(message.content.substring(CommandToken.length))
+			message.content = message.content.substring(CommandToken.length)
+			let params = Utils.getParams(message.content)
 			if(params[0].toLowerCase() == 'refresh')
 			{
 				commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
@@ -132,7 +134,8 @@ setup = (db) =>
 				commands.forEach((command) =>
 				{
 					if(typeof command.shouldCall === 'undefined' || typeof command.call === 'undefined') return
-					if(command.shouldCall(params[0])) command.call(message, params, client)
+					if(command.shouldCall(params[0]))
+						command.call(message, params, client)
 				})
 		}
 		else
@@ -301,11 +304,11 @@ setup = (db) =>
 		if(!channel)
 			return
 		channel.send('Welcome, *' + member.displayName + '*')
-		db.get('users').push({ id: member.id, games: [] }).write()
+		global.db.get('users').push({ id: member.id, games: [] }).write()
 	})
 	client.on('guildMemberRemove', (member) =>
 	{
-		db.get('users').remove({ id: member.id }).write()
+		global.db.get('users').remove({ id: member.id }).write()
 	})
 	client.on('unhandledRejection', console.error)
 	client.login(process.env.BOT_TOKEN)
@@ -315,10 +318,11 @@ let adapter = new FileAsync('db.json')
 low(adapter)
 	.then(db =>
 	{
-		setup(db)
+		global.db = db
+		setup()
 		app.get('/users/:handle', (req, res) =>
 		{
-			const user = db.get('users').find({ handle: req.params.handle }).value()
+			const user = global.db.get('users').find({ handle: req.params.handle }).value()
 			if(!user)
 				res.send('User \'*' + req.params.handle + '*\' not found')
             else
@@ -329,37 +333,20 @@ low(adapter)
 			if(req.query.handle == undefined)
 				res.send('User handle required')
 			else
-            	db.get('users')
+            	global.db.get('users')
                   .push({
                       handle: req.query.handle,
                       games: [],
                       currentlyPlaying: 'Nothing'
                   }).write().then(user => res.send(user))
 		})
-		return db.defaults({
+		return global.db.defaults({
 			users: [],
 			statuses: [
 				// Playing...
 				"with itself",
 				"all the songs",
 				"TF2 on an alienware",
-				"definitely not porn",
-				"something worth playing",
-				"a game of will power",
-				"with a gun",
-				"with the bones of my enemies",
-				"with a small infant",
-				"my trap card",
-				"the spell Toadify",
-				"with the horniest pre-pubescent boy",
-				"lose lose",
-				"Cards Against Humanity",
-				"catch the knife",
-				"find the sausage",
-				"with gluten free flour",
-				"Supereme Comader",
-				"wheres jaxon at a lan-party",
-				"with definitely not milk"
 			]
 		}).write()
 	})

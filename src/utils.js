@@ -12,7 +12,7 @@ module.exports =
 			if(channel.nsfw)
 				return item.substring('___nsfw___'.length)
 			else
-				return getRandom(list, channel)
+				return this.getRandom(list, channel)
 		}
 		return item
 	},

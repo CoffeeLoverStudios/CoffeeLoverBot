@@ -1,8 +1,9 @@
 const Utils = require('../utils.js')
+const global = require('../global.js')
 
 module.exports = class Command
 {
-	constructor(db) { this.db = db }
+	constructor() {  }
 	refresh() { }
 
 	shouldCall(command) { return false }

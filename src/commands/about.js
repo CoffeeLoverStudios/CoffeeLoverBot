@@ -1,13 +1,14 @@
 const Command = require('./command.js')
+const global = require('../global.js')
 
 let technologies = []
 
 module.exports = class About extends Command
 {
-	constructor(db)
+	constructor()
 	{
-		super(db)
-		technologies = db.get('technologies').value()
+		super()
+		technologies = global.db.get('technologies').value()
 	}
 
 	shouldCall(command) { return command.toLowerCase() == 'about' }

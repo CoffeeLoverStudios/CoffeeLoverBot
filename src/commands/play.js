@@ -1,19 +1,19 @@
 const Utils = require('../utils.js')
 const Command = require('./command.js')
+const global = require('../global.js')
 
 module.exports = class Play extends Command
 {
-	constructor(db)
+	constructor()
 	{
 		super()
-		this.db = db
 		this.refresh()
 	}
 	refresh()
 	{
-		this.statuses = this.db.get('statuses').value()
-		this.adminRoles = this.db.get('adminRoles').value()
-		this.adminRefusals = this.db.get('insufficientRole').value()
+		this.statuses = global.db.get('statuses').value()
+		this.adminRoles = global.db.get('adminRoles').value()
+		this.adminRefusals = global.db.get('insufficientRole').value()
 	}
 
 	shouldCall(command) { return command.toLowerCase() == 'play' }
