@@ -10,7 +10,7 @@ const About = require('./commands/about.js')
 const Shush = require('./commands/shush.js')
 const Poems = require('./commands/poems.js')
 const Play = require('./commands/play.js')
-
+const flipcoin = require('./commands/flip.js')
 const CommandToken = process.env.COMMAND_TOKEN || '!'
 
 if(process.env.BOT_TOKEN == undefined)
@@ -63,7 +63,7 @@ setup = (db) =>
 		commands.push(new Shush(db))
 		commands.push(new Poems(db))
 		commands.push(new Play(db))
-
+		commands.push(new flipcoin(db))
 		client.guilds.forEach((value, key, map) =>
 		{
 			value.members.forEach((member, key, map) =>
