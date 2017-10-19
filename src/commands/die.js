@@ -11,7 +11,7 @@ module.exports = class roll extends Command
 	call(message, params, client)
     {
     	var number = Math.floor(Math.random() * 7)
-		var msg = 'You rolled a ' + number
+		var msg = message.member.diplayName + ' rolled a ' + number
     	if (number == 1) message.channel.send(msg + ", unlucky")
     	else if (number == 6) message.channel.send(msg + " *OHHHH*")
 		else if (number == 0) message.channel.send('You rolled a 0, and.... umm... you suck')

@@ -12,8 +12,8 @@ module.exports = class flipcoin extends Command
     {
     	var flipcoin = Math.random()
     	if(flipcoin > 0.3)
-          	message.channel.send("your coin flip was tails")
+          	message.channel.send(message.member.displayName + "'s coin flip was tails")
       	else
-			message.channel.send("your coin flip was heads")
+			message.channel.send(message.member.displayName + "'s coin flip was heads")
     }
 }
