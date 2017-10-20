@@ -5,10 +5,10 @@ module.exports = class Command
 {
 	constructor() {  }
 	refresh() { }
+	usage() { }
 
 	shouldCall(command) { return false }
 	call(message, params, client) { }
 
 	gotMessage(message) { }
-	send(message, channel, user) { if(user) { channel.send(Utils.process(message, user)) } else channel.send(message) }
 }

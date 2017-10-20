@@ -21,13 +21,16 @@
       "name": "Multusvalde",
       "currentlyPlaying": "",
       "quotes": [],
-      "canMessage": true
+      "canMessage": true,
+      "games": []
     },
     {
       "id": "210746479403335680",
       "games": [],
       "name": "The QA Tester",
-      "quotes": [],
+      "quotes": [
+        "You're a lizard, Garry"
+      ],
       "canMessage": true,
       "currentlyPlaying": ""
     },
@@ -35,7 +38,8 @@
       "id": "244751835703934976",
       "games": [],
       "name": "blue6402",
-      "quotes": []
+      "quotes": [],
+      "currentlyPlaying": ""
     },
     {
       "id": "230526318872231938",
@@ -50,7 +54,7 @@
     "Coffee Brewer"
   ],
   "insufficientRole": [
-    "I'm sorry ___username___, I can't let you do that"
+    "I'm sorry ${username}, I can't let you do that"
   ],
   "statuses": [
     "with itself",
@@ -75,20 +79,20 @@
     "with definitely not milk"
   ],
   "greetings": [
-    "Sup, ___username___",
-    "Ayy, ___username___ is here!"
+    "Sup, ${username}",
+    "Ayy, ${username} is here!"
   ],
   "farewells": [
     "Farewell my good friend",
-    "Goodbye ___username___, you may or may not be missed",
+    "Goodbye ${username}, you may or may not be missed",
     "Glad they're gone",
     "So uhh... did I do that?"
   ],
   "poems": [
     "Roses are red, violets are blue\nthat's what they say, but it just isn't true.\n\nRoses are red, and apples are too\nbut violets are violet, violets aren't blue.\n\nAn orange is orange, but Greenland's not green,\na pinky's not pink, so what does it mean?\n\nTo call something blue when it's not, we defile it.\nBut eh, what the heck? It's hard to rhyme \"violet\".",
     "Roses are red,\nmy name's Dave,\nthis poem makes no sense...\n*Microwave*",
-    "___nsfw___Roses have green\nbut trees are greener,\nIt makes me feel great\nwhen you touch my weiner",
-    "___nsfw___Roses are red,\nstars twinkle in space.\nI'd like to say \"hi\"\nand cum on your face",
+    "${nsfw}Roses have green\nbut trees are greener,\nIt makes me feel great\nwhen you touch my weiner",
+    "${nsfw}Roses are red,\nstars twinkle in space.\nI'd like to say \"hi\"\nand cum on your face",
     "Roses are red,\nviolets are blue.\nIn *Soviet Russia*,\npoem writes you"
   ],
   "shushedSelfResponses": [
@@ -97,8 +101,8 @@
     "Sure..?"
   ],
   "shushedResponses": [
-    "Shushed '___username___'",
-    "*SILENCED THE PEASANT KNOWN AS '___username___'",
+    "Shushed '${username}'",
+    "*SILENCED THE PEASANT KNOWN AS '${username}'",
     "rip that dude"
   ],
   "unshushSelfResponses": [
@@ -109,12 +113,17 @@
     "Psych! That's the *wrong* number"
   ],
   "unshushResponses": [
-    "'___username___' can now speak freely again"
+    "'${username}' can now speak freely again"
+  ],
+  "notNSFW": [
+    "Sorry, this chat is for youngin's",
+    "I wish this was a NSFW chat so you could do that",
+    "Nice try ( ͡° ͜ʖ ͡°)"
   ],
   "genericResponses": [
     "Whatchu want?",
-    "Yo ___username___",
-    "___random_guild_member___, I think this guy wants you",
+    "Yo ${username}",
+    "${random_member}, I think this guy wants you",
     "***NANI?!***",
     "( ͡° ͜ʖ ͡°)",
     "Sssshhhhh",
@@ -122,16 +131,16 @@
     "*pretends to not be here*",
     "Yes?",
     "I AM BOT",
-    "Go away, I\"m playing with ___random_guild_member___",
+    "Go away, I\"m playing with ${random_member}",
     "yes senpai?",
     "hey",
-    "hai, ___username___-chan?",
+    "hai, ${username}-chan?",
     "sorry uhh, no speaka englis",
     "ugh not again...",
     "**the hell you just call me?!**",
     "can't you tell im busy not caring?",
     "*muted*",
-    "roses are red, \n___username___ looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***",
+    "roses are red, \n${username} looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***",
     "58008",
     "Unsheath thou keyboard",
     "Woah, whats that over there?",
@@ -139,7 +148,7 @@
     "*deleting cookies*",
     "It was me, ***Dio***",
     "Mmmmmm, cheque please",
-    "@everyone, ___username___ needs help",
+    "everyone, ${username} needs help",
     "My liege?",
     "Are you scribing on a portable doohickey?!",
     "I came, I saw, and I **came some more!**",
@@ -169,7 +178,7 @@
     "*Nyaaa*",
     "Lets have a deep and meaningful",
     "Heil",
-    "It's me... shitty bot",
+    "It's a me... shitty bot",
     "The quotes... The terrible quotes...",
     "After losing most of my senses my other senses were heightened, like my sense of *bullshit*",
     "*dialing up iiNet internet*"

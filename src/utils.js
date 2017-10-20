@@ -7,10 +7,10 @@ module.exports =
 	getRandom: function(list, channel)
 	{
 		let item = list[Math.floor(SeedRandom(new Date().getTime(), { entropy: true })() * list.length)]
-		if(item.startsWith('___nsfw___'))
+		if(typeof item == 'string' && item.startsWith('${nsfw}'))
 		{
 			if(channel.nsfw)
-				return item.substring('___nsfw___'.length)
+				return item.substring('${nsfw}'.length)
 			else
 				return this.getRandom(list, channel)
 		}
@@ -23,6 +23,7 @@ module.exports =
 
 	getParams: function(input)
 	{
+		input = this.replaceAll(input, /‘|’|“|”/g, '\"')
 		let matches, params = []
 		while(matches = CommandRegex.exec(input))
 			params.push(matches[0].replace(ParamsReplaceRegex, ''))
@@ -35,7 +36,8 @@ module.exports =
 		channel.guild.members.forEach((member, key, map) =>
 		{
 			if(member.displayName.toLowerCase() == username.toLowerCase() ||
-			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()))
+			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()) ||
+		  	   member.user.username.toLowerCase() == username.toLowerCase())
 			{
 				userID = member.id
 				return
@@ -51,7 +53,8 @@ module.exports =
 		channel.guild.members.forEach((member, key, map) =>
 		{
 			if(member.displayName.toLowerCase() == username.toLowerCase() ||
-			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()))
+			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()) ||
+		  	   member.user.username.toLowerCase() == username.toLowerCase())
 			{
 				user = member
 				return
@@ -63,13 +66,13 @@ module.exports =
 	process: function(input, sender, channel)
 	{
 		if(input == undefined)
-			return
-		if(input.includes('___random_guild_member___'))
-			input = this.replaceAll(input, '___random_guild_member___', this.getRandomUser(sender.guild, [ sender.id ]))
-		if(input.includes('___random_number___'))
-			input = this.replaceAll(input, '___random_number___', this.getRandomNumber(1, 10))
-		if(input.includes('___username___'))
-			input = this.replaceAll(input, '___username___', sender.displayName)
+			return ''
+		if(input.includes('${random_member}'))
+			input = this.replaceAll(input, /\${random_member}/g, this.getRandomUser(sender.guild, [ sender.id ]).displayName)
+		if(input.includes('${random_number}'))
+			input = this.replaceAll(input, /\${random_number}/g, this.getRandomNumber(1, 10))
+		if(input.includes('${username}'))
+			input = this.replaceAll(input, /\${username}/g, sender.displayName)
 		return input
 	}
 }

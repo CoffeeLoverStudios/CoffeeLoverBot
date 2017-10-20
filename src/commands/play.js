@@ -9,6 +9,9 @@ module.exports = class Play extends Command
 		super()
 		this.refresh()
 	}
+
+	usage() { return { usage: '`!play`: Changes the \'game\' the bot is playing. Chosen randomly if none given', admin: true } }
+
 	refresh()
 	{
 		this.statuses = global.db.get('statuses').value()

@@ -10,6 +10,14 @@ module.exports = class Games extends Command
 		this.refresh()
 	}
 
+	usage()
+	{
+		return [
+			'`!games`: Lists registered games. If usernames are supplied then shows their registered games, otherise shows *all* registered games\n(*registered being someone on the server has played it*)',
+			'`!currentgames`: Lists users and the game they\'re playing'
+		]
+	}
+
 	refresh()
 	{
 		this.gamers = new Map()

@@ -2,11 +2,9 @@ const Command = require('./command.js')
 
 module.exports = class roll extends Command
 {
-    shouldCall(command)
-	{
-		if(command == "roll") return true
-  		else return false
-	}
+    shouldCall(command) { return command.toLowerCase() == 'roll' }
+
+	usage() { return '`!roll`: Rolls a 6 sided die'}
 
 	call(message, params, client)
     {

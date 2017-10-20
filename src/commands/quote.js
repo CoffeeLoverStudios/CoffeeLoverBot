@@ -9,6 +9,7 @@ module.exports = class Quote extends Command
 		super()
 		this.refresh()
 	}
+
 	refresh()
 	{
 		this.statuses = global.db.get('statuses').value()
@@ -16,7 +17,19 @@ module.exports = class Quote extends Command
 		this.adminRefusals = global.db.get('insufficientRole').value()
 	}
 
-	shouldCall(command) { return command.toLowerCase() == 'quote' || command.toLowerCase() == 'userquote'}
+	usage()
+	{
+		return [
+			'`!quote`: Registers a quote with the bot to be one of the many responses to a sentence including the word *bot*',
+			'`!userquote <username>`: Saves the last message of a user to their list-o-quotes',
+			'`!listquotes`, `!quotes`: Shows the quotes for all the users supplied, or the bot\'s responses if none were given'
+		]
+	}
+
+	shouldCall(command) { return command.toLowerCase() == 'quote' ||
+								 command.toLowerCase() == 'quotes' ||
+								 command.toLowerCase() == 'userquote' ||
+							 	 command.toLowerCase() == 'listquotes' }
 
 	call(message, params, client)
 	{
@@ -28,6 +41,38 @@ module.exports = class Quote extends Command
 				return
 			}
 			global.db.get('genericResponses').push(message.content.substring('quote'.length + 1)).write()
+		}
+		else if(params[0].toLowerCase() == 'listquotes' || params[0].toLowerCase() == 'quotes')
+		{
+			let msg = ''
+			if(params.length == 1)
+			{
+				msg = '**Quotes**:'
+				global.db.get('genericResponses').forEach(quote => msg += '\n - ' + quote).value()
+			}
+			else
+			{
+				for(let i = 1; i < params.length; i++)
+				{
+					let userID = Utils.getUserID(message.channel, params[i])
+					if(userID == 0)
+					{
+						msg += '\nCould not find user \'' + params[i] + '\''
+						continue
+					}
+					let user = global.db.get('users').find({ id: userID }).value()
+					msg += (msg == '' ? '' : '\n') + 'Quotes for **' + user.name + '**:'
+					if(user.quotes.length == 0)
+						msg += ' None\n'
+					else
+					{
+						user.quotes.forEach(quote => msg += '\n - ' + quote)
+						msg += '\n'
+					}
+				}
+			}
+			if(msg != '')
+				message.channel.send(msg)
 		}
 		else if(params[0].toLowerCase() == 'userquote')
 		{

@@ -1,6 +1,7 @@
 const convert = require('xml-js')
 const request = require('request')
 const Utils = require('../utils.js')
+const global = require('../global.js')
 const Discord = require('discord.js')
 const Command = require('./command.js')
 
@@ -11,10 +12,25 @@ const HentaiBaseURL = 'https://ibsearch.xxx/api/v1/images.format?parameters'
 
 module.exports = class Rule34 extends Command
 {
+	constructor()
+	{
+		super()
+		this.refresh()
+	}
+
+	usage() { return { usage: '`!r34`, `!rule34`: Fetches a *rule34* image from the interwebs (*image is random if no parameters are given. e.g. `!r34 bunnies`)', nsfw: true } }
+
+	refresh() { this.notNSFW = global.db.get('notNSFW').value() }
+
 	shouldCall(command) { return command.toLowerCase() == 'r34' || command.toLowerCase() == 'rule34' || command.toLowerCase() == 'hentai' }
 
 	call(message, params)
 	{
+		if(!message.channel.nsfw)
+		{
+			message.channel.send(Utils.process(Utils.getRandom(this.notNSFW), message.channel, message.member))
+			return
+		}
 		if(message.content.toLowerCase() == 'hentai')
 		{
 

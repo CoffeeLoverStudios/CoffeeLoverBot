@@ -15,7 +15,7 @@ module.exports = class GenericResponses extends Command
 	gotMessage(message)
 	{
 		if(message.content.toLowerCase().includes('bot'))
-			this.send(Utils.getRandom(this.genericResponses, message.channel), message.channel, message.member)
+			message.channel.send(Utils.process(Utils.getRandom(this.genericResponses, message.channel), message.member, message.channel))
 		if(message.content.toLowerCase().includes('omae wa moi shinderu'))
 			message.channel.send('***NANI?!***')
 	}

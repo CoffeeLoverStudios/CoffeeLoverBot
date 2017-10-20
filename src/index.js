@@ -92,6 +92,53 @@ watch = (member) =>
 	})
 }
 
+getUsageFromObject = (usage) =>
+{
+	let modifiers = ' '
+	if(usage.admin)
+		modifiers += '**(admin)**'
+	if(usage.nsfw)
+		modifiers += '**(nsfw)**'
+	return usage.usage + (modifiers == ' ' ? '' : modifiers)
+}
+
+sendHelp = (message) =>
+{
+	let helpMsg = '*Commands*:'
+	helpMsg += '\n - `!help`: Shows all available commands'
+	helpMsg += '\n - ' + getUsageFromObject({ usage: '`!refresh`: Refreshes the database of stuffs', admin: true })
+	commands.forEach(command =>
+	{
+		if(typeof command.usage === 'undefined') return
+		let usage = command.usage()
+		if(usage == undefined)
+			return
+		if(typeof usage == 'string')
+			helpMsg += '\n - ' + usage
+		else if(Array.isArray(usage))
+			usage.forEach(usage =>
+			{
+				if(usage.usage)
+				{
+					if(usage.admin && !global.db.get('adminRoles').value().includes(message.member.highestRole.name))
+						return
+					helpMsg += '\n - ' + getUsageFromObject(usage)
+				}
+				else
+					helpMsg += '\n - ' + usage
+			})
+		else if(usage.usage)
+		{
+			if(usage.admin && !global.db.get('adminRoles').value().includes(message.member.highestRole.name))
+				return
+			helpMsg += '\n - ' + getUsageFromObject(usage)
+		}
+		else
+			console.log('Couldn\'t get usage for \'' + usage + '\'')
+	})
+	message.channel.send(helpMsg)
+}
+
 // The big function-o-things
 setup = () =>
 {
@@ -173,6 +220,8 @@ setup = () =>
 				// Let the console-peasant know we're done here
 				console.log('Refreshed')
 			}
+			else if(params[0].toLowerCase() == 'help')
+				sendHelp(message)
 			else // otherwise check if another command wants to take the user up on that challenge
 				commands.forEach((command) =>
 				{
@@ -207,6 +256,13 @@ setup = () =>
 		let channel = member.guild.channels.find('name', global.db.get('initialChannel').value())
 		if(channel)
 			channel.send(Utils.process(Utils.getRandom(global.db.get('farewells').value()), channel, member))
+	})
+	// Check for sneaky buggers changing their name on us
+	client.on('guildMemberUpdate', (oldMember, newMember) =>
+	{
+		let user = global.db.get('users').find({ id: newMember.id })
+		if(user.value().name != newMember.displayName)
+			user.set('name', newMember.displayName).write()
 	})
 	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!
 	//	Also I'm passing the rejected thingo to the console's thingamabob
