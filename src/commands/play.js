@@ -10,7 +10,7 @@ module.exports = class Play extends Command
 		this.refresh()
 	}
 
-	usage() { return { usage: '`!play`: Changes the \'game\' the bot is playing. Chosen randomly if none given', admin: true } }
+	usage(token) { return { usage: '`' + token + 'play`: Changes the \'game\' the bot is playing. Chosen randomly if none given', admin: true } }
 
 	refresh()
 	{

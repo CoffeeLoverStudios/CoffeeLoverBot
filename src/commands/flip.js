@@ -2,8 +2,8 @@ const Command = require('./command.js')
 
 module.exports = class flipcoin extends Command
 {
-	usage() { return '`!flipcoin`: Flips a coin'}
-	
+	usage(token) { return '`' + token + 'flipcoin`: Flips a coin'}
+
     shouldCall(command) { return command.toLowerCase() == 'flipcoin' }
 
 	call(message, params, client)

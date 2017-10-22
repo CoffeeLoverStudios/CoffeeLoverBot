@@ -10,7 +10,7 @@ module.exports = class About extends Command
 		super()
 		technologies = global.db.get('technologies').value()
 	}
-	usage() { return '`!about`: Returns information about the bot' }
+	usage(token) { return '`' + token + 'about`: Returns information about the bot' }
 
 	shouldCall(command) { return command.toLowerCase() == 'about' }
 

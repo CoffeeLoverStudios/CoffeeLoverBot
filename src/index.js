@@ -1,16 +1,17 @@
+const path = require('path')
 const low = require('lowdb')
 const Express = require('express')
 const request = require('request')
 const Discord = require('discord.js')
 const FileSync = require('lowdb/adapters/FileSync')
-let global = require('./global.js')
 
+let global = require('./global.js')
 const Utils = require('./utils.js')
 const Command = require('./commands/command.js')
 const Shush = require('./commands/shush.js')
 
 const DBPath = 'db.json'
-const CommandToken = process.env.COMMAND_TOKEN || '!'
+let CommandToken = '!'
 
 // We kinda NEED this token
 if(process.env.BOT_TOKEN == undefined)
@@ -105,12 +106,12 @@ getUsageFromObject = (usage) =>
 sendHelp = (message) =>
 {
 	let helpMsg = '*Commands*:'
-	helpMsg += '\n - `!help`: Shows all available commands'
-	helpMsg += '\n - ' + getUsageFromObject({ usage: '`!refresh`: Refreshes the database of stuffs', admin: true })
+	helpMsg += '\n - `' + CommandToken + 'help`: Shows all available commands'
+	helpMsg += '\n - ' + getUsageFromObject({ usage: '`' + CommandToken + 'refresh`: Refreshes the database of stuffs', admin: true })
 	commands.forEach(command =>
 	{
 		if(typeof command.usage === 'undefined') return
-		let usage = command.usage()
+		let usage = command.usage(CommandToken)
 		if(usage == undefined)
 			return
 		if(typeof usage == 'string')
@@ -147,8 +148,12 @@ setup = () =>
 		// Set Bot's game status ('Playing...')
 		client.user.setGame(Utils.getRandom(global.db.get('statuses').value()))
 
+		CommandToken = global.db.get('commandToken').value()
+		if(!CommandToken)
+			CommandToken = '!'
+
 		// Load all commands in the './commands/' directory
-		var normalizedPath = require('path').join(__dirname, 'commands')
+		var normalizedPath = path.join(__dirname, 'commands')
 		require('fs').readdirSync(normalizedPath).forEach((file) =>
 		{
 			const required = require('./commands/' + file)
@@ -217,6 +222,12 @@ setup = () =>
 				global.db.read()
 				// Tell the commands to refresh all their things
 				commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
+
+				// Check for a new command token
+				CommandToken = global.db.get('commandToken').value()
+				if(!CommandToken)
+					CommandToken = '!'
+
 				// Let the console-peasant know we're done here
 				console.log('Refreshed')
 			}
@@ -305,7 +316,9 @@ global.db.defaults({
 
 setup() // <-- This calls that ^^ long function
 
-let server = app.listen(process.env.PORT || 3000, () =>
+app.get('/', (req, res) => { res.sendFile(path.join(__dirname + '/index.html')) })
+
+let server = app.listen(process.env.port || 3000, () =>
 {
 	host = server.address().address
 	port = server.address().port

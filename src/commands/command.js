@@ -5,7 +5,7 @@ module.exports = class Command
 {
 	constructor() {  }
 	refresh() { }
-	usage() { }
+	usage(token) { }
 
 	shouldCall(command) { return false }
 	call(message, params, client) { }

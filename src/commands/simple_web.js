@@ -8,11 +8,11 @@ const AdviceURL = 'http://api.adviceslip.com/advice'
 
 module.exports = class SimpleWeb extends Command
 {
-	usage()
+	usage(token)
 	{
 		return [
-			'`!yesorno`: Returns either *yes* or *no* in .gif form',
-			'`!advice`: Get some advice from a computer. Yeah, how does that make you feel? (*optionally add a word to search for*)'
+			'`' + token + 'yesorno`: Returns either *yes* or *no* in .gif form',
+			'`' + token + 'advice`: Get some advice from a computer. Yeah, how does that make you feel? (*optionally add a word to search for*)'
 		]
 	}
 

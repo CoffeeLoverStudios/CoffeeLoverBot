@@ -18,7 +18,7 @@ module.exports = class Rule34 extends Command
 		this.refresh()
 	}
 
-	usage() { return { usage: '`!r34`, `!rule34`: Fetches a *rule34* image from the interwebs (*image is random if no parameters are given. e.g. `!r34 bunnies`)', nsfw: true } }
+	usage(token) { return { usage: '`' + token + 'r34`, `' + token + 'rule34`: Fetches a *rule34* image from the interwebs (*image is random if no parameters are given. e.g. `!r34 bunnies`*)', nsfw: true } }
 
 	refresh() { this.notNSFW = global.db.get('notNSFW').value() }
 

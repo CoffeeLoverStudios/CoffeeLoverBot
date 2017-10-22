@@ -10,11 +10,11 @@ module.exports = class Games extends Command
 		this.refresh()
 	}
 
-	usage()
+	usage(token)
 	{
 		return [
-			'`!games`: Lists registered games. If usernames are supplied then shows their registered games, otherise shows *all* registered games\n(*registered being someone on the server has played it*)',
-			'`!currentgames`: Lists users and the game they\'re playing'
+			'`' + token + 'games`: Lists registered games. If usernames are supplied then shows their registered games, otherise shows *all* registered games\n(*registered being someone on the server has played it*)',
+			'`' + token + 'currentgames`: Lists users and the game they\'re playing'
 		]
 	}
 

@@ -12,11 +12,11 @@ module.exports = class Shush extends Command
 
 	shouldCall(command) { return command.toLowerCase() == 'shush' || command.toLowerCase() == 'unshush' }
 
-	usage()
+	usage(token)
 	{
 		return [
-			{ usage: '`!shush <username>`: *"shushes"* the user(s), one of the best things for an admin', admin: true },
-			{ usage: '`!unshush <username>`: The opposite of shushing. Let\'s a user talk again', admin: true }
+			{ usage: '`' + token + 'shush <username>`: *"shushes"* the user(s), one of the best things for an admin', admin: true },
+			{ usage: '`' + token + 'unshush <username>`: The opposite of shushing. Let\'s a user talk again', admin: true }
 		]
 	}
 

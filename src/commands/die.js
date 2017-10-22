@@ -4,7 +4,7 @@ module.exports = class roll extends Command
 {
     shouldCall(command) { return command.toLowerCase() == 'roll' }
 
-	usage() { return '`!roll`: Rolls a 6 sided die'}
+	usage(token) { return '`' + token + 'roll`: Rolls a 6 sided die'}
 
 	call(message, params, client)
     {

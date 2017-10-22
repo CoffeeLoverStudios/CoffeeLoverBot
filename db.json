@@ -1,5 +1,6 @@
 {
   "initialChannel": "welcome",
+  "commandToken": "!",
   "technologies": [
     "NodeJS (https://nodejs.org)",
     "Discord.js (https://discord.js.org)",
@@ -46,7 +47,8 @@
       "name": "cartower",
       "shushed": false,
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "games": []
     }
   ],
   "adminRoles": [

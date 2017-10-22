@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+		<title>CoffeeLover Bot</title>
+
+		<style>
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+		html { background-color: #1E2124; }
+		body { background-color: #2F3136; margin: 20px; padding: 20px; border-radius: 5px; }
+		* { font-family: 'Roboto', sans-serif; color: white}
+		table, td, th { border: .5px solid #738bd7; padding: 3.5px; }
+		table { border-collapse: collapse; width: 100%; }
+		th:first-child { text-align: right; padding-right: 3px; }
+		th:nth-child(2) { text-align: left; padding-left: 10px; }
+		th:last-child { text-align: left; padding: 5px;}
+		code { font-family: monospace; background-color: #2F3136; }
+		.buttonLink
+		{
+			height: 3vh;
+			color: white;
+			padding: 10px;
+			margin: 3px;
+			border-radius: 3px;
+			text-decoration: none;
+			background-color: #738BD7;
+			transition: background-color 0.2s;
+			text-align: center;
+		}
+		.buttonLink:hover { background-color: #677BC4; }
+		</style>
+	</head>
+
+	<body>
+		<div style="display: inline-block; width: 100%">
+			<h1 style="float: left; width: 65%">CoffeeLover Bot</h1>
+
+			<div style="float: left; width: 35%">
+				<a class="buttonLink" style="display: block" href="https://discordapp.com/oauth2/authorize?client_id=364367399538917377&scope=bot&permissions=1275579456">
+					Add to your server</a>
+				<a href="https://discord.gg/fHTfghD" class="buttonLink" style="display: block">Join CoffeeLover's server</a>
+			</div>
+		</div>
+
+		<h2>Commands</h2>
+		<table>
+			<tr style="background-color: #738BD7">
+				<th>Command</th>
+				<th>Info</th>
+				<th>Extra</th>
+			</tr>
+			<tr>
+				<th><code>!help</code></th>
+				<th>Shows all available commands</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!about</code></th>
+				<th>Returns information about the bot</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!blb</code>, <code>!belikebill</code></th>
+				<th>Gets a meme from the interwebs (<i>uses a name you supply, or defaults to 'Bill'</i>)</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!roll</code></th>
+				<th>Rolls a 6-sided die</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!flipcoin</code></th>
+				<th>Flips a coin</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!games</code></th>
+				<th>Lists registered games. If usernames are given then shows their registered games, otherwise shows <i>all</i> regsitered games. (<i>registered being a user has played it</i>)</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!currentgames</code></th>
+				<th>Lists users and the game they're playing, if any</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!poem</code></th>
+				<th>Recites a poem for you</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!quote</code></th>
+				<th>Adds a quote to the bot's database, so that it may response to any sentence with the word <i>'bot'</i> in it with your quote</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!userquote &lt;username&gt;</code></th>
+				<th>Saves the last message sent of a user to their list-o-quotes</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!listquotes</code>, <code>!quotes</code></th>
+				<th>Shows all quotes associated with that user, or the bot's responses if no user given</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!ship &lt;username&gt; &lt;username&gt;</code></th>
+				<th>Ships them peeps</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!yesorno</code></th>
+				<th>Bot sends a gif depicting either <i>yes</i> or <no> randomly</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th><code>!advice</code></th>
+				<th>Get some advice from a computer. yes how does that make you feel? (<i>optionally add a word to search for</i>)</th>
+				<th></th>
+			</tr>
+
+			<!-- NSFW COMMANDS -->
+			<tr>
+				<th><code>!r34</code>, <code>!rule34</code></th>
+				<th>Fetches a <i>rule34</i> image from the internet. Selects one randomly if no search query is given</th>
+				<th>nsfw</th>
+			</tr>
+
+			<!-- ADMIN COMMANDS -->
+			<tr>
+				<th><code>!refresh</code></th>
+				<th>Refreshes the database of stuffs</th>
+				<th><b>admin</b></th>
+			</tr>
+			<tr>
+				<th><code>!play</code></th>
+				<th>Changes the 'game' the bot is playing. Chosen randomly if none given</th>
+				<th>admin</th>
+			</tr>
+			<tr>
+				<th><code>!shush &lt;username(s)&gt;</code></th>
+				<th><i>"shushes"</i> user(s). The best weapon against spammers</th>
+				<th>admin</th>
+			</tr>
+			<tr>
+				<th><code>!unshush &lt;username(s)&gt;</code></th>
+				<th>Opposite of "shushing"</th>
+				<th>admin</th>
+			</tr>
+		</table>
+
+		<h1>Configuring</h1>
+		<p>In <code>'db.json'</code> (<i>by default</i>) you can configure most things about the bot.
+			Most notably the command operator (by default is <b>'!'</b>),
+			changing settings of registered users, settings what roles are considered <i>'admin'</i> and
+			changing the quotes/statuses of the bot. If you make any changes in the database file, just
+			call the <code>refresh</code> command and the bot will handle the rest.
+	</body>
+</html>

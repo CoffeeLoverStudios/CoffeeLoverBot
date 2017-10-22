@@ -17,12 +17,12 @@ module.exports = class Quote extends Command
 		this.adminRefusals = global.db.get('insufficientRole').value()
 	}
 
-	usage()
+	usage(token)
 	{
 		return [
-			'`!quote`: Registers a quote with the bot to be one of the many responses to a sentence including the word *bot*',
-			'`!userquote <username>`: Saves the last message of a user to their list-o-quotes',
-			'`!listquotes`, `!quotes`: Shows the quotes for all the users supplied, or the bot\'s responses if none were given'
+			'`' + token + 'quote`: Registers a quote with the bot to be one of the many responses to a sentence including the word *bot*',
+			'`' + token + 'userquote <username>`: Saves the last message of a user to their list-o-quotes',
+			'`' + token + 'listquotes`, `!quotes`: Shows the quotes for all the users supplied, or the bot\'s responses if none were given'
 		]
 	}
 

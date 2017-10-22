@@ -6,7 +6,7 @@ const BaseURL = 'http://belikebill.azurewebsites.net/billgen-API.php?default=1'
 
 module.exports = class BeLikeBill extends Command
 {
-	usage() { return '`!blb`, `!belikebill`: Gets a meme from the interwebs (*uses a name you supply, otherwise defaults to \'Bill\'*)' }
+	usage(token) { return '`' + token + 'blb`, `' + token + 'belikebill`: Gets a meme from the interwebs (*uses a name you supply, otherwise defaults to \'Bill\'*)' }
 
 	shouldCall(command) { return command.toLowerCase() == 'blb' || command.toLowerCase() == 'belikebill' }
 
