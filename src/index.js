@@ -318,7 +318,7 @@ setup() // <-- This calls that ^^ long function
 
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname + '/index.html')) })
 
-let server = app.listen(process.env.port || 3000, () =>
+let server = app.listen(process.env.PORT || 3000, () =>
 {
 	host = server.address().address
 	port = server.address().port

@@ -37,18 +37,22 @@
     },
     {
       "id": "244751835703934976",
-      "games": [],
+      "games": [
+        "Unreal Tournament"
+      ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "Unreal Tournament"
     },
     {
       "id": "230526318872231938",
       "name": "cartower",
       "shushed": false,
       "quotes": [],
-      "currentlyPlaying": "",
-      "games": []
+      "currentlyPlaying": "GearUp",
+      "games": [
+        "GearUp"
+      ]
     }
   ],
   "adminRoles": [
