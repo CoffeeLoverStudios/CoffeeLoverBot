@@ -1,13 +1,16 @@
 {
 	"name": "coffeeloverbot",
 	"version": "1.0.0",
-	"description": "",
+	"description": "CoffeeLover Studio's own Discord bot",
 	"main": "src/index.js",
 	"scripts": {
 		"start": "node src/index.js",
-		"watch": "nodemon --watch src/ --exec \"heroku local\""
+		"build": "node src/index.js",
+		"watch": "nodemon --watch src/ --exec \"heroku local\"",
+		"deploy": "now -E --npm"
 	},
 	"author": "lcomstive",
+	"repository": "https://github.com/CoffeeLoverStudios/CoffeeLoverBot",
 	"license": "ISC",
 	"dependencies": {
 		"discord.js": "^11.2.1",
@@ -20,6 +23,7 @@
 	"devDependencies": {
 		"coffee-script": "^1.12.7",
 		"foreman": "^2.0.0",
-		"nodemon": "^1.12.1"
+		"nodemon": "^1.12.1",
+		"surge": "^0.19.0"
 	}
 }
