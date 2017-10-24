@@ -47,32 +47,32 @@ module.exports = class Shush extends Command
 					let userID = Utils.getUserID(channel, params[i])
 					if(userID == 0)
 					{
-						this.send('Could not find user \'' + params[i] + '\'', channel)
+						message.channel.send('Could not find user \'' + params[i] + '\'', channel)
 						return
 					}
-					let user = channel.members.find(member => member.id === userID)
+					let user = channel.guild.members.find(member => member.id === userID)
 					if(this.shushed.includes(userID))
-						this.send('\'' + (user == undefined ? params[i] : user.displayName) + '\' already shushed', channel)
+						message.channel.send('\'' + (user == undefined ? params[i] : user.displayName) + '\' already shushed')
 					else
 					{
 						this.shushed.push(userID)
 						global.db.get('users').find({ id: userID }).set('canMessage', false).write()
 						if(userID == sender.id)
-							this.send(Utils.getRandom(global.db.get('shushedSelfResponses').value()), channel, user)
+							message.channel.send(Utils.process(Utils.getRandom(global.db.get('shushedSelfResponses').value(), channel), sender, channel))
 						else
-							this.send(Utils.getRandom(global.db.get('shushedResponses').value()), channel, user)
+							message.channel.send(Utils.process(Utils.getRandom(global.db.get('shushedResponses').value(), channel), user, channel))
 					}
 				}
 			}
 			else
-				this.send('Usage: !shush <username>\n(*if usernames have spaces, put them in quotes. e.g. "Coffee Bot")\n(can mass shush)')
+				message.channel.send('Usage: `shush <username>`\n(*if usernames have spaces, put them in quotes. e.g. "Coffee Bot")\n(can mass shush)')
 		}
 		else if(params[0].toLowerCase() == 'unshush')
 		{
 			if(this.shushed.includes(sender.id))
 			{
 				message.delete(1000)
-				message.channel.send(Utils.getRandom(global.db.get('unshushSelfResponses').value()), channel, message.member).then(message=> message.delete(2500))
+				message.channel.send(Utils.getRandom(global.db.get('unshushSelfResponses').value(), channel)).then(message=> message.delete(2500))
 				return
 			}
 			if(params.length > 1)
@@ -81,29 +81,34 @@ module.exports = class Shush extends Command
 				{
 					let userID = Utils.getUserID(channel, params[i])
 					let index = this.shushed.indexOf(userID)
-					if(userID == 0 || index == -1)
+					if(userID == 0 )
 					{
-						this.send('Could not find user \'' + params[i] + '\'', channel)
+						message.channel.send('Could not find user \'' + params[i] + '\'')
 						return
 					}
-					let user = channel.members.find(member => member.id === userID)
+					if(index == -1)
+					{
+						message.channel.send('They aren\'t shushed')
+						return
+					}
+					let user = channel.guild.members.find(member => member.id === userID)
 					if(!this.shushed.includes(userID))
-						this.send('\'' + user.displayName + '\' has not been shushed', channel)
+						message.channel.send('\'' + user.displayName + '\' has not been shushed', channel)
 					else
 					{
 						if(userID == sender.id)
 						{
-							this.send(Utils.getRandom(global.db.get('unshushSelfResponses').value()), channel, user)
+							message.channel.send(Utils.process(Utils.getRandom(global.db.get('unshushSelfResponses').value(), channel), sender, channel))
 							return
 						}
 						this.shushed.splice(index, 1)
 						global.db.get('users').find({ id: userID }).set('canMessage', true).write()
-						this.send(Utils.getRandom(global.db.get('unshushResponses').value()), channel, user)
+						message.channel.send(Utils.process(Utils.getRandom(global.db.get('unshushResponses').value(), channel), user, channel))
 					}
 				}
 			}
 			else
-				channel.send('Usage: !unshush <username>\n(*if usernames have spaces, put them in quotes. e.g. "Coffee Bot")\n(can mass unshush)')
+				message.channel.send('Usage: `unshush <username>`\n(*if usernames have spaces, put them in quotes. e.g. "Coffee Bot")\n(can mass unshush)')
 		}
 	}
 

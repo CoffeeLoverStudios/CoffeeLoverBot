@@ -11,7 +11,7 @@ const Command = require('./commands/command.js')
 const Shush = require('./commands/shush.js')
 
 // Some variable setup
-let DBPath = 'db.json'
+let DBPath = 'data/db.json'
 let global = require('./global.js')
 let CommandToken = '!'
 
@@ -25,6 +25,8 @@ app.get('/discord_redirect', function(req, res)
 {
 	res.send('Successfully joined server')
 })
+
+app.use('/data', Express.static(path.join(__dirname, '../data')))
 
 // Put the game against the user's name. Hpefully it isn't Huniepop, everyone would see ( ͡° ͜ʖ ͡°)
 setGame = (id, game) =>
@@ -60,12 +62,18 @@ watch = (member) =>
 		user =
 		{
 			id: member.id,
-			name: member.displayName,
+			name: member.user.name,
+			nickname: member.displayName,
 			games: [],
 			quotes: [],
 			currentlyPlaying: (member.presence.game ? member.presence.game.name : ''),
 		}
 		global.db.get('users').push(user).write()
+	}
+	else
+	{
+		if(user.currentlyPlaying && member.presence.status == 'offline')
+			setGame(member.id, '')
 	}
 	// Called when something about the user changes, like their nickname, game, hair colour, diet.. okay, maybe not that far..
 	member.client.on('presenceUpdate', (oldMember, newMember) =>
@@ -74,10 +82,10 @@ watch = (member) =>
 		if(newMember.id != user.id)
 			return
 		// Check for nickname changes
-		if(user.name != newMember.displayName)
+		if(user.nickname != newMember.displayName)
 		{
-			user.name = newMember.displayName
-			global.db.get('users').find({ id: member.id }).set('name', newMember.displayName).write()
+			user.nickname = newMember.displayName
+			global.db.get('users').find({ id: member.id }).set('nickname', newMember.displayName).write()
 		}
 
 		// Check game status
@@ -277,8 +285,8 @@ setup = () =>
 	client.on('guildMemberUpdate', (oldMember, newMember) =>
 	{
 		let user = global.db.get('users').find({ id: newMember.id })
-		if(user.value().name != newMember.displayName)
-			user.set('name', newMember.displayName).write()
+		if(user.value().nickname != newMember.displayName)
+			user.set('nickname', newMember.displayName).write()
 	})
 	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!
 	//	Also I'm passing the rejected thingo to the console's thingamabob

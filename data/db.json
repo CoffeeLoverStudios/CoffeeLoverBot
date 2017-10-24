@@ -19,7 +19,8 @@
       "canMessage": true,
       "games": [
         "Crawl"
-      ]
+      ],
+      "nickname": "lcomstive"
     },
     {
       "id": "220860764976578561",
@@ -31,7 +32,9 @@
     },
     {
       "id": "210746479403335680",
-      "games": [],
+      "games": [
+        "Space Engineers"
+      ],
       "name": "The QA Tester",
       "quotes": [
         "You're a lizard, Garry"
@@ -48,17 +51,20 @@
       ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": "Space Engineers"
+      "currentlyPlaying": "Space Engineers",
+      "canMessage": true
     },
     {
       "id": "230526318872231938",
       "name": "cartower",
       "shushed": false,
       "quotes": [],
-      "currentlyPlaying": "GearUp",
+      "currentlyPlaying": "",
       "games": [
         "GearUp"
-      ]
+      ],
+      "nickname": "( ͡° ͜ʖ ͡°)",
+      "canMessage": true
     }
   ],
   "adminRoles": [
