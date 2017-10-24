@@ -18,6 +18,11 @@ module.exports = class About extends Command
 	{
 		let msg = '*CoffeeLoverBot* (by `CoffeeLover Studios`)\n*Technologies*:\n'
 		technologies.forEach((tech) => { msg += '\t' + tech + '\n' })
+		if(global.tokens.cleverbot)
+		{
+			msg += '\n*Enabled*:\n'
+			msg += '\t- Cleverbot'
+		}
 		message.channel.send(msg)
 	}
 }

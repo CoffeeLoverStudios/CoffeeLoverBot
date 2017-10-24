@@ -1,4 +1,8 @@
 {
+  "tokens": {
+    "discord": "MzY0MzY3Mzk5NTM4OTE3Mzc3.DLPK-g.QlM7fZ1ofLh3liv_0E-16baovHw",
+    "cleverbot": "CC529ZEOZEo2PpzKCn2YZ651ASQ"
+  },
   "initialChannel": "welcome",
   "commandToken": "!",
   "technologies": [
@@ -38,11 +42,13 @@
     {
       "id": "244751835703934976",
       "games": [
-        "Unreal Tournament"
+        "Unreal Tournament",
+        "Team Fortress 2",
+        "Space Engineers"
       ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": "Unreal Tournament"
+      "currentlyPlaying": "Space Engineers"
     },
     {
       "id": "230526318872231938",
@@ -137,7 +143,7 @@
     "*pretends to not be here*",
     "Yes?",
     "I AM BOT",
-    "Go away, I\"m playing with ${random_member}",
+    "Go away, I'm playing with ${random_member}",
     "yes senpai?",
     "hey",
     "hai, ${username}-chan?",

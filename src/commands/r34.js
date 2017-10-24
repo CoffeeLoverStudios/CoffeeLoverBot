@@ -61,4 +61,15 @@ module.exports = class Rule34 extends Command
 			})
 		}
 	}
+
+	gotMessage(message)
+	{
+		if(message.content.toLowerCase().includes('rule34'))
+			message.channel.send('*Psst, just remember. I have a rule34 command ;) *')
+		else if(message.content.toLowerCase().includes('hentai'))
+			message.channel.send('I\'m listening')
+		else
+			return false
+		return true
+	}
 }

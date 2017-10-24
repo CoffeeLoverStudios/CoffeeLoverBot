@@ -122,5 +122,7 @@ module.exports = class Shush extends Command
 	{
 		if(this.shushed.includes(message.member.id))
 			shushMessage(message)
+		else
+			return false
 	}
 }

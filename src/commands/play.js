@@ -31,6 +31,7 @@ module.exports = class Play extends Command
 		if(params.length > 1)
 			game = message.content.substring(params[0].length + 1)
 		client.user.setGame(game)
+		client.user.setPresence({ game: { name: game, type: 0 }})
 		message.channel.send('Now playing \'' + game + '\'')
 	}
 }

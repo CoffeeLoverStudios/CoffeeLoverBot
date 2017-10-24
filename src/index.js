@@ -4,26 +4,21 @@ const Express = require('express')
 const request = require('request')
 const Discord = require('discord.js')
 const FileSync = require('lowdb/adapters/FileSync')
+const Cleverbot = require('cleverbot-node')
 
-let global = require('./global.js')
 const Utils = require('./utils.js')
 const Command = require('./commands/command.js')
 const Shush = require('./commands/shush.js')
 
-const DBPath = 'db.json'
+// Some variable setup
+let DBPath = 'db.json'
+let global = require('./global.js')
 let CommandToken = '!'
 
-// We kinda NEED this token
-if(process.env.BOT_TOKEN == undefined)
-{
-	console.log('No token specified!')
-	return
-}
-
-// Some variable setup
 let commands = []
 let app = new Express()
 let client = new Discord.Client()
+let cleverbot = undefined
 
 // Some mandatory(?) redirect to add the bot
 app.get('/discord_redirect', function(req, res)
@@ -146,7 +141,7 @@ setup = () =>
 	client.on('ready', () =>
 	{
 		// Set Bot's game status ('Playing...')
-		client.user.setGame(Utils.getRandom(global.db.get('statuses').value()))
+		client.user.setPresence({ game: { name: Utils.getRandom(global.db.get('statuses').value()), type: 0 }})
 
 		CommandToken = global.db.get('commandToken').value()
 		if(!CommandToken)
@@ -244,8 +239,18 @@ setup = () =>
 				})
 		}
 		else // it's not a command, so let all the others know we got a general message,
-			 // 	and they can do whatever the hell they want with it, like delete it
-			commands.forEach((command) => { if(typeof command.gotMessage !== 'undefined') command.gotMessage(message) })
+		{	 // 	and they can do whatever the hell they want with it, like delete it
+			let handled = false
+			for(let i = 0; i < commands.length; i++)
+			{
+				if(typeof commands[i].gotMessage === 'undefined')
+					continue;
+				if(commands[i].gotMessage(message))
+					handled = true
+			}
+			if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(client.user.id))
+				cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output); console.log('Cleverbot input: ' + response.input + '\noutput: "' + response.output + '"\nUserID: ' + client.user.id) })
+		}
 	})
 	// Called when a user joins a Discord server, we'll use this event to get their information
 	//	and watch them like the creepy devs we are. But hey, at least we greet them!
@@ -279,16 +284,33 @@ setup = () =>
 	//	Also I'm passing the rejected thingo to the console's thingamabob
 	client.on('unhandledRejection', console.error)
 	// Finally, the bot is set up and ready to tell the world that it LIVES!
-	client.login(process.env.BOT_TOKEN)
+	client.login(process.env.BOT_TOKEN || global.tokens.discord)
+
+	if(global.tokens.cleverbot)
+		cleverbot.configure({ botapi: global.tokens.cleverbot })
+	else
+	{
+		console.log('Cleverbot token not found, disabling...')
+		cleverbot = undefined
+	}
 }
 
 // Some database stuff
-let adapter = new FileSync(DBPath)
-global.db = low(adapter)
+try
+{
+	let adapter = new FileSync(DBPath)
+	global.db = low(adapter)
+}
+catch (e)
+{
+	console.log('Coulnd\'t read database "' + DBPath + '" - ' + e.message)
+	return
+}
 
 // Set the defaults for the database, for if it doesn't exist yet
 global.db.defaults({
 	users: [],
+	tokens: { discord: "", cleverbot: "" },
 	initialChannel: 'welcome',
 	statuses: [
 		// Playing...
@@ -314,8 +336,26 @@ global.db.defaults({
 	]
 }).write()
 
-setup() // <-- This calls that ^^ long function
+// Get the keys
+global.tokens = global.db.get('tokens').value();
+// SOMEONE didn't set it up properly
+if(global.tokens.discord && global.tokens.discord == '')
+	global.tokens.discord = process.env.BOT_TOKEN || undefined
+if(global.tokens.cleverbot && global.tokens.cleverbot == '')
+	global.tokens.cleverbot = process.env.CLEVERBOT_TOKEN || undefined
 
+// We kinda NEED this token
+if(!global.tokens.discord)
+{
+	console.log('No discord bot token specified!')
+	return
+}
+if(global.tokens.cleverbot)
+	cleverbot = new Cleverbot()
+
+setup() // <-- This calls the long function up there ^^
+
+// Be nice and show some sort of webpage
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname + '/index.html')) })
 
 let server = app.listen(process.env.PORT || 3000, () =>

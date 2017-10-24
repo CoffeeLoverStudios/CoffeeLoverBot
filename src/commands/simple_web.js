@@ -12,12 +12,14 @@ module.exports = class SimpleWeb extends Command
 	{
 		return [
 			'`' + token + 'yesorno`: Returns either *yes* or *no* in .gif form',
-			'`' + token + 'advice`: Get some advice from a computer. Yeah, how does that make you feel? (*optionally add a word to search for*)'
+			'`' + token + 'advice`: Get some advice from a computer. Yeah, how does that make you feel? (*optionally add a word to search for*)',
+			{ usage: '`' + token + 'database`: The database file is sent to you', admin: true }
 		]
 	}
 
 	shouldCall(command) { return command.toLowerCase() == 'yesorno' ||
-								 command.toLowerCase() == 'advice' }
+								 command.toLowerCase() == 'advice'  ||
+							 	 command.toLowerCase() == 'database' }
 
 	call(message, params)
 	{
@@ -56,5 +58,7 @@ module.exports = class SimpleWeb extends Command
 				}
 			})
 		}
+		else if(params[0].toLowerCase() == 'database')
+			message.channel.send(new Discord.Attachment('./db.json'))
 	}
 }

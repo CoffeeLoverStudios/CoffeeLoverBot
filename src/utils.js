@@ -68,7 +68,7 @@ module.exports =
 		if(input == undefined)
 			return ''
 		if(input.includes('${random_member}'))
-			input = this.replaceAll(input, /\${random_member}/g, this.getRandomUser(sender.guild, [ sender.id ]).displayName)
+			input = this.replaceAll(input, /\${random_member}/g, this.getRandomUser(sender.guild, [ sender.id ]).displayName || "someone")
 		if(input.includes('${random_number}'))
 			input = this.replaceAll(input, /\${random_number}/g, this.getRandomNumber(1, 10))
 		if(input.includes('${username}'))

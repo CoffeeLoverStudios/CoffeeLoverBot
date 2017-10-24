@@ -1,4 +1,9 @@
 module.exports =
 {
-	db: undefined
+	db: undefined,
+	tokens:
+	{
+		discord: undefined,
+		cleverbot: undefined
+	}
 }

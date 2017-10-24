@@ -7,12 +7,13 @@
 		"start": "node src/index.js",
 		"build": "node src/index.js",
 		"watch": "nodemon --watch src/ --exec \"heroku local\"",
-		"deploy": "now -E --npm"
+		"deploy": "now -E --public --npm"
 	},
 	"author": "lcomstive",
 	"repository": "https://github.com/CoffeeLoverStudios/CoffeeLoverBot",
 	"license": "ISC",
 	"dependencies": {
+		"cleverbot-node": "^0.3.11",
 		"discord.js": "^11.2.1",
 		"express": "^4.16.1",
 		"lowdb": "^1.0.0",
@@ -23,7 +24,6 @@
 	"devDependencies": {
 		"coffee-script": "^1.12.7",
 		"foreman": "^2.0.0",
-		"nodemon": "^1.12.1",
-		"surge": "^0.19.0"
+		"nodemon": "^1.12.1"
 	}
 }
