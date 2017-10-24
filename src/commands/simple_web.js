@@ -33,7 +33,6 @@ module.exports = class SimpleWeb extends Command
 				{
 					let url = JSON.parse(body).image
 					message.channel.send(new Discord.Attachment(url))
-					console.log('Sent \'' + url + '\'')
 				}
 			})
 		}

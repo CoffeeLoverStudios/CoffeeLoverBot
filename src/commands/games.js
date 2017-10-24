@@ -31,11 +31,11 @@ module.exports = class Games extends Command
 		let msg = ''
 		if(params[0].toLowerCase() == 'currentgames')
 		{
-			msg = '***Games currently being played:***'
+			msg = '*Games currently being played:*'
 			global.db.get('users').forEach(user =>
 			{
 				if(user.currentlyPlaying && user.currentlyPlaying != '')
-					msg += '\n - **' + user.name + '** is playing \'**' + user.currentlyPlaying + '**\''
+					msg += '\n - **' + user.name + '** is playing \'*' + user.currentlyPlaying + '*\''
 			}).value()
 			message.channel.send(msg)
 			return

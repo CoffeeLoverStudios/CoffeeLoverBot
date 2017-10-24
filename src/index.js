@@ -257,7 +257,7 @@ setup = () =>
 					handled = true
 			}
 			if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(client.user.id))
-				cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output); console.log('Cleverbot input: ' + response.input + '\noutput: "' + response.output + '"\nUserID: ' + client.user.id) })
+				cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output) })
 		}
 	})
 	// Called when a user joins a Discord server, we'll use this event to get their information

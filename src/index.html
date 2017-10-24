@@ -66,7 +66,7 @@
 			var users = '<br>Users: <br><div class="users">';
 			json.users.forEach((user) =>
 			{
-				users += '<b>Name: </b><i>' + user.name + (user.nickname && user.nickname != user.name ? '(' + user.nickname + ')' : '') + '</i>' + (typeof user.canMessage === 'undefined' || user.canMessage ? '' : ' [<b>shushed</b>]') + '<br>';
+				users += '<b>Name: </b><i>' + user.name + (user.nickname && user.nickname != user.name ? ' ("' + user.nickname + '")' : '') + '</i>' + (typeof user.canMessage === 'undefined' || user.canMessage ? '' : ' [<b>shushed</b>]') + '<br>';
 				if(user.currentlyPlaying)
 					users += '<b>Currently Playing: </b><i>' + user.currentlyPlaying + '</i><br>';
 				if(user.games && user.games.length > 0)
