@@ -44,6 +44,8 @@ module.exports = class Shush extends Command
 			{
 				for(let i = 1; i < params.length; i++)
 				{
+					if(params[i][0] == '@')
+						params[i] = params[i].substring(1)
 					let userID = Utils.getUserID(channel, params[i])
 					if(userID == 0)
 					{
@@ -79,6 +81,8 @@ module.exports = class Shush extends Command
 			{
 				for(let i = 1; i < params.length; i++)
 				{
+					if(params[i][0] == '@')
+						params[i] = params[i].substring(1)
 					let userID = Utils.getUserID(channel, params[i])
 					let index = this.shushed.indexOf(userID)
 					if(userID == 0 )

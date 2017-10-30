@@ -26,6 +26,8 @@ app.get('/discord_redirect', function(req, res)
 	res.send('Successfully joined server')
 })
 
+// This is so we can go to something like 'localhost:3000/data/db.json' to view the database
+// Especially helpful for the site shown at 'localhost:3000' which shows players and their stats
 app.use('/data', Express.static(path.join(__dirname, '../data')))
 
 // Put the game against the user's name. Hpefully it isn't Huniepop, everyone would see ( ͡° ͜ʖ ͡°)
@@ -54,8 +56,9 @@ setGame = (id, game) =>
 // *gets out binoculars*
 watch = (member) =>
 {
+	let users = global.db.get('users')
 	// Grab the user from our secret book of secrets
-	let user = global.db.get('users').find({ id: member.id }).value()
+	let user = users.find({ id: member.id }).value()
 	// If the user is sneaky enough to avoid our book, put them in it
 	if(!user)
 	{
@@ -66,34 +69,15 @@ watch = (member) =>
 			nickname: member.displayName,
 			games: [],
 			quotes: [],
-			currentlyPlaying: (member.presence.game ? member.presence.game.name : ''),
+			currentlyPlaying: member.presence.game.name || '',
 		}
-		global.db.get('users').push(user).write()
+		users.push(user).write()
 	}
 	else
 	{
 		if(user.currentlyPlaying && member.presence.status == 'offline')
 			setGame(member.id, '')
 	}
-	// Called when something about the user changes, like their nickname, game, hair colour, diet.. okay, maybe not that far..
-	member.client.on('presenceUpdate', (oldMember, newMember) =>
-	{
-		// Make sure they are who they say they are
-		if(newMember.id != user.id)
-			return
-		// Check for nickname changes
-		if(user.nickname != newMember.displayName)
-		{
-			user.nickname = newMember.displayName
-			global.db.get('users').find({ id: member.id }).set('nickname', newMember.displayName).write()
-		}
-
-		// Check game status
-		if(newMember.presence.game && user.currentlyPlaying != newMember.presence.game)
-			setGame(newMember.id, newMember.presence.game.name)
-		else if((!newMember.presence.game && user.currentlyPlaying != 'None') || newMember.presence.status == 'offline')
-			setGame(newMember.id, '')
-	})
 }
 
 getUsageFromObject = (usage) =>
@@ -214,6 +198,8 @@ setup = () =>
 		{
 			// Remove the command token, screw that thing
 			message.content = message.content.substring(CommandToken.length)
+			// Swap out iOS quote thingos because they screw everything over
+			message.content = Utils.replaceAll(message.content, /‘|’|“|”/g, '\"')
 			// Get the parameters, seperated by spaces (excluding words encapsulated in double quotes), using regex magic
 			//	e.g. '!someCommand parameter1 "some other parameter" another one'
 			//			=> [ 'someCommand', 'parameter1', 'some other parameter', 'another', 'one' ]
@@ -234,6 +220,7 @@ setup = () =>
 				// Let the console-peasant know we're done here
 				console.log('Refreshed')
 			}
+			// Send help, or raygun
 			else if(params[0].toLowerCase() == 'help')
 				sendHelp(message)
 			else // otherwise check if another command wants to take the user up on that challenge
@@ -246,7 +233,7 @@ setup = () =>
 						command.call(message, params, client) // FIGHT!
 				})
 		}
-		else // it's not a command, so let all the others know we got a general message,
+		else // it's not a command, so let all the commands know we got a general message,
 		{	 // 	and they can do whatever the hell they want with it, like delete it
 			let handled = false
 			for(let i = 0; i < commands.length; i++)
@@ -267,9 +254,9 @@ setup = () =>
 		// Get the initial channel, set by the .json config (something like 'welcome' or 'new-members')
 		let channel = member.guild.channels.find('name', global.db.get('initialChannel').value())
 		if(channel) // If the channel exists, then welcome them with a random greeting
-			channel.send(Utils.process(Utils.getRandom(global.db.get('greetings').value()), channel, member))
+			channel.send(Utils.process(Utils.getRandom(global.db.get('greetings').value(), channel), member, channel))
 		// Store their data in our secret file full of secret stuff
-		global.db.get('users').push({ id: member.id, games: [], quotes: [] }).write()
+		global.db.get('users').push({ id: member.id, name: member.name, nickname: member.displayName, games: [], quotes: [] }).write()
 		// Watch them intently so that we can know their every move/message
 		watch(member)
 	})
@@ -285,8 +272,17 @@ setup = () =>
 	client.on('guildMemberUpdate', (oldMember, newMember) =>
 	{
 		let user = global.db.get('users').find({ id: newMember.id })
+
+		// Check for nickname changes
 		if(user.value().nickname != newMember.displayName)
 			user.set('nickname', newMember.displayName).write()
+		// Check game status
+		if(newMember.presence.game && user.value().currentlyPlaying != newMember.presence.game)
+			setGame(newMember.id, newMember.presence.game.name)
+		else if((!newMember.presence.game && user.value().currentlyPlaying != 'None') || newMember.presence.status == 'offline')
+			setGame(newMember.id, '')
+		if(newMember.presence.game)
+			console.log('\'' + newMember.displayName + '\' is playing \'' + newMember.presence.game.name + '\'')
 	})
 	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!
 	//	Also I'm passing the rejected thingo to the console's thingamabob
@@ -311,7 +307,7 @@ try
 }
 catch (e)
 {
-	console.log('Coulnd\'t read database "' + DBPath + '" - ' + e.message)
+	console.log('Couldn\'t read database "' + DBPath + '" - ' + e.message)
 	return
 }
 
@@ -328,17 +324,17 @@ global.db.defaults({
 		"definitely not porn"
 	],
 	greetings: [
-		"Sup, ___username___",
-		"Ayy, it's ___username___"
+		"Sup, ${username}",
+		"Ayy, it's ${username}"
 	],
 	farewells: [
-		"Goodbye ___username___, you may or may not be missed",
+		"Goodbye ${username}, you may or may not be missed",
 		"So uhh... did I do that?"
 	],
 	genericResponses: [
-		'___random_guild_member___, I think this guy wants you',
+		'${random_member}, I think this guy wants you',
 		'Hey',
-		'Roses are red, \n___username___ looks like a *pheasant*,\ndon\'t say my name you ***peasant***',
+		'Roses are red, \n${username} looks like a *pheasant*,\ndon\'t say my name you ***peasant***',
 		'58008',
 		'You got the goods?'
 	]

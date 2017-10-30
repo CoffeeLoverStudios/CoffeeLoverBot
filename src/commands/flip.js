@@ -2,9 +2,9 @@ const Command = require('./command.js')
 
 module.exports = class flipcoin extends Command
 {
-	usage(token) { return '`' + token + 'flipcoin`: Flips a coin'}
+	usage(token) { return '`' + token + 'flipcoin`, `' + token + 'flip`: Flips a coin'}
 
-    shouldCall(command) { return command.toLowerCase() == 'flipcoin' }
+    shouldCall(command) { return command.toLowerCase() == 'flipcoin' || command.toLowerCase() == 'flip' }
 
 	call(message, params, client)
     {

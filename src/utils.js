@@ -17,13 +17,17 @@ module.exports =
 		return item
 	},
 	getRandomNumber: function(min, max) { return Math.floor(SeedRandom(new Date().getTime(), { entropy: true })() * max) + min },
-	getRandomUser: function(guild, filteredIDs) { return guild.members.filter((user) => { return !filteredIDs.includes(user.id) }).random(1) },
+	getRandomUser: function(guild, filteredIDs)
+	{
+		let member = guild.members.filter((user) => { return !filteredIDs.includes(user.id) }).random(1)
+		console.log('Got random memember \'' + (member.name || 'null') + '\'')
+		return member
+	},
 
 	replaceAll: function(input, replace, value) { return input.replace(new RegExp(replace, 'g'), value) },
 
 	getParams: function(input)
 	{
-		input = this.replaceAll(input, /‘|’|“|”/g, '\"')
 		let matches, params = []
 		while(matches = CommandRegex.exec(input))
 			params.push(matches[0].replace(ParamsReplaceRegex, ''))

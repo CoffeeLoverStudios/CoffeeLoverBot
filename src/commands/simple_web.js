@@ -58,6 +58,6 @@ module.exports = class SimpleWeb extends Command
 			})
 		}
 		else if(params[0].toLowerCase() == 'database')
-			message.channel.send(new Discord.Attachment('./db.json'))
+			message.channel.send(new Discord.Attachment('./data/db.json'))
 	}
 }

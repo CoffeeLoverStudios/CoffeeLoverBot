@@ -18,7 +18,8 @@
       "quotes": [],
       "canMessage": true,
       "games": [
-        "Crawl"
+        "Crawl",
+        "Black Desert Online"
       ],
       "nickname": "lcomstive"
     },
@@ -28,19 +29,22 @@
       "currentlyPlaying": "",
       "quotes": [],
       "canMessage": true,
-      "games": []
+      "games": [],
+      "nickname": "Multusvalde"
     },
     {
       "id": "210746479403335680",
       "games": [
-        "Space Engineers"
+        "Space Engineers",
+        "Grand Theft Auto V"
       ],
       "name": "The QA Tester",
       "quotes": [
         "You're a lizard, Garry"
       ],
       "canMessage": true,
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "nickname": "The QA Tester"
     },
     {
       "id": "244751835703934976",
@@ -51,8 +55,9 @@
       ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": "Space Engineers",
-      "canMessage": true
+      "currentlyPlaying": "",
+      "canMessage": true,
+      "nickname": "blue6402"
     },
     {
       "id": "230526318872231938",
@@ -61,10 +66,73 @@
       "quotes": [],
       "currentlyPlaying": "",
       "games": [
-        "GearUp"
+        "GearUp",
+        "Atlas Reactor",
+        "wallpaper_engine"
       ],
-      "nickname": "( ͡° ͜ʖ ͡°)",
+      "nickname": "cartower",
       "canMessage": true
+    },
+    {
+      "id": "244722885195726850",
+      "nickname": "SquidBomb",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "117606383557410825",
+      "games": [
+        "Guild Wars 2"
+      ],
+      "quotes": [],
+      "nickname": "Heralias",
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "178422841518063616",
+      "games": [],
+      "quotes": [],
+      "nickname": "Chronicler",
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "174397951370592256",
+      "games": [
+        "BlazBlue Calamity Trigger"
+      ],
+      "quotes": [],
+      "nickname": "BOBtheman2000",
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "218018036995719169",
+      "nickname": "ThePurpleTrixter",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "290177072758784000",
+      "nickname": "South Korean Legend-Faker",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "362242590520770570",
+      "nickname": "Im Not A Toxic Boy",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "217396014645116929",
+      "games": [],
+      "quotes": [],
+      "nickname": "Sergius Octavius",
+      "currentlyPlaying": ""
     }
   ],
   "adminRoles": [
@@ -137,6 +205,16 @@
     "Sorry, this chat is for youngin's",
     "I wish this was a NSFW chat so you could do that",
     "Nice try ( ͡° ͜ʖ ͡°)"
+  ],
+  "gameAliases": [
+    {
+      "game": "wallpaper_engine",
+      "alias": "Wallpaper Engine"
+    },
+    {
+      "game": "Team Fortress 2",
+      "alias": "TF2 (*on an Alienware*)"
+    }
   ],
   "genericResponses": [
     "Whatchu want?",
