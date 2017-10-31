@@ -14,7 +14,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"cleverbot-node": "^0.3.11",
-		"discord.js": "git+https://github.com/hydrabolt/discord.js.git",
+		"discord.js": "^11.2.1",
 		"express": "^4.16.2",
 		"lowdb": "^1.0.0",
 		"request": "^2.83.0",
@@ -24,6 +24,7 @@
 	"devDependencies": {
 		"coffee-script": "^1.12.7",
 		"foreman": "^2.0.0",
+		"heroku": "^0.2.0",
 		"nodemon": "^1.12.1"
 	}
 }

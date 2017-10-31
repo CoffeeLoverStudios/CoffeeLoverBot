@@ -24,7 +24,7 @@ module.exports =
 		return member
 	},
 
-	replaceAll: function(input, replace, value) { return input.replace(new RegExp(replace, 'g'), value) },
+	replaceAll: function(input, replace, value, regex = true) { return input.replace(regex ? new RegExp(replace) : replace, value) },
 
 	getParams: function(input)
 	{
@@ -68,13 +68,16 @@ module.exports =
 	},
 	getRandomUserFromRole: function(channel, roleName)
 	{
-		let role = this.getRole(channel, roleName)
+		let role = this.getRole(channel.guild, roleName)
 		if(!role)
+		{
+			channel.send('Role \'' + roleName + '\' not found')
 			return undefined
+		}
 		let users = []
 		channel.guild.members.forEach((member, key, map) =>
 		{
-			if(member.role == role)
+			if(member.roles.has(role.id))
 				users.push(member)
 		})
 		if(users.length == 0)
@@ -83,15 +86,21 @@ module.exports =
 	},
 	getRole: function(guild, roleName)
 	{
-		guild.roles.forEach((role) =>
+		if(!guild)
+		{
+			console.log('No guild provided')
+			return
+		}
+		let foundRole = undefined
+		guild.roles.forEach((role, key, map) =>
 		{
 			if(role.name.toLowerCase() == roleName.toLowerCase())
-				return role
+				foundRole = role
 		})
-		return undefined
+		return foundRole
 	},
 
-	process: function(input, sender, channel)
+	process: function(input, sender, channel, customs)
 	{
 		if(input == undefined)
 			return ''
@@ -101,6 +110,9 @@ module.exports =
 			input = this.replaceAll(input, /\${random_number}/g, this.getRandomNumber(1, 10))
 		if(input.includes('${username}'))
 			input = this.replaceAll(input, /\${username}/g, sender.displayName)
+		if(customs)
+			for(let i = 0; i < customs.length; i++)
+				input = this.replaceAll(input, '${custom_' + i + '}', customs[i], false)
 		return input
 	}
 }

@@ -125,7 +125,10 @@
       "name": "South Korean Legend-Faker",
       "nickname": "South Korean Legend-Faker",
       "games": [],
-      "quotes": [],
+      "quotes": [
+        "Multu as your name but short version",
+        "Polish cocks right?"
+      ],
       "currentlyPlaying": ""
     },
     {
@@ -226,6 +229,11 @@
       "alias": "TF2 (*on an Alienware*)"
     }
   ],
+  "giveawayWin": [
+    "Congratulations ${custom_0}, you have won *${custom_1}*",
+    "So umm... *${custom_1}* has been claimed by ${custom_0}",
+    "Isn't ${custom_0}'s Steam library big enough without *${custom_1}*?"
+  ],
   "approveResponses": [
     "I approve of this message",
     "Agreed",
@@ -273,7 +281,7 @@
     "**whirring**",
     "You got the cash?",
     "I'm not gay but 20kb/s is 20kb/s",
-    "Go away i dont have time for *iiNet* speeds",
+    "Go away I dont have time for *iiNet* speeds",
     "*gone fishing, back in 5*",
     "Omae wa moi shinderu",
     "***YOU CAN'T HANDLE MY MEAT***",
