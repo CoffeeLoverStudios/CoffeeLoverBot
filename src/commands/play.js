@@ -22,16 +22,18 @@ module.exports = class Play extends Command
 	shouldCall(command) { return command.toLowerCase() == 'play' }
 	call(message, params, client)
 	{
+		console.log('Trying to play...')
 		if(!this.adminRoles.includes(message.member.highestRole.name))
 		{
 			message.channel.send(Utils.getRandom(this.adminRefusals), message.channel, message.member)
 			return
 		}
+		console.log('isAdmin, continuing...')
 		let game = Utils.getRandom(this.statuses)
 		if(params.length > 1)
 			game = message.content.substring(params[0].length + 1)
-		client.user.setGame(game)
-		client.user.setPresence({ game: { name: game, type: 0 }})
+		client.user.setPresence({ status: 'online', game: { name: game, type: 0 }})
+		console.log('Playing \'' + game + '\'')
 		message.channel.send('Now playing \'' + game + '\'')
 	}
 }

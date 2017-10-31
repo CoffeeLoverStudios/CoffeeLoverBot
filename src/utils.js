@@ -66,6 +66,30 @@ module.exports =
 		})
 		return user
 	},
+	getRandomUserFromRole: function(channel, roleName)
+	{
+		let role = this.getRole(channel, roleName)
+		if(!role)
+			return undefined
+		let users = []
+		channel.guild.members.forEach((member, key, map) =>
+		{
+			if(member.role == role)
+				users.push(member)
+		})
+		if(users.length == 0)
+			return undefined
+		return this.getRandom(users)
+	},
+	getRole: function(guild, roleName)
+	{
+		guild.roles.forEach((role) =>
+		{
+			if(role.name.toLowerCase() == roleName.toLowerCase())
+				return role
+		})
+		return undefined
+	},
 
 	process: function(input, sender, channel)
 	{

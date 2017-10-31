@@ -132,9 +132,6 @@ setup = () =>
 {
 	client.on('ready', () =>
 	{
-		// Set Bot's game status ('Playing...')
-		client.user.setPresence({ game: { name: Utils.getRandom(global.db.get('statuses').value()), type: 0 }})
-
 		CommandToken = global.db.get('commandToken').value()
 		if(!CommandToken)
 			CommandToken = '!'
@@ -172,6 +169,9 @@ setup = () =>
 				watch(member)
 			})
 		})
+
+		// Set Bot's game status ('Playing...')
+		client.user.setPresence({ status: 'online', game: { name: Utils.getRandom(global.db.get('statuses').value()), type: 0 }})
 
 		// Should probably let the console-onlooker know they can waste a few more hours of their life on Discord now.
 		//	At least this time it's because of something I did, and that's an achievement in my books
@@ -255,6 +255,11 @@ setup = () =>
 		let channel = member.guild.channels.find('name', global.db.get('initialChannel').value())
 		if(channel) // If the channel exists, then welcome them with a random greeting
 			channel.send(Utils.process(Utils.getRandom(global.db.get('greetings').value(), channel), member, channel))
+
+		// Set the new user's role
+		let role = Utils.getRole(member.guild, global.db.get('initialRole').value())
+		if(role)
+			member.setRoles([ role ])
 		// Store their data in our secret file full of secret stuff
 		global.db.get('users').push({ id: member.id, name: member.name, nickname: member.displayName, games: [], quotes: [] }).write()
 		// Watch them intently so that we can know their every move/message
