@@ -15,7 +15,9 @@
       "id": "191069151505154048",
       "name": "lcomstive",
       "currentlyPlaying": "",
-      "quotes": [],
+      "quotes": [
+        "(╯°□°）╯︵ ┻━┻"
+      ],
       "canMessage": true,
       "games": [
         "Crawl",
@@ -75,6 +77,7 @@
     },
     {
       "id": "244722885195726850",
+      "name": "SquidBomb",
       "nickname": "SquidBomb",
       "games": [],
       "quotes": [],
@@ -86,6 +89,7 @@
         "Guild Wars 2"
       ],
       "quotes": [],
+      "name": "Heralias",
       "nickname": "Heralias",
       "currentlyPlaying": ""
     },
@@ -93,6 +97,7 @@
       "id": "178422841518063616",
       "games": [],
       "quotes": [],
+      "name": "Chronicler",
       "nickname": "Chronicler",
       "currentlyPlaying": ""
     },
@@ -102,11 +107,13 @@
         "BlazBlue Calamity Trigger"
       ],
       "quotes": [],
+      "name": "BOBtheman2000",
       "nickname": "BOBtheman2000",
       "currentlyPlaying": ""
     },
     {
       "id": "218018036995719169",
+      "name": "ThePurpleTrixter",
       "nickname": "ThePurpleTrixter",
       "games": [],
       "quotes": [],
@@ -115,6 +122,7 @@
     },
     {
       "id": "290177072758784000",
+      "name": "South Korean Legend-Faker",
       "nickname": "South Korean Legend-Faker",
       "games": [],
       "quotes": [],
@@ -122,6 +130,7 @@
     },
     {
       "id": "362242590520770570",
+      "name": "Im Not A Toxic Boy",
       "nickname": "Im Not A Toxic Boy",
       "games": [],
       "quotes": [],
@@ -131,6 +140,7 @@
       "id": "217396014645116929",
       "games": [],
       "quotes": [],
+      "name": "Sergius Octavius",
       "nickname": "Sergius Octavius",
       "currentlyPlaying": ""
     }
@@ -215,6 +225,11 @@
       "game": "Team Fortress 2",
       "alias": "TF2 (*on an Alienware*)"
     }
+  ],
+  "approveResponses": [
+    "I approve of this message",
+    "Agreed",
+    "${username}, I couldn't agree more"
   ],
   "genericResponses": [
     "Whatchu want?",
