@@ -10,6 +10,9 @@ const Utils = require('./utils.js')
 const Command = require('./commands/command.js')
 const Shush = require('./commands/shush.js')
 
+if(process.env.NODE_ENV !== 'production')
+	require('dotenv').load()
+
 // Some variable setup
 let DBPath = 'data/db.json'
 let global = require('./global.js')
@@ -126,6 +129,20 @@ sendHelp = (message) =>
 		else
 			console.log('Couldn\'t get usage for \'' + usage + '\'')
 	})
+	while(helpMsg.length >= 2000)
+	{
+		let index = helpMsg.substring(0, 2000).lastIndexOf('-')
+		if(index >= 0)
+		{
+			message.channel.send(helpMsg.substring(0, index))
+			helpMsg = helpMsg.substring(index)
+		}
+		else
+		{
+			message.channel.send(helpMsg.substring(0, 2000))
+			helpMsg = helpMsg.substring(2000)
+		}
+	}
 	message.channel.send(helpMsg)
 }
 
@@ -321,7 +338,7 @@ catch (e)
 // Set the defaults for the database, for if it doesn't exist yet
 global.db.defaults({
 	users: [],
-	tokens: { discord: "", cleverbot: "" },
+	commandToken: '!',
 	initialChannel: 'welcome',
 	statuses: [
 		// Playing...
@@ -347,13 +364,9 @@ global.db.defaults({
 	]
 }).write()
 
-// Get the keys
-global.tokens = global.db.get('tokens').value();
-// SOMEONE didn't set it up properly
-if(global.tokens.discord && global.tokens.discord == '')
-	global.tokens.discord = process.env.BOT_TOKEN || undefined
-if(global.tokens.cleverbot && global.tokens.cleverbot == '')
-	global.tokens.cleverbot = process.env.CLEVERBOT_TOKEN || undefined
+// Get the tokens
+global.tokens.discord = process.env.BOT_TOKEN
+global.tokens.cleverbot = process.env.CLEVERBOT_TOKEN
 
 // We kinda NEED this token
 if(!global.tokens.discord)

@@ -1,11 +1,6 @@
 {
-  "tokens": {
-    "discord": "MzY0MzY3Mzk5NTM4OTE3Mzc3.DLPK-g.QlM7fZ1ofLh3liv_0E-16baovHw",
-    "cleverbot": "CC529ZEOZEo2PpzKCn2YZ651ASQ",
-    "command": "!"
-  },
-  "initialChannel": "welcome",
   "commandToken": "!",
+  "initialChannel": "welcome",
   "technologies": [
     "NodeJS (https://nodejs.org)",
     "Discord.js (https://discord.js.org)",
@@ -32,7 +27,8 @@
       "name": "Multusvalde",
       "currentlyPlaying": "",
       "quotes": [
-        "DONT CALL ME HARRY"
+        "DONT CALL ME HARRY",
+        "It's not weeb if it's french"
       ],
       "canMessage": true,
       "games": [],
@@ -115,7 +111,9 @@
       "games": [
         "BlazBlue Calamity Trigger"
       ],
-      "quotes": [],
+      "quotes": [
+        "quote lcomstive"
+      ],
       "name": "BOBtheman2000",
       "nickname": "BOBtheman2000",
       "currentlyPlaying": "",
@@ -186,6 +184,38 @@
       "currentlyPlaying": ""
     }
   ],
+  "music": {
+    "queues": [
+      {
+        "guild": "349169223899283456",
+        "volume": 100,
+        "songIndex": 4,
+        "removeWhenFinished": false,
+        "queue": [
+          {
+            "title": "QUIX - Riot Call (feat. Nevve)",
+            "url": "https://www.youtube.com/watch?v=JY5NVzHtA5o&hl=en"
+          },
+          {
+            "title": "Martin Garrix - Now That I've Found You (Dropwizz & Savagez Remix)",
+            "url": "https://www.youtube.com/watch?v=_Xj6iWDiBos&hl=en"
+          },
+          {
+            "title": "DISKORD - Want U",
+            "url": "https://www.youtube.com/watch?v=X9p1P8X-Hd0&hl=en"
+          },
+          {
+            "title": "Zedd, Kesha - True Colors (Nolan van Lith Remix)",
+            "url": "https://www.youtube.com/watch?v=TPZnDVnNZ6E&hl=en"
+          },
+          {
+            "title": "Galantis - Rich Boy (Zack Martino Remix)",
+            "url": "https://www.youtube.com/watch?v=F8oK8XT6el0&hl=en"
+          }
+        ]
+      }
+    ]
+  },
   "adminRoles": [
     "Coffee Admin",
     "Coffee Brewer"
@@ -289,15 +319,15 @@
     "Yes?",
     "I AM BOT",
     "Go away, I'm playing with ${random_member}",
-    "yes senpai?",
-    "hey",
-    "hai, ${username}-chan?",
-    "sorry uhh, no speaka englis",
-    "ugh not again...",
-    "**the hell you just call me?!**",
-    "can't you tell im busy not caring?",
+    "Yes senpai?",
+    "Hey",
+    "Hai, ${username}-chan?",
+    "Sorry uhh, no speaka englis",
+    "Ugh not again...",
+    "**The hell you just call me?!**",
+    "Can't you tell im busy not caring?",
     "*muted*",
-    "roses are red, \n${username} looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***",
+    "Roses are red, \n${username} looks like a *pheasant*, \ndont say my name you *stupid dumb* ***peasant***",
     "58008",
     "Unsheath thou keyboard",
     "Woah, whats that over there?",
@@ -305,7 +335,7 @@
     "*deleting cookies*",
     "It was me, ***Dio***",
     "Mmmmmm, cheque please",
-    "everyone, ${username} needs help",
+    "Everyone, ${username} needs help",
     "My liege?",
     "Are you scribing on a portable doohickey?!",
     "I came, I saw, and I **came some more!**",
@@ -326,7 +356,7 @@
     "In Russia we don't have banana, we only have split",
     "What the wallaby are those dinosaurs doing with Hitler?!",
     "Im as dead as boomerang",
-    "im here and im queer",
+    "I'm here and I'm queer",
     "*Equips headphones*",
     "Ignorance is bliss",
     "Hello neighbour",
@@ -335,10 +365,14 @@
     "*Nyaaa*",
     "Lets have a deep and meaningful",
     "Heil",
-    "It's a me... shitty bot",
+    "Itsa me... shitty bot",
     "The quotes... The terrible quotes...",
     "After losing most of my senses my other senses were heightened, like my sense of *bullshit*",
     "*dialing up iiNet internet*",
-    "\"the QA tester\""
-  ]
+    "lcomstive"
+  ],
+  "tokens": {
+    "discord": "",
+    "cleverbot": ""
+  }
 }
