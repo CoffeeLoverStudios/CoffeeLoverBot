@@ -66,7 +66,7 @@ module.exports = class Music extends Command
 
 	play(id, index)
 	{
-		if(!this.queues.has(id))
+		if(!this.queues.has(id) || !this.queues.get(id).playing)
 		 	return
 		let info = this.queues.get(id)
 		if(index < 0 || info.queue.length <= index)
@@ -78,7 +78,7 @@ module.exports = class Music extends Command
 			info.connection.dispatcher.end()
 		info.playing = true
 		info.songIndex = index
-		info.connection.playStream(ytdl(info.queue[info.songIndex].url))
+		info.connection.playStream(ytdl(info.queue[info.songIndex].url).on('finish', () => { if(info.playing) this.playNext(id) }))
 		info.textChannel.send('Now playing: *' + info.queue[info.songIndex].title + '*')
 	}
 
@@ -204,8 +204,7 @@ module.exports = class Music extends Command
 					info.textChannel = message.channel
 					info.voiceChannel = voiceChannel
 					info.connection = connection
-					info.playing = false
-					info.dispatcher = undefined
+					info.playing = true
 					if(info.queue.length > 0)
 					{
 						this.play(message.member.guild.id, info.songIndex || 0)

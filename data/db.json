@@ -182,6 +182,13 @@
         "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
       ],
       "currentlyPlaying": ""
+    },
+    {
+      "id": "371650731616370689",
+      "nickname": "Rain",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
     }
   ],
   "music": {
@@ -211,6 +218,10 @@
           {
             "title": "Galantis - Rich Boy (Zack Martino Remix)",
             "url": "https://www.youtube.com/watch?v=F8oK8XT6el0&hl=en"
+          },
+          {
+            "title": "STéLOUSE - Sociopath (feat. Bryce Fox)",
+            "url": "https://www.youtube.com/watch?v=CCuxv2O1IIA&hl=en"
           }
         ]
       }
