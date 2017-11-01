@@ -48,7 +48,7 @@
         "Tickle me, yeah right there ;)"
       ],
       "canMessage": true,
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Space Engineers",
       "nickname": "The QA Tester"
     },
     {
@@ -56,11 +56,12 @@
       "games": [
         "Unreal Tournament",
         "Team Fortress 2",
-        "Space Engineers"
+        "Space Engineers",
+        "wallpaper_engine"
       ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": "",
+      "currentlyPlaying": "wallpaper_engine",
       "canMessage": true,
       "nickname": "blue6402"
     },
@@ -177,11 +178,13 @@
     {
       "id": "222643403651809280",
       "nickname": "Widmo",
-      "games": [],
+      "games": [
+        "Space Engineers"
+      ],
       "quotes": [
         "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
       ],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "Space Engineers"
     },
     {
       "id": "371650731616370689",
@@ -196,7 +199,7 @@
       {
         "guild": "349169223899283456",
         "volume": 100,
-        "songIndex": 4,
+        "songIndex": 5,
         "removeWhenFinished": false,
         "queue": [
           {

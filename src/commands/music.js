@@ -78,7 +78,8 @@ module.exports = class Music extends Command
 			info.connection.dispatcher.end()
 		info.playing = true
 		info.songIndex = index
-		info.connection.playStream(ytdl(info.queue[info.songIndex].url).on('finish', () => { if(info.playing) this.playNext(id) }))
+		this.queues.get(id).connection.playStream(ytdl(info.queue[info.songIndex].url).on('finish', () => { if(info.playing) this.playNext(id) }))
+		this.queues.get(id).connection.dispatcher.setVolumeLogarithmic(info.volume / 100)
 		info.textChannel.send('Now playing: *' + info.queue[info.songIndex].title + '*')
 	}
 
@@ -206,10 +207,7 @@ module.exports = class Music extends Command
 					info.connection = connection
 					info.playing = true
 					if(info.queue.length > 0)
-					{
 						this.play(message.member.guild.id, info.songIndex || 0)
-						connection.dispatcher.setVolumeLogarithmic(info.volume / 100)
-					}
 				})
 				break
 			}

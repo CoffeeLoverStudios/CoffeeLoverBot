@@ -82,6 +82,8 @@ watch = (member) =>
 	{
 		if(user.currentlyPlaying && member.presence.status == 'offline')
 			setGame(member.id, '')
+		else if(member.presence.game)
+			setGame(member.id, member.presence.game.name || '')
 	}
 }
 
@@ -290,7 +292,7 @@ setup = () =>
 		global.db.get('users').remove({ id: member.id }).write()
 		let channel = member.guild.channels.find('name', global.db.get('initialChannel').value())
 		if(channel)
-			channel.send(Utils.process(Utils.getRandom(global.db.get('farewells').value()), channel, member))
+			channel.send(Utils.process(Utils.getRandom(global.db.get('farewells').value(), channel), member, channel))
 	})
 	// Check for sneaky buggers changing their name on us
 	client.on('guildMemberUpdate', (oldMember, newMember) =>
@@ -305,8 +307,9 @@ setup = () =>
 			setGame(newMember.id, newMember.presence.game.name)
 		else if((!newMember.presence.game && user.value().currentlyPlaying != 'None') || newMember.presence.status == 'offline')
 			setGame(newMember.id, '')
-		if(newMember.presence.game)
-			console.log('\'' + newMember.displayName + '\' is playing \'' + newMember.presence.game.name + '\'')
+		let guildUser = Utils.getUser(newMember.guild, newMember.id)
+		if(guildUser.presence.game)
+			console.log('\'' + guildUser.displayName + '\' is playing \'' + guildUser.presence.game.name + '\'')
 	})
 	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!
 	//	Also I'm passing the rejected thingo to the console's thingamabob

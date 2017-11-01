@@ -15,7 +15,7 @@ module.exports = class GiveAway extends Command
 		this.winResponses = global.db.get('giveawayWin').value()
 	}
 
-	usage(token) { return "`" + token + "giveaway <role> <name>`: Does a giveaway, choosing a random user from the given role" }
+	usage(token) { return { usage: "`" + token + "giveaway <role> <name>`: Does a giveaway, choosing a random user from the given role", admin: true } }
 
 	shouldCall(command) { return command.toLowerCase() == "giveaway" }
 

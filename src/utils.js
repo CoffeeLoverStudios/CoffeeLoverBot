@@ -50,11 +50,11 @@ module.exports =
 		return userID
 	},
 
-	getUser: function(channel, userID) { return channel.guild.members.find({ id: userID }) },
-	getUserByName: function(channel, username)
+	getUser: function(guild, userID) { return guild.members.find({ id: userID }) },
+	getUserByName: function(guild, username)
 	{
 		let user = undefined
-		channel.guild.members.forEach((member, key, map) =>
+		guild.members.forEach((member, key, map) =>
 		{
 			if(member.displayName.toLowerCase() == username.toLowerCase() ||
 			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()) ||
