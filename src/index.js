@@ -324,6 +324,26 @@ setup = () =>
 		console.log('Cleverbot token not found, disabling...')
 		cleverbot = undefined
 	}
+
+	this.updateInterval = setInterval(() =>
+	{
+		client.guilds.forEach((value, key, map) =>
+		{
+			// Yes, I do 'value' each and every one of you equally. Bad pun, sorry...
+			value.members.forEach((member, key, map) =>
+			{
+				// If this is the bot... well, it shouldn't watch itself. It's seen enough as it is...
+				if(member.id == client.user.id)
+					return
+				let user = global.db.get('users').find({ id: member.id }).value()
+				// Check game status
+				if(member.presence.game && user.currentlyPlaying != member.presence.game)
+					setGame(member.id, member.presence.game.name)
+				else if((!member.presence.game && user.currentlyPlaying != 'None') || member.presence.status == 'offline')
+					setGame(member.id, '')
+			})
+		})
+	}, process.env.UPDATE_INTERVAL || 120000)
 }
 
 // Some database stuff
