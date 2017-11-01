@@ -1,7 +1,8 @@
 {
   "tokens": {
     "discord": "MzY0MzY3Mzk5NTM4OTE3Mzc3.DLPK-g.QlM7fZ1ofLh3liv_0E-16baovHw",
-    "cleverbot": "CC529ZEOZEo2PpzKCn2YZ651ASQ"
+    "cleverbot": "CC529ZEOZEo2PpzKCn2YZ651ASQ",
+    "command": "!"
   },
   "initialChannel": "welcome",
   "commandToken": "!",
@@ -16,7 +17,8 @@
       "name": "lcomstive",
       "currentlyPlaying": "",
       "quotes": [
-        "(╯°□°）╯︵ ┻━┻"
+        "(╯°□°）╯︵ ┻━┻",
+        "same"
       ],
       "canMessage": true,
       "games": [
@@ -29,7 +31,9 @@
       "id": "220860764976578561",
       "name": "Multusvalde",
       "currentlyPlaying": "",
-      "quotes": [],
+      "quotes": [
+        "DONT CALL ME HARRY"
+      ],
       "canMessage": true,
       "games": [],
       "nickname": "Multusvalde"
@@ -42,7 +46,10 @@
       ],
       "name": "The QA Tester",
       "quotes": [
-        "You're a lizard, Garry"
+        "You're a lizard, Garry",
+        "YOU IDIOT",
+        "lots and lots of dicks",
+        "Tickle me, yeah right there ;)"
       ],
       "canMessage": true,
       "currentlyPlaying": "",
@@ -96,7 +103,9 @@
     {
       "id": "178422841518063616",
       "games": [],
-      "quotes": [],
+      "quotes": [
+        "CHINa"
+      ],
       "name": "Chronicler",
       "nickname": "Chronicler",
       "currentlyPlaying": ""
@@ -109,14 +118,18 @@
       "quotes": [],
       "name": "BOBtheman2000",
       "nickname": "BOBtheman2000",
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "218018036995719169",
       "name": "ThePurpleTrixter",
       "nickname": "ThePurpleTrixter",
       "games": [],
-      "quotes": [],
+      "quotes": [
+        "Aw fuck",
+        "On the side of the street i got my pc and tv hooked up to a light pole,"
+      ],
       "currentlyPlaying": "",
       "canMessage": true
     },
@@ -127,7 +140,8 @@
       "games": [],
       "quotes": [
         "Multu as your name but short version",
-        "Polish cocks right?"
+        "Polish cocks right?",
+        "COCKS"
       ],
       "currentlyPlaying": ""
     },
@@ -144,7 +158,31 @@
       "games": [],
       "quotes": [],
       "name": "Sergius Octavius",
-      "nickname": "Sergius Octavius",
+      "nickname": "sssffsdadasdasdasdasda",
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "264047396147822592",
+      "nickname": "piggy85",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "164396031113428992",
+      "nickname": "ToKyoDeath",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "222643403651809280",
+      "nickname": "Widmo",
+      "games": [],
+      "quotes": [
+        "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
+      ],
       "currentlyPlaying": ""
     }
   ],
@@ -281,9 +319,9 @@
     "**whirring**",
     "You got the cash?",
     "I'm not gay but 20kb/s is 20kb/s",
-    "Go away I dont have time for *iiNet* speeds",
+    "Go away i dont have time for *iiNet* speeds",
     "*gone fishing, back in 5*",
-    "Omae wa moi shinderu",
+    "Omae wa moe shindeiru",
     "***YOU CAN'T HANDLE MY MEAT***",
     "In Russia we don't have banana, we only have split",
     "What the wallaby are those dinosaurs doing with Hitler?!",
@@ -300,6 +338,7 @@
     "It's a me... shitty bot",
     "The quotes... The terrible quotes...",
     "After losing most of my senses my other senses were heightened, like my sense of *bullshit*",
-    "*dialing up iiNet internet*"
+    "*dialing up iiNet internet*",
+    "\"the QA tester\""
   ]
 }

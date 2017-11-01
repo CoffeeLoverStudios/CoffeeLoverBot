@@ -31,13 +31,26 @@ module.exports = class Quote extends Command
 								 command.toLowerCase() == 'userquote' ||
 							 	 command.toLowerCase() == 'listquotes' }
 
+	addUserQuote(message)
+	{
+		global.db.get('users').find({ id: message.member.id }).get('quotes').push(message.content).write()
+		message.channel.send('Saved "' + message.content + '"')
+	}
+
 	call(message, params, client)
 	{
 		if(params[0].toLowerCase() == 'quote')
 		{
 			if(params.length == 1)
 			{
-				message.channel.send('Usage: quote <some words here>')
+				let msgs = message.channel.messages.array()
+				for(let i = msgs.length - 2; i >= 0; i--)
+				{
+					if(msgs[i].content.startsWith(global.tokens.command))
+						continue
+					this.addUserQuote(msgs[i])
+					break
+				}
 				return
 			}
 			global.db.get('genericResponses').push(message.content.substring('quote'.length + 1)).write()
@@ -84,10 +97,7 @@ module.exports = class Quote extends Command
 			let member = Utils.getUserByName(message.channel, params[1])
 			let lastMessage = member.lastMessage
 			if(lastMessage)
-			{
-				global.db.get('users').find({ id: member.id }).get('quotes').push(lastMessage.content).write()
-				message.channel.send('Saved "' + lastMessage.content + '"')
-			}
+				this.addUserQuote(member.lastMessage)
 			else
 				message.channel.send('Couldn\'t find a quote from that user, maybe get them to send it again?')
 		}

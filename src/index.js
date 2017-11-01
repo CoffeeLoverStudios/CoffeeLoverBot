@@ -13,7 +13,6 @@ const Shush = require('./commands/shush.js')
 // Some variable setup
 let DBPath = 'data/db.json'
 let global = require('./global.js')
-let CommandToken = '!'
 
 let commands = []
 let app = new Express()
@@ -68,9 +67,12 @@ watch = (member) =>
 			name: member.user.name,
 			nickname: member.displayName,
 			games: [],
-			quotes: [],
-			currentlyPlaying: member.presence.game.name || '',
+			quotes: []
 		}
+		if(member.presence && member.presence.game)
+			user.currentlyPlaying = member.presence.game.name
+		else
+			user.currentlyPlaying = ''
 		users.push(user).write()
 	}
 	else
@@ -93,12 +95,12 @@ getUsageFromObject = (usage) =>
 sendHelp = (message) =>
 {
 	let helpMsg = '*Commands*:'
-	helpMsg += '\n - `' + CommandToken + 'help`: Shows all available commands'
-	helpMsg += '\n - ' + getUsageFromObject({ usage: '`' + CommandToken + 'refresh`: Refreshes the database of stuffs', admin: true })
+	helpMsg += '\n - `' + global.tokens.command + 'help`: Shows all available commands'
+	helpMsg += '\n - ' + getUsageFromObject({ usage: '`' + global.tokens.command + 'refresh`: Refreshes the database of stuffs', admin: true })
 	commands.forEach(command =>
 	{
 		if(typeof command.usage === 'undefined') return
-		let usage = command.usage(CommandToken)
+		let usage = command.usage(global.tokens.command)
 		if(usage == undefined)
 			return
 		if(typeof usage == 'string')
@@ -132,9 +134,9 @@ setup = () =>
 {
 	client.on('ready', () =>
 	{
-		CommandToken = global.db.get('commandToken').value()
-		if(!CommandToken)
-			CommandToken = '!'
+		global.tokens.command = global.db.get('commandToken').value()
+		if(!global.tokens.command)
+			global.tokens.command = '!'
 
 		// Load all commands in the './commands/' directory
 		var normalizedPath = path.join(__dirname, 'commands')
@@ -188,16 +190,16 @@ setup = () =>
 		let user = global.db.get('users').find({ id: message.member.id }).value()
 		// If the user cannot message, SHUSH THEMMMM!!! if they do an 'unshush' command,
 		//		we'll skip this and let them know they can't do that >:)
-		if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(CommandToken + 'unshush'))
+		if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(global.tokens.command + 'unshush'))
 		{
 			Shush.shushMessage(message)
 			return
 		}
 		// Check if the message is a command
-		if(message.content[0] == CommandToken)
+		if(message.content[0] == global.tokens.command)
 		{
 			// Remove the command token, screw that thing
-			message.content = message.content.substring(CommandToken.length)
+			message.content = message.content.substring(global.tokens.command.length)
 			// Swap out iOS quote thingos because they screw everything over
 			message.content = Utils.replaceAll(message.content, /‘|’|“|”/g, '\"')
 			// Get the parameters, seperated by spaces (excluding words encapsulated in double quotes), using regex magic
@@ -213,9 +215,9 @@ setup = () =>
 				commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
 
 				// Check for a new command token
-				CommandToken = global.db.get('commandToken').value()
-				if(!CommandToken)
-					CommandToken = '!'
+				global.tokens.command = global.db.get('commandToken').value()
+				if(!global.tokens.command)
+					global.tokens.command = '!'
 
 				// Let the console-peasant know we're done here
 				console.log('Refreshed')

@@ -86,6 +86,8 @@ module.exports =
 	},
 	getRole: function(guild, roleName)
 	{
+		if(!roleName)
+			return
 		if(!guild)
 		{
 			console.log('No guild provided')

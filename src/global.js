@@ -4,6 +4,7 @@ module.exports =
 	tokens:
 	{
 		discord: undefined,
-		cleverbot: undefined
+		cleverbot: undefined,
+		command: '!'
 	}
 }
