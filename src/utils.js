@@ -1,6 +1,6 @@
 const SeedRandom = require('seedrandom')
 
-let CommandRegex = /\w+|[^\s"]+|"[^"]+"/g // Split words by white-space, but leave words in quotes as a single parameter
+let CommandRegex = /[^\s"]+|"[^"]+"/g // Split words by white-space, but leave words in quotes as a single parameter
 let ParamsReplaceRegex = /"|'/g // Replace all quotation marks, single or double
 module.exports =
 {
