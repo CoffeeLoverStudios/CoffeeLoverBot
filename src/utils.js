@@ -1,4 +1,5 @@
-const SeedRandom = require('seedrandom')
+const global = require('./global.js')
+const randomExt = require('random-ext');
 
 let CommandRegex = /[^\s"]+|"[^"]+"/g // Split words by white-space, but leave words in quotes as a single parameter
 let ParamsReplaceRegex = /"|'/g // Replace all quotation marks, single or double
@@ -6,7 +7,7 @@ module.exports =
 {
 	getRandom: function(list, channel)
 	{
-		let item = list[Math.floor(SeedRandom(new Date().getTime(), { entropy: true })() * list.length)]
+		let item = list[randomExt.integer(list.length - 1)]
 		if(typeof item == 'string' && item.startsWith('${nsfw}'))
 		{
 			if(channel.nsfw)
@@ -16,12 +17,27 @@ module.exports =
 		}
 		return item
 	},
-	getRandomNumber: function(min, max) { return Math.floor(SeedRandom(new Date().getTime(), { entropy: true })() * max) + min },
+	getRandomNumber: function(min, max) { return Math.floor(Math.random() * max) + min },
 	getRandomUser: function(guild, filteredIDs)
 	{
-		let member = guild.members.filter((user) => { return !filteredIDs.includes(user.id) }).random(1)
-		console.log('Got random memember \'' + (member.name || 'null') + '\'')
+		let members = [...guild.members.filter((user) => { return filteredIDs ? !filteredIDs.includes(user.id) : true }).values()];
+		let member = this.getRandom(members)
 		return member
+	},
+	getRandomUserChannel: function(channel, filteredIDs)
+	{
+		let members = [...channel.members.filter((user) => { return filteredIDs ? !filteredIDs.includes(user.id) : true }).values()];
+		let member = this.getRandom(members)
+		return member
+	},
+
+	getRandomInsult: function()
+	{
+		// Most, if not all, insults are from https://imgur.com/dXCGBE0
+		let insults = global.db.get('insults').value()
+		return (randomExt.integer(100) > 75 ? // more chance for a 3-part insult
+			this.getRandom(insults.specifics) :
+			this.getRandom(insults.insults[0]) + ' ' + this.getRandom(insults.insults[1]) + ' ' + this.getRandom(insults.insults[2])).toLowerCase()
 	},
 
 	replaceAll: function(input, replace, value, regex = true) { return input.replace(regex ? new RegExp(replace) : replace, value) },
@@ -56,13 +72,14 @@ module.exports =
 		let user = undefined
 		guild.members.forEach((member, key, map) =>
 		{
+			if(user)
+				return
 			if(member.displayName.toLowerCase() == username.toLowerCase() ||
 			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()) ||
-		  	   member.user.username.toLowerCase() == username.toLowerCase())
-			{
+		  	   member.user.username.toLowerCase() == username.toLowerCase() ||
+		   	   (username.startsWith('<@') && username.substring(2, username.length - 1) == member.id.toString()) ||
+		   	   (username.startsWith('<@!') && username.substring(3, username.length - 1) == member.id.toString()))
 				user = member
-				return
-			}
 		})
 		return user
 	},
@@ -96,10 +113,18 @@ module.exports =
 		let foundRole = undefined
 		guild.roles.forEach((role, key, map) =>
 		{
-			if(role.name.toLowerCase() == roleName.toLowerCase())
+			if((role.name.toLowerCase() == roleName.toLowerCase()) ||
+				(role.name.toLowerCase() == "@everyone" && roleName.toLowerCase() == "everyone"))
 				foundRole = role
 		})
 		return foundRole
+	},
+	getRoleMembers: function(role)
+	{
+		let users = []
+		if(role)
+			role.members.forEach((member, id, map) => users.push(member))
+		return users
 	},
 
 	process: function(input, sender, channel, customs)
@@ -107,11 +132,37 @@ module.exports =
 		if(input == undefined)
 			return ''
 		if(input.includes('${random_member}'))
-			input = this.replaceAll(input, /\${random_member}/g, this.getRandomUser(sender.guild, [ sender.id ]).displayName || "someone")
+		{
+			let index = 0
+			while((index = input.indexOf('${random_member}', index)) >= 0)
+				input = input.replace(/\${random_member}/, this.getRandomUser(sender.guild, [ sender.id ]).displayName || "someone")
+		}
 		if(input.includes('${random_number}'))
-			input = this.replaceAll(input, /\${random_number}/g, this.getRandomNumber(1, 10))
+		{
+			let index = 0
+			while((index = input.indexOf('${random_number}', index)) >= 0)
+				input = input.replace(/\${random_number}/, this.getRandomNumber(1, 10))
+		}
 		if(input.includes('${username}'))
 			input = this.replaceAll(input, /\${username}/g, sender.displayName)
+		if(input.includes('${insult}'))
+		{
+			let index = input.indexOf('${insult}', input[0] == '$' ? 1 : 0)
+			while(index > 0)
+			{
+				let insult = this.getRandomInsult().toLowerCase()
+				if(input.substring(0, index).endsWith('a ') && (
+					insult[0] == 'a' ||
+					insult[0] == 'e' ||
+					insult[0] == 'i' ||
+					insult[0] == 'o' ||
+					insult[0] == 'u'
+					))
+					input = input.substring(0, index - 2) + 'an ' + input.substring(index)
+				input = input.replace(/\${insult}/, insult)
+				index = input.indexOf('${insult}', index)
+			}
+		}
 		if(customs)
 			for(let i = 0; i < customs.length; i++)
 				input = this.replaceAll(input, '${custom_' + i + '}', customs[i], false)

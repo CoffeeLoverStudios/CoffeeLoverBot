@@ -18,9 +18,12 @@
       "canMessage": true,
       "games": [
         "Crawl",
-        "Black Desert Online"
+        "Black Desert Online",
+        "Hand of Fate",
+        "The Warlock of Firetop Mountain",
+        "Unity"
       ],
-      "nickname": "lcomstive"
+      "nickname": "Klemze"
     },
     {
       "id": "220860764976578561",
@@ -38,17 +41,21 @@
       "id": "210746479403335680",
       "games": [
         "Space Engineers",
-        "Grand Theft Auto V"
+        "Grand Theft Auto V",
+        "SpaceEngineers",
+        "PAYDAY 2",
+        "Skullgirls"
       ],
       "name": "The QA Tester",
       "quotes": [
         "You're a lizard, Garry",
         "YOU IDIOT",
         "lots and lots of dicks",
-        "Tickle me, yeah right there ;)"
+        "Tickle me, yeah right there ;)",
+        "masons just greedy"
       ],
       "canMessage": true,
-      "currentlyPlaying": "Space Engineers",
+      "currentlyPlaying": "",
       "nickname": "The QA Tester"
     },
     {
@@ -57,11 +64,20 @@
         "Unreal Tournament",
         "Team Fortress 2",
         "Space Engineers",
-        "wallpaper_engine"
+        "wallpaper_engine",
+        "Dawn of War Gold",
+        "PlanetSide 2",
+        "Hand of Fate",
+        "The Warlock of Firetop Mountain",
+        "Wallpaper Engine",
+        "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "World of Tanks",
+        "Trainz: A New Era",
+        "VRChat"
       ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": "wallpaper_engine",
+      "currentlyPlaying": "",
       "canMessage": true,
       "nickname": "blue6402"
     },
@@ -70,11 +86,19 @@
       "name": "cartower",
       "shushed": false,
       "quotes": [],
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Poly Bridge",
       "games": [
         "GearUp",
         "Atlas Reactor",
-        "wallpaper_engine"
+        "wallpaper_engine",
+        "TerraTech Beta",
+        "Assassin's Creed III",
+        "TerraTech",
+        "Divide by Sheep",
+        "Watch Dogs",
+        "League of Legends",
+        "Rivals of Aether",
+        "Poly Bridge"
       ],
       "nickname": "cartower",
       "canMessage": true
@@ -84,42 +108,71 @@
       "name": "SquidBomb",
       "nickname": "SquidBomb",
       "games": [
-        "Warframe Launcher"
+        "Warframe Launcher",
+        "Warframe",
+        "ElseHeartbreak",
+        "Grand Theft Auto V",
+        "Borderlands",
+        "Space Engineers",
+        "Crawl",
+        "Rocket League",
+        "Satellite Reign",
+        "Clustertruck",
+        "Just Cause 3"
       ],
       "quotes": [],
-      "currentlyPlaying": "Warframe Launcher"
+      "currentlyPlaying": ""
     },
     {
       "id": "117606383557410825",
       "games": [
-        "Guild Wars 2"
+        "Guild Wars 2",
+        "World of Tanks",
+        "PAYDAY 2",
+        "World of Warships",
+        "Killing Floor 2",
+        "osu!",
+        "The Forest"
       ],
       "quotes": [],
       "name": "Heralias",
       "nickname": "Heralias",
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "178422841518063616",
-      "games": [],
+      "games": [
+        "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "Warframe",
+        "League of Legends"
+      ],
       "quotes": [
         "CHINa"
       ],
       "name": "Chronicler",
       "nickname": "Chronicler",
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "174397951370592256",
       "games": [
-        "BlazBlue Calamity Trigger"
+        "BlazBlue Calamity Trigger",
+        "Minecraft",
+        "Skullgirls",
+        "Shadowrun: Hong Kong",
+        "Guild Wars 2",
+        "Geometry Dash",
+        "Rivals of Aether",
+        "Overwatch"
       ],
       "quotes": [
         "quote lcomstive"
       ],
       "name": "BOBtheman2000",
       "nickname": "BOBtheman2000",
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Geometry Dash",
       "canMessage": true
     },
     {
@@ -137,14 +190,24 @@
     {
       "id": "290177072758784000",
       "name": "South Korean Legend-Faker",
-      "nickname": "South Korean Legend-Faker",
-      "games": [],
+      "nickname": "Faggot-Squad",
+      "games": [
+        "Grand Theft Auto V",
+        "League of Legends",
+        "PlanetSide 2",
+        "Overwatch",
+        "Counter-Strike Global Offensive",
+        "Paladins",
+        "Paladins: Champions of the Realm",
+        "Minecraft"
+      ],
       "quotes": [
         "Multu as your name but short version",
         "Polish cocks right?",
         "COCKS"
       ],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "362242590520770570",
@@ -152,11 +215,16 @@
       "nickname": "Im Not A Toxic Boy",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "217396014645116929",
-      "games": [],
+      "games": [
+        "Garry's Mod",
+        "Starcraft II",
+        "ROBLOX"
+      ],
       "quotes": [],
       "name": "Sergius Octavius",
       "nickname": "sssffsdadasdasdasdasda",
@@ -164,33 +232,104 @@
       "canMessage": true
     },
     {
-      "id": "264047396147822592",
-      "nickname": "piggy85",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": ""
-    },
-    {
       "id": "164396031113428992",
       "nickname": "ToKyoDeath",
-      "games": [],
+      "games": [
+        "Ultra Street Fighter IV",
+        "Warframe Launcher",
+        "Warframe",
+        "Warhammer 40,000: Dawn of War - Dark Crusade"
+      ],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "222643403651809280",
       "nickname": "Widmo",
       "games": [
-        "Space Engineers"
+        "Space Engineers",
+        "Rising Storm 2: Vietnam",
+        "Dishonored",
+        "PAYDAY 2",
+        "Arma 3",
+        "Left 4 Dead 2",
+        "Overwatch",
+        "Tabletop Simulator",
+        "Killing Floor 2"
       ],
       "quotes": [
         "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
       ],
-      "currentlyPlaying": "Space Engineers"
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "371650731616370689",
       "nickname": "Rain",
+      "games": [
+        "Papers, Please"
+      ],
+      "quotes": [],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "311410797299499008",
+      "nickname": "Fatal Error",
+      "games": [
+        "Overwatch",
+        "Sorry this status has been blocked by your ISP. please contact your ISP and upgrade to the discord package for $29.99/month"
+      ],
+      "quotes": [
+        "freedom is pain",
+        "I’ll always remember his last words ...  CHHina"
+      ],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "327761922701262849",
+      "nickname": "Owlenstein",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "375299248327098369",
+      "nickname": "Dragonsskull140",
+      "games": [
+        "Google Chrome",
+        "Skullgirls"
+      ],
+      "quotes": [],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "332849703366426624",
+      "name": "caitlinnpage",
+      "nickname": "caitlinnpage",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "170859544782700544",
+      "name": "dooly123",
+      "nickname": "dooly123",
+      "games": [
+        "Starcraft II"
+      ],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "331432058402373633",
+      "name": "bm90210",
+      "nickname": "bm90210",
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
@@ -201,7 +340,7 @@
       {
         "guild": "349169223899283456",
         "volume": 100,
-        "songIndex": 5,
+        "songIndex": 6,
         "removeWhenFinished": false,
         "queue": [
           {
@@ -227,14 +366,25 @@
           {
             "title": "STéLOUSE - Sociopath (feat. Bryce Fox)",
             "url": "https://www.youtube.com/watch?v=CCuxv2O1IIA&hl=en"
+          },
+          {
+            "title": "Blind Witness - All alone [added subtitles]",
+            "url": "https://www.youtube.com/watch?v=F9UKNwlhhpo&hl=en"
+          },
+          {
+            "title": "Childish Gambino - Redbone (Official Audio)",
+            "url": "https://www.youtube.com/watch?v=Kp7eSUU9oy8&hl=en"
+          },
+          {
+            "title": "Yultron - Ride With You (feat. Leah Culver)",
+            "url": "https://www.youtube.com/watch?v=yAhin3OB6lQ&hl=en"
           }
         ]
       }
     ]
   },
   "adminRoles": [
-    "Coffee Admin",
-    "Coffee Brewer"
+    "Coffee Admin"
   ],
   "insufficientRole": [
     "I'm sorry ${username}, I can't let you do that"
@@ -286,7 +436,8 @@
   "shushedResponses": [
     "Shushed '${username}'",
     "*SILENCED THE PEASANT KNOWN AS '${username}'",
-    "rip that dude"
+    "rip ${username}",
+    "Hey... hey ${username}, I **dare** you to speak"
   ],
   "unshushSelfResponses": [
     "You fool!",
@@ -296,7 +447,9 @@
     "Psych! That's the *wrong* number"
   ],
   "unshushResponses": [
-    "'${username}' can now speak freely again"
+    "'${username}' can now speak freely again",
+    "Psst, ${username}, I'll let you talk again",
+    "Pfft, fine. ${username} you're free to go"
   ],
   "notNSFW": [
     "Sorry, this chat is for youngin's",
@@ -311,6 +464,10 @@
     {
       "game": "Team Fortress 2",
       "alias": "TF2 (*on an Alienware*)"
+    },
+    {
+      "game": "Google Chrome",
+      "alias": "Chrome, the taker of RAM"
     }
   ],
   "giveawayWin": [
@@ -323,6 +480,94 @@
     "Agreed",
     "${username}, I couldn't agree more"
   ],
+  "disapproveResponses": [
+    "No... just.. no",
+    "I sincerely insist you *stop*",
+    "I'm not even gonna question it"
+  ],
+  "insults": {
+    "genericResponse": "You're a ${insult}",
+    "otherResponses": [
+      "${custom_0} is a ${insult}",
+      "Do you know who's a ${insult}? ${custom_0} is :joy:",
+      "Don't be mean to them, you ${insult}",
+      "Oi ${custom_0}! You, my liege, are a ${insult}, ${insult}",
+      "${custom_0} - please, just eat a brick"
+    ],
+    "insults": [
+      [
+        "Lazy",
+        "Stupid",
+        "Insecure",
+        "Idiotic",
+        "Slimy",
+        "Slutty",
+        "Smelly",
+        "Pompous",
+        "Communist",
+        "Dicknose",
+        "Pie-eating",
+        "Racist",
+        "Elitist",
+        "White trash",
+        "Drug-loving",
+        "Butterfaced",
+        "Tone deaf",
+        "Ugly",
+        "Creepy",
+        "Lonely"
+      ],
+      [
+        "Douche",
+        "Ass",
+        "Untouched",
+        "Turd",
+        "Rectum",
+        "Butt",
+        "Cock",
+        "Shit",
+        "Crotch",
+        "Bitch",
+        "Prick",
+        "Slut",
+        "Taint",
+        "Fuck",
+        "Dick",
+        "Boner",
+        "Shart",
+        "Nut",
+        "Sphincter"
+      ],
+      [
+        "Pilot",
+        "Canoe",
+        "Captain",
+        "Pirate",
+        "Hammer",
+        "Knob",
+        "Box",
+        "Jockey",
+        "Nazi",
+        "Waffle",
+        "Goblin",
+        "Blossum",
+        "Biscuit",
+        "Clown",
+        "Socket",
+        "Monster",
+        "Hound",
+        "Dragon",
+        "Balloon",
+        "Monger",
+        "Collector",
+        "Virgin"
+      ]
+    ],
+    "specifics": [
+      "ciggie muncher",
+      "prehistoric chimpanzee"
+    ]
+  },
   "genericResponses": [
     "Whatchu want?",
     "Yo ${username}",
@@ -385,7 +630,8 @@
     "The quotes... The terrible quotes...",
     "After losing most of my senses my other senses were heightened, like my sense of *bullshit*",
     "*dialing up iiNet internet*",
-    "lcomstive"
+    "lcomstive",
+    "clairvoyant"
   ],
   "tokens": {
     "discord": "",

@@ -67,7 +67,7 @@ watch = (member) =>
 		user =
 		{
 			id: member.id,
-			name: member.user.name,
+			name: member.user.username,
 			nickname: member.displayName,
 			games: [],
 			quotes: []
@@ -153,9 +153,7 @@ setup = () =>
 {
 	client.on('ready', () =>
 	{
-		global.tokens.command = global.db.get('commandToken').value()
-		if(!global.tokens.command)
-			global.tokens.command = '!'
+		global.tokens.command = global.db.get('commandToken').value() || '!'
 
 		// Load all commands in the './commands/' directory
 		var normalizedPath = path.join(__dirname, 'commands')
@@ -302,14 +300,6 @@ setup = () =>
 		// Check for nickname changes
 		if(user.value().nickname != newMember.displayName)
 			user.set('nickname', newMember.displayName).write()
-		// Check game status
-		if(newMember.presence.game && user.value().currentlyPlaying != newMember.presence.game)
-			setGame(newMember.id, newMember.presence.game.name)
-		else if((!newMember.presence.game && user.value().currentlyPlaying != 'None') || newMember.presence.status == 'offline')
-			setGame(newMember.id, '')
-		let guildUser = Utils.getUser(newMember.guild, newMember.id)
-		if(guildUser.presence.game)
-			console.log('\'' + guildUser.displayName + '\' is playing \'' + guildUser.presence.game.name + '\'')
 	})
 	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!
 	//	Also I'm passing the rejected thingo to the console's thingamabob

@@ -95,7 +95,7 @@ module.exports = class Quote extends Command
 				return
 			}
 			let member = Utils.getUserByName(message.channel, params[1])
-			let lastMessage = member.lastMessage
+			let lastMessage = message.member.lastMessage
 			if(lastMessage)
 				this.addUserQuote(member.lastMessage)
 			else

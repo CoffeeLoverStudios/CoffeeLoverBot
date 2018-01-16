@@ -29,7 +29,7 @@ CLEVERBOT_TOKEN=<Cleverbot token, optional>
 
 > If you're on windows, you'll need to run a new
 > Powershell, CMD or other shell **as administrator**
-> and run `npm i -g --production windows-build-tools ffmpeg-binaries`
+> and run `npm i -g --production windows-build-tools`
 
 Now lead a shell to your `CoffeeLoverBot/` directory and
 execute `npm start`. You've now started your bot!
@@ -52,7 +52,7 @@ You can now freely edit `data/db.json` for responses and such, be sure to run `!
 on your server so the bot refreshes all the commands
 
 ## Credit
-*Created by CoffeeLover Studios 2017*
+*Created by CoffeeLover Studios 2017-2018*
 Technologies used:
  - [Discord.js](https://discord.js.org/)
  - [Node.js](https://nodejs.org/)
