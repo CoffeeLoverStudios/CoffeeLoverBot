@@ -137,20 +137,18 @@ module.exports = class Shush extends Command
 				}
 				for(let i = 1; i < params.length; i++)
 				{
-					if(params[i][0] == '@')
-						params[i] = params[i].substring(1)
 					let user = Utils.getUserByName(channel, params[i])
 					if(!user)
 					{
 						message.channel.send('Could not find user \'' + params[i] + '\'')
 						return
 					}
-					if(this.shushed.find(user.id) == -1)
+					if(this.shushed.indexOf(user.id) == -1)
 					{
 						message.channel.send('They aren\'t shushed')
 						return
 					}
-					if(userID == sender.id)
+					if(user.id == sender.id)
 					{
 						message.channel.send(Utils.process(Utils.getRandom(global.db.get('unshushSelfResponses').value(), channel), sender, channel))
 						return

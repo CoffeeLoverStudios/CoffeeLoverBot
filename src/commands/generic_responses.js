@@ -2,7 +2,7 @@ const Command = require('./command.js')
 const Utils = require('../utils.js')
 const global = require('../global.js')
 
-const BotRegex = /\bbot/gi
+const BotRegex = /\bbot\b/gi
 
 module.exports = class GenericResponses extends Command
 {

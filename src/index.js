@@ -159,6 +159,8 @@ setup = () =>
 		var normalizedPath = path.join(__dirname, 'commands')
 		require('fs').readdirSync(normalizedPath).forEach((file) =>
 		{
+			if(!file.endsWith('.js'))
+				return
 			const required = require('./commands/' + file)
 			try
 			{

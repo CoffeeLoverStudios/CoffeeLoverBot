@@ -18,14 +18,13 @@ module.exports = class insult extends Command
 		{
 			let user = params[1].toLowerCase() == 'random' ? Utils.getRandomUserChannel(message.channel) : Utils.getUserByName(message.guild, params[1])
 			if(!user)
-				message.channel.send('Couldn\'t find user *"' + params[1] + '"* on this channel')
-			else
-				message.channel.send(Utils.process(
-					Utils.getRandom(insultObject.otherResponses),
-					client,
-					message.channel,
-					[ user.displayName ]
-				))
+				user = { displayName: params[1] }
+			message.channel.send(Utils.process(
+				Utils.getRandom(insultObject.otherResponses),
+				client,
+				message.channel,
+				[ user.displayName ]
+			))
 		}
 		let userID = params.length == 0 ? client.id : Utils.getUserID(message.channel, params[0])
     }
