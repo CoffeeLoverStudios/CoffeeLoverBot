@@ -21,7 +21,16 @@
         "Black Desert Online",
         "Hand of Fate",
         "The Warlock of Firetop Mountain",
-        "Unity"
+        "Unity",
+        "Duelyst",
+        "M.U.G.E.N",
+        "Unity 2018.1.0b5",
+        "Space Engineers",
+        "Sakura Nova",
+        "League of Legends",
+        "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "Fortnite",
+        "PLAYERUNKNOWN'S BATTLEGROUNDS"
       ],
       "nickname": "Klemze"
     },
@@ -34,7 +43,13 @@
         "It's not weeb if it's french"
       ],
       "canMessage": true,
-      "games": [],
+      "games": [
+        "Town of Salem",
+        "M.U.G.E.N",
+        "Crunchyroll",
+        "Throwables Configuration",
+        "Spotify"
+      ],
       "nickname": "Multusvalde"
     },
     {
@@ -75,11 +90,18 @@
         "Warhammer 40,000: Dawn of War - Dark Crusade",
         "World of Tanks",
         "Trainz: A New Era",
-        "VRChat"
+        "VRChat",
+        "Spotify",
+        "Bastion",
+        "Broforce",
+        "Mini Metro",
+        "Trove",
+        "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "Call of Duty: Advanced Warfare - Multiplayer"
       ],
       "name": "blue6402",
       "quotes": [],
-      "currentlyPlaying": "Wallpaper Engine",
+      "currentlyPlaying": "",
       "canMessage": true,
       "nickname": "blue6402"
     },
@@ -101,7 +123,10 @@
         "League of Legends",
         "Rivals of Aether",
         "Poly Bridge",
-        "Fallout 4"
+        "Fallout 4",
+        "Spotify",
+        "Fortnite",
+        "Rocket League"
       ],
       "nickname": "cartower",
       "canMessage": true
@@ -139,7 +164,13 @@
         "osu!",
         "The Forest",
         "Grand Theft Auto V",
-        "Warframe"
+        "Warframe",
+        "Spotify",
+        "Elite: Dangerous",
+        "World of Warcraft",
+        "Minecraft",
+        "Anno 2070",
+        "PlanetSide 2"
       ],
       "quotes": [],
       "name": "Heralias",
@@ -173,7 +204,11 @@
         "Geometry Dash",
         "Rivals of Aether",
         "Overwatch",
-        "DOTA 2"
+        "DOTA 2",
+        "Clone Hero",
+        "Dolphin",
+        "Super Meat Boy",
+        "Them's Fightin' Herds"
       ],
       "quotes": [
         "quote lcomstive"
@@ -233,7 +268,11 @@
         "Starcraft II",
         "ROBLOX",
         "Stellaris",
-        "Hearts of Iron IV"
+        "Hearts of Iron IV",
+        "Papers, Please",
+        "Watching Moana Songs",
+        "Warhammer 40K: Dawn of War Soulstorm",
+        "Warhammer 40,000: Dawn of War - Dark Crusade"
       ],
       "quotes": [],
       "name": "Sergius Octavius",
@@ -268,7 +307,8 @@
         "Left 4 Dead 2",
         "Overwatch",
         "Tabletop Simulator",
-        "Killing Floor 2"
+        "Killing Floor 2",
+        "Stellaris"
       ],
       "quotes": [
         "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
@@ -292,13 +332,16 @@
       "games": [
         "Overwatch",
         "Sorry this status has been blocked by your ISP. please contact your ISP and upgrade to the discord package for $29.99/month",
-        "sorry your ISP has blocked this message. Please contact your ISP to upgrade to the discord package for 29.99/mo"
+        "sorry your ISP has blocked this message. Please contact your ISP to upgrade to the discord package for 29.99/mo",
+        "The Sims 4",
+        "This staus has been blocked by your ISP, Please contact your ISP and upgrade to the discord package for $29.99/mo",
+        "with code"
       ],
       "quotes": [
         "freedom is pain",
         "I’ll always remember his last words ...  CHHina"
       ],
-      "currentlyPlaying": "sorry your ISP has blocked this message. Please contact your ISP to upgrade to the discord package for 29.99/mo",
+      "currentlyPlaying": "",
       "canMessage": true
     },
     {
@@ -335,7 +378,13 @@
       "nickname": "dooly123",
       "games": [
         "Starcraft II",
-        "EVE Online"
+        "EVE Online",
+        "Unity Package Manager",
+        "Unity Hub",
+        "Titanfall 2",
+        "Planetside 2",
+        "Unity 2017.3.0f3",
+        "Space Engineers"
       ],
       "quotes": [],
       "currentlyPlaying": ""
@@ -359,6 +408,165 @@
     {
       "id": "234512372197228544",
       "nickname": "Snowbolt(Benjamin)",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "270721339332100096",
+      "nickname": "EvO xOPTICSx",
+      "games": [
+        "Rocket League",
+        "Duelyst",
+        "Space Engineers"
+      ],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "366835077147131907",
+      "nickname": "Whale (Of a Good Time)",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "172002275412279296",
+      "name": "Tatsumaki",
+      "nickname": "Tatsumaki",
+      "games": [
+        "90155 users",
+        "2288 guilds",
+        "Use t!help",
+        "2289 guilds",
+        "90355 users",
+        "https://tatsumaki.xyz",
+        "90938 users",
+        "2298 guilds",
+        "90947 users",
+        "90786 users",
+        "91458 users",
+        "93160 users",
+        "2335 guilds",
+        "93189 users",
+        "2336 guilds",
+        "93246 users",
+        "93300 users",
+        "93327 users",
+        "93370 users",
+        "1600 guilds",
+        "95456 users",
+        "1603 guilds",
+        "95489 users",
+        "95505 users",
+        "1676 guilds",
+        "105734 users",
+        "105761 users"
+      ],
+      "quotes": [],
+      "currentlyPlaying": "https://tatsumaki.xyz"
+    },
+    {
+      "id": "259845581348929546",
+      "name": "iSkitzophreniac",
+      "nickname": "iSkitzophreniac",
+      "games": [
+        "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "Far Cry 5",
+        "Warhammer 40K: Dawn of War Soulstorm",
+        "The Elder Scrolls Online: Tamriel Unlimited",
+        "The Elder Scrolls Online"
+      ],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "330711444465123348",
+      "name": "Moon",
+      "nickname": "Moon",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "249845195959566347",
+      "name": "DARKNESS117235",
+      "nickname": "DARKNESS117235",
+      "games": [
+        "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "Team Fortress 2",
+        "Warface",
+        "Trove",
+        "Mass Effect 3",
+        "Mass Effect 2"
+      ],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "256742091034591232",
+      "name": "Mulfie",
+      "nickname": "Mulfie",
+      "games": [
+        "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "Tom Clancy's Rainbow Six Siege",
+        "The Elder Scrolls Online"
+      ],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "145452536600461312",
+      "name": "Soviet",
+      "nickname": "Soviet",
+      "games": [
+        "With His Dick",
+        "with his dick",
+        "Counter-Strike Global Offensive",
+        "Fortnite",
+        "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "Turbo Pug"
+      ],
+      "quotes": [],
+      "currentlyPlaying": "Fortnite"
+    },
+    {
+      "id": "364987081409298434",
+      "name": "that_comrade1945",
+      "nickname": "that_comrade1945",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "432801983917981696",
+      "name": "AsianCunt97",
+      "nickname": "AsianCunt97",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "295035320758435841",
+      "name": "urnansabagofchips",
+      "nickname": "urnansabagofchips",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "396713838990589955",
+      "name": "DisSkies",
+      "nickname": "DisSkies",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "211149605210030082",
+      "name": "Ggiven910",
+      "nickname": "Ggiven910",
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
@@ -413,7 +621,8 @@
     ]
   },
   "adminRoles": [
-    "Coffee Admin"
+    "Coffee Admin",
+    "Meat Manager"
   ],
   "insufficientRole": [
     "I'm sorry ${username}, I can't let you do that"

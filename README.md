@@ -2,7 +2,7 @@
 *The somewhat-sentient bot you'll never want to leave*
 
 ## Installation
-Make sure [Python 3.6](https://www.pthon.org/) and [FFMPEG](https://ffmpeg.org/download.html) are installed and added to your system `PATH`, then proceed.
+Make sure [Python 3.6](https://www.python.org/) and [FFMPEG](https://ffmpeg.org/download.html) are installed and added to your system `PATH`, then proceed.
 ```bash
 # Clone the repo any way you want, we'll be using the git cli
 git clone https://github.com/CoffeeLoverStudios/CoffeeLoverBot
