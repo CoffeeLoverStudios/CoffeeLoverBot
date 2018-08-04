@@ -97,7 +97,8 @@
         "Mini Metro",
         "Trove",
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Call of Duty: Advanced Warfare - Multiplayer"
+        "Call of Duty: Advanced Warfare - Multiplayer",
+        "Black Desert Online"
       ],
       "name": "blue6402",
       "quotes": [],
@@ -147,7 +148,8 @@
         "Satellite Reign",
         "Clustertruck",
         "Just Cause 3",
-        "Just Cause™ 3: Multiplayer Mod"
+        "Just Cause™ 3: Multiplayer Mod",
+        "Alien: Isolation"
       ],
       "quotes": [],
       "currentlyPlaying": "",
@@ -170,7 +172,8 @@
         "World of Warcraft",
         "Minecraft",
         "Anno 2070",
-        "PlanetSide 2"
+        "PlanetSide 2",
+        "The Elder Scrolls Online"
       ],
       "quotes": [],
       "name": "Heralias",
@@ -308,7 +311,8 @@
         "Overwatch",
         "Tabletop Simulator",
         "Killing Floor 2",
-        "Stellaris"
+        "Stellaris",
+        "Dishonored 2"
       ],
       "quotes": [
         "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
@@ -335,7 +339,8 @@
         "sorry your ISP has blocked this message. Please contact your ISP to upgrade to the discord package for 29.99/mo",
         "The Sims 4",
         "This staus has been blocked by your ISP, Please contact your ISP and upgrade to the discord package for $29.99/mo",
-        "with code"
+        "with code",
+        "Peggle"
       ],
       "quotes": [
         "freedom is pain",
@@ -384,7 +389,9 @@
         "Titanfall 2",
         "Planetside 2",
         "Unity 2017.3.0f3",
-        "Space Engineers"
+        "Space Engineers",
+        "Battlezone: Combat Commander",
+        "They Are Billions"
       ],
       "quotes": [],
       "currentlyPlaying": ""
@@ -461,7 +468,14 @@
         "95505 users",
         "1676 guilds",
         "105734 users",
-        "105761 users"
+        "105761 users",
+        "1770 guilds",
+        "108051 users",
+        "108110 users",
+        "108113 users",
+        "108115 users",
+        "1856 guilds",
+        "1855 guilds"
       ],
       "quotes": [],
       "currentlyPlaying": "https://tatsumaki.xyz"
@@ -526,10 +540,12 @@
         "Counter-Strike Global Offensive",
         "Fortnite",
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Turbo Pug"
+        "Turbo Pug",
+        "With Ur Mum",
+        "Borderlands 2"
       ],
       "quotes": [],
-      "currentlyPlaying": "Fortnite"
+      "currentlyPlaying": "Borderlands 2"
     },
     {
       "id": "364987081409298434",
@@ -559,7 +575,9 @@
       "id": "396713838990589955",
       "name": "DisSkies",
       "nickname": "DisSkies",
-      "games": [],
+      "games": [
+        "League of Legends"
+      ],
       "quotes": [],
       "currentlyPlaying": ""
     },
@@ -567,6 +585,16 @@
       "id": "211149605210030082",
       "name": "Ggiven910",
       "nickname": "Ggiven910",
+      "games": [
+        "Left 4 Dead 2"
+      ],
+      "quotes": [],
+      "currentlyPlaying": ""
+    },
+    {
+      "id": "430602323601915904",
+      "name": "JustinTil2055",
+      "nickname": "JustinTil2055",
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
