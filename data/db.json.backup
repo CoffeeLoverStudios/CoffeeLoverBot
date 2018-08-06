@@ -6,74 +6,25 @@
     "Discord.js (https://discord.js.org)",
     "LowDB (https://github.com/typicode/lowdb)"
   ],
+  "ignoredUsers": [
+    "Tatsumaki"
+  ],
   "users": [
     {
-      "id": "191069151505154048",
-      "name": "lcomstive",
-      "currentlyPlaying": "",
-      "quotes": [
-        "(╯°□°）╯︵ ┻━┻",
-        "same"
-      ],
-      "canMessage": true,
-      "games": [
-        "Crawl",
-        "Black Desert Online",
-        "Hand of Fate",
-        "The Warlock of Firetop Mountain",
-        "Unity",
-        "Duelyst",
-        "M.U.G.E.N",
-        "Unity 2018.1.0b5",
-        "Space Engineers",
-        "Sakura Nova",
-        "League of Legends",
-        "Warhammer 40,000: Dawn of War - Dark Crusade",
-        "Fortnite",
-        "PLAYERUNKNOWN'S BATTLEGROUNDS"
-      ],
-      "nickname": "Klemze"
+      "id": "331432058402373633",
+      "name": "bm90210",
+      "nickname": "bm90210",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
     },
     {
-      "id": "220860764976578561",
-      "name": "Multusvalde",
-      "currentlyPlaying": "",
-      "quotes": [
-        "DONT CALL ME HARRY",
-        "It's not weeb if it's french"
-      ],
-      "canMessage": true,
-      "games": [
-        "Town of Salem",
-        "M.U.G.E.N",
-        "Crunchyroll",
-        "Throwables Configuration",
-        "Spotify"
-      ],
-      "nickname": "Multusvalde"
-    },
-    {
-      "id": "210746479403335680",
-      "games": [
-        "Space Engineers",
-        "Grand Theft Auto V",
-        "SpaceEngineers",
-        "PAYDAY 2",
-        "Skullgirls",
-        "Doki Doki Literature Club"
-      ],
-      "name": "The QA Tester",
-      "quotes": [
-        "You're a lizard, Garry",
-        "YOU IDIOT",
-        "lots and lots of dicks",
-        "Tickle me, yeah right there ;)",
-        "masons just greedy",
-        "quare."
-      ],
-      "canMessage": true,
-      "currentlyPlaying": "",
-      "nickname": "The QA Tester"
+      "id": "430602323601915904",
+      "name": "JustinTil2055",
+      "nickname": "JustinTil2055",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
     },
     {
       "id": "244751835703934976",
@@ -97,7 +48,10 @@
         "Mini Metro",
         "Trove",
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Call of Duty: Advanced Warfare - Multiplayer"
+        "Call of Duty: Advanced Warfare - Multiplayer",
+        "Black Desert Online",
+        "Warframe",
+        "Warframe Launcher"
       ],
       "name": "blue6402",
       "quotes": [],
@@ -147,7 +101,8 @@
         "Satellite Reign",
         "Clustertruck",
         "Just Cause 3",
-        "Just Cause™ 3: Multiplayer Mod"
+        "Just Cause™ 3: Multiplayer Mod",
+        "Alien: Isolation"
       ],
       "quotes": [],
       "currentlyPlaying": "",
@@ -170,12 +125,14 @@
         "World of Warcraft",
         "Minecraft",
         "Anno 2070",
-        "PlanetSide 2"
+        "PlanetSide 2",
+        "The Elder Scrolls Online",
+        "Warframe Launcher"
       ],
       "quotes": [],
       "name": "Heralias",
       "nickname": "Heralias",
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Grand Theft Auto V",
       "canMessage": true
     },
     {
@@ -308,7 +265,8 @@
         "Overwatch",
         "Tabletop Simulator",
         "Killing Floor 2",
-        "Stellaris"
+        "Stellaris",
+        "Dishonored 2"
       ],
       "quotes": [
         "also, one of my favourite quotes;\n\"So what have we learned today?\"\n\"That killing Adrian has no negative repercussions\""
@@ -335,13 +293,15 @@
         "sorry your ISP has blocked this message. Please contact your ISP to upgrade to the discord package for 29.99/mo",
         "The Sims 4",
         "This staus has been blocked by your ISP, Please contact your ISP and upgrade to the discord package for $29.99/mo",
-        "with code"
+        "with code",
+        "Peggle",
+        "N++"
       ],
       "quotes": [
         "freedom is pain",
         "I’ll always remember his last words ...  CHHina"
       ],
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Overwatch",
       "canMessage": true
     },
     {
@@ -364,13 +324,12 @@
       "canMessage": true
     },
     {
-      "id": "332849703366426624",
-      "name": "caitlinnpage",
-      "nickname": "caitlinnpage",
+      "id": "409875266639495169",
+      "name": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
+      "nickname": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
+      "currentlyPlaying": ""
     },
     {
       "id": "170859544782700544",
@@ -384,18 +343,24 @@
         "Titanfall 2",
         "Planetside 2",
         "Unity 2017.3.0f3",
-        "Space Engineers"
+        "Space Engineers",
+        "Battlezone: Combat Commander",
+        "They Are Billions",
+        "Spotify",
+        "Counter-Strike Global Offensive",
+        "Wolcen: Lords of Mayhem"
       ],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "Spotify"
     },
     {
-      "id": "331432058402373633",
-      "name": "bm90210",
-      "nickname": "bm90210",
+      "id": "332849703366426624",
+      "name": "caitlinnpage",
+      "nickname": "caitlinnpage",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "371903739184807950",
@@ -418,7 +383,9 @@
       "games": [
         "Rocket League",
         "Duelyst",
-        "Space Engineers"
+        "Space Engineers",
+        "Tom Clancy's Rainbow Six Siege",
+        "Rocket League®"
       ],
       "quotes": [],
       "currentlyPlaying": ""
@@ -461,10 +428,36 @@
         "95505 users",
         "1676 guilds",
         "105734 users",
-        "105761 users"
+        "105761 users",
+        "1770 guilds",
+        "108051 users",
+        "108110 users",
+        "108113 users",
+        "108115 users",
+        "1856 guilds",
+        "1855 guilds",
+        "109647 users",
+        "109678 users",
+        "109695 users",
+        "1978 guilds",
+        "109717 users",
+        "109730 users",
+        "109759 users",
+        "109803 users",
+        "109821 users",
+        "1979 guilds",
+        "1980 guilds",
+        "1981 guilds",
+        "110020 users",
+        "110144 users",
+        "110149 users",
+        "110161 users",
+        "1982 guilds",
+        "110180 users",
+        "110197 users"
       ],
       "quotes": [],
-      "currentlyPlaying": "https://tatsumaki.xyz"
+      "currentlyPlaying": "110197 users"
     },
     {
       "id": "259845581348929546",
@@ -485,7 +478,9 @@
       "id": "330711444465123348",
       "name": "Moon",
       "nickname": "Moon",
-      "games": [],
+      "games": [
+        "League of Legends"
+      ],
       "quotes": [],
       "currentlyPlaying": ""
     },
@@ -499,7 +494,10 @@
         "Warface",
         "Trove",
         "Mass Effect 3",
-        "Mass Effect 2"
+        "Mass Effect 2",
+        "Warframe Launcher",
+        "Warframe",
+        "Fallout New Vegas"
       ],
       "quotes": [],
       "currentlyPlaying": ""
@@ -526,10 +524,16 @@
         "Counter-Strike Global Offensive",
         "Fortnite",
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Turbo Pug"
+        "Turbo Pug",
+        "With Ur Mum",
+        "Borderlands 2",
+        "Grand Theft Auto V",
+        "Team Fortress 2",
+        "With an Oven",
+        "Paladins: Champions of the Realm"
       ],
       "quotes": [],
-      "currentlyPlaying": "Fortnite"
+      "currentlyPlaying": ""
     },
     {
       "id": "364987081409298434",
@@ -551,7 +555,11 @@
       "id": "295035320758435841",
       "name": "urnansabagofchips",
       "nickname": "urnansabagofchips",
-      "games": [],
+      "games": [
+        "Gay Nigger",
+        "Counter-Strike Global Offensive",
+        "Grand Theft Auto V"
+      ],
       "quotes": [],
       "currentlyPlaying": ""
     },
@@ -559,17 +567,116 @@
       "id": "396713838990589955",
       "name": "DisSkies",
       "nickname": "DisSkies",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": ""
+      "games": [
+        "League of Legends",
+        "The Elder Scrolls V: Skyrim Special Edition",
+        "Warframe Launcher",
+        "Warframe"
+      ],
+      "quotes": [
+        "DisSsᏆᎬᎥᏁ's Gate"
+      ],
+      "currentlyPlaying": "",
+      "canMessage": true
     },
     {
       "id": "211149605210030082",
       "name": "Ggiven910",
       "nickname": "Ggiven910",
-      "games": [],
+      "games": [
+        "Left 4 Dead 2"
+      ],
       "quotes": [],
       "currentlyPlaying": ""
+    },
+    {
+      "id": "332849703366426624",
+      "name": "caitlinnpage",
+      "nickname": "caitlinnpage",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": "",
+      "canMessage": true
+    },
+    {
+      "id": "210746479403335680",
+      "games": [
+        "Space Engineers",
+        "Grand Theft Auto V",
+        "SpaceEngineers",
+        "PAYDAY 2",
+        "Skullgirls",
+        "Doki Doki Literature Club"
+      ],
+      "name": "The QA Tester",
+      "quotes": [
+        "You're a lizard, Garry",
+        "YOU IDIOT",
+        "lots and lots of dicks",
+        "Tickle me, yeah right there ;)",
+        "masons just greedy",
+        "quare."
+      ],
+      "canMessage": true,
+      "currentlyPlaying": "",
+      "nickname": "The QA Tester",
+      "casinoLolis": 200,
+      "casinoRewards": []
+    },
+    {
+      "id": "191069151505154048",
+      "name": "lcomstive",
+      "currentlyPlaying": "",
+      "quotes": [
+        "(╯°□°）╯︵ ┻━┻",
+        "same"
+      ],
+      "canMessage": true,
+      "games": [
+        "Crawl",
+        "Black Desert Online",
+        "Hand of Fate",
+        "The Warlock of Firetop Mountain",
+        "Unity",
+        "Duelyst",
+        "M.U.G.E.N",
+        "Unity 2018.1.0b5",
+        "Space Engineers",
+        "Sakura Nova",
+        "League of Legends",
+        "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "Fortnite",
+        "PLAYERUNKNOWN'S BATTLEGROUNDS"
+      ],
+      "nickname": "lcomstive",
+      "casinoLolis": 1100000,
+      "casinoRewards": [
+        "customNickname"
+      ],
+      "casinoNickname": "Creator"
+    },
+    {
+      "id": "220860764976578561",
+      "name": "Multusvalde",
+      "currentlyPlaying": "",
+      "quotes": [
+        "DONT CALL ME HARRY",
+        "It's not weeb if it's french"
+      ],
+      "canMessage": true,
+      "games": [
+        "Town of Salem",
+        "M.U.G.E.N",
+        "Crunchyroll",
+        "Throwables Configuration",
+        "Spotify"
+      ],
+      "nickname": "SnapJack CrackityBack",
+      "casinoLolis": 100,
+      "casinoRewards": [
+        "customNickname"
+      ],
+      "casinoNickname": "Master"
     }
   ],
   "music": {
@@ -577,46 +684,9 @@
       {
         "guild": "349169223899283456",
         "volume": 100,
-        "songIndex": 6,
-        "removeWhenFinished": false,
-        "queue": [
-          {
-            "title": "QUIX - Riot Call (feat. Nevve)",
-            "url": "https://www.youtube.com/watch?v=JY5NVzHtA5o&hl=en"
-          },
-          {
-            "title": "Martin Garrix - Now That I've Found You (Dropwizz & Savagez Remix)",
-            "url": "https://www.youtube.com/watch?v=_Xj6iWDiBos&hl=en"
-          },
-          {
-            "title": "DISKORD - Want U",
-            "url": "https://www.youtube.com/watch?v=X9p1P8X-Hd0&hl=en"
-          },
-          {
-            "title": "Zedd, Kesha - True Colors (Nolan van Lith Remix)",
-            "url": "https://www.youtube.com/watch?v=TPZnDVnNZ6E&hl=en"
-          },
-          {
-            "title": "Galantis - Rich Boy (Zack Martino Remix)",
-            "url": "https://www.youtube.com/watch?v=F8oK8XT6el0&hl=en"
-          },
-          {
-            "title": "STéLOUSE - Sociopath (feat. Bryce Fox)",
-            "url": "https://www.youtube.com/watch?v=CCuxv2O1IIA&hl=en"
-          },
-          {
-            "title": "Blind Witness - All alone [added subtitles]",
-            "url": "https://www.youtube.com/watch?v=F9UKNwlhhpo&hl=en"
-          },
-          {
-            "title": "Childish Gambino - Redbone (Official Audio)",
-            "url": "https://www.youtube.com/watch?v=Kp7eSUU9oy8&hl=en"
-          },
-          {
-            "title": "Yultron - Ride With You (feat. Leah Culver)",
-            "url": "https://www.youtube.com/watch?v=yAhin3OB6lQ&hl=en"
-          }
-        ]
+        "songIndex": 0,
+        "removeWhenFinished": true,
+        "queue": []
       }
     ]
   },
@@ -625,7 +695,10 @@
     "Meat Manager"
   ],
   "insufficientRole": [
-    "I'm sorry ${username}, I can't let you do that"
+    "I'm sorry ${username}, I can't let you do that",
+    "You can't actually do that.. ",
+    "Admin privileges are required for that hack, sir",
+    "It's funny because you think you can do that"
   ],
   "statuses": [
     "with itself",
@@ -692,6 +765,11 @@
     "Psst, ${username}, I'll let you talk again",
     "Pfft, fine. ${username} you're free to go"
   ],
+  "shushNonAdmin": [
+    "No u",
+    "If only you were an admin, you could unshush yourself",
+    "\\*Reverse card\\*"
+  ],
   "notNSFW": [
     "Sorry, this chat is for youngin's",
     "I wish this was a NSFW chat so you could do that",
@@ -711,6 +789,19 @@
       "alias": "Chrome, the taker of RAM"
     }
   ],
+  "casinoDefaultLolis": 100,
+  "casinoRewardValues": {
+    "customNickname": 1200,
+    "gambleSimpleMultiplier": 1,
+    "gambleNumberGuessMultiplier": 2
+  },
+  "casinoJackpot": {
+    "number": 94,
+    "value": 103,
+    "initialValue": 1000,
+    "costValue": 1000,
+    "randomize": true
+  },
   "giveawayWin": [
     "Congratulations ${custom_0}, you have won *${custom_1}*",
     "So umm... *${custom_1}* has been claimed by ${custom_0}",
@@ -725,6 +816,55 @@
     "No... just.. no",
     "I sincerely insist you *stop*",
     "I'm not even gonna question it"
+  ],
+  "filteredPhrases": [
+    {
+      "content": "loli",
+      "responses": [
+        "Why do you people always talk about this? *Damned lolicons*",
+        "***LOLI?!?!***",
+        "( ͡° ͜ʖ ͡°)",
+        "\\*FBI crash through door\\*",
+        "\\*Lewds\\*"
+      ]
+    },
+    {
+      "content": "no homo",
+      "responses": [
+        "Well damn, this is the least gay guy I know",
+        "I guess ${username} isn't gay",
+        "You're right, it's only ${random_percentage}% homo",
+        "That last message was so gay it almost wasn't",
+        "And then god spoke... *\"this dude haveth noteth the gaey\"*",
+        "\\*Gracefully evades gayness\\*",
+        "1 gay notion retracted"
+      ]
+    },
+    {
+      "content": "thot",
+      "responses": [
+        "***BEGONE***"
+      ]
+    },
+    {
+      "content": "trap",
+      "responses": [
+        "*You have activated my trap card*",
+        "are you talking about Felix?",
+        "Traps arent gay though.",
+        "A female with a dick is *still* female",
+        "It's not a trap - *it's an ambush*"
+      ]
+    },
+    {
+      "content": "fortnite",
+      "responses": [
+        "Fortnite is *traaaasshhh*",
+        "There's a ${random_percentage}% chance I'd play Fortnite, given it didn't suck ass",
+        "Sorry, I didn't know I had 12 year old attention seekers in my presence",
+        "Leave the server, ${username}"
+      ]
+    }
   ],
   "insults": {
     "genericResponse": "You're a ${insult}",

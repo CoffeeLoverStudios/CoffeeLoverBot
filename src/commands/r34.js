@@ -54,7 +54,10 @@ module.exports = class Rule34 extends Command
 				{
 					let json = JSON.parse(convert.xml2json(body, { compact: true, spaces: 2 }))
 					if(json.posts !== undefined || json.posts._attributes.count == 0)
-						message.channel.send(new Discord.Attachment(json.posts.post[Math.floor(Math.random() * json.posts.post.length)]._attributes.file_url))
+					{
+						console.log(`Looking for a random in \"${json.posts}\"`)
+						message.channel.send(new Discord.Attachment(json.posts.post[Math.floor(Math.random() * json.posts.post.length - 1)]._attributes.file_url))
+					}
 					else
 						message.channel.send('Could not find anything')
 				}

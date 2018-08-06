@@ -177,6 +177,7 @@ setup = () =>
 			}
 		})
 
+		let ignoredUsers = global.db.get('ignoredUsers')
 		// Watch upon all existing members
 		client.guilds.forEach((value, key, map) =>
 		{
@@ -184,7 +185,7 @@ setup = () =>
 			value.members.forEach((member, key, map) =>
 			{
 				// If this is the bot... well, it shouldn't watch itself. It's seen enough as it is...
-				if(member.id == client.user.id)
+				if(member.id == client.user.id || ignoredUsers.includes(member.name))
 					return
 				// ( ͡° ͜ʖ ͡°)
 				watch(member)
@@ -300,7 +301,7 @@ setup = () =>
 		let user = global.db.get('users').find({ id: newMember.id })
 
 		// Check for nickname changes
-		if(user.value().nickname != newMember.displayName)
+		if(user.value() && user.value().nickname != newMember.displayName)
 			user.set('nickname', newMember.displayName).write()
 	})
 	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!

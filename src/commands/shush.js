@@ -29,6 +29,7 @@ module.exports = class Shush extends Command
 
 		this.adminRoles = global.db.get('adminRoles').value()
 		this.adminRefusals = global.db.get('insufficientRole').value()
+		this.adminRefusalsReverse = global.db.get('shushNonAdmin').value()
 	}
 
 	shush(user, channel)
@@ -50,10 +51,25 @@ module.exports = class Shush extends Command
 	{
 		let channel = message.channel
 		let sender = message.member
+
 		if(!this.adminRoles.includes(sender.highestRole.name))
 		{
-			channel.send(Utils.getRandom(this.adminRefusals), message.channel, message.member)
-			return
+			let randomNumber = Utils.getRandomNumber(0, 100)
+			// Continue, Shushes person desired (15%)
+			// Shushes person desired AND sender (10%)
+			if(randomNumber >= 15 && randomNumber < 25)
+				this.shush(sender, channel)
+			// Shushes self instead (30%)
+			if(randomNumber >= 25 && randomNumber < 55)
+			{
+				channel.send(Utils.process(Utils.getRandom(this.adminRefusalsReverse), sender, channel), channel, sender)
+				this.shush(sender, channel)
+			}
+			// Does nothing (45%)
+			else if(randomNumber >= 55)
+				channel.send(Utils.process(Utils.getRandom(this.adminRefusals), sender, channel), channel, sender)
+			if(randomNumber >= 25) // 25% chance sender and desired are shushed
+				return
 		}
 		if(params[0].toLowerCase() == 'shush')
 		{

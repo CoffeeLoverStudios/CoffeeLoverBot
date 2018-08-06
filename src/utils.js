@@ -131,6 +131,7 @@ module.exports =
 	{
 		if(input == undefined)
 			return ''
+		let user = global.db.get('users').find(x => x.id == sender.id).value()
 		if(input.includes('${random_member}'))
 		{
 			let index = 0
@@ -143,8 +144,14 @@ module.exports =
 			while((index = input.indexOf('${random_number}', index)) >= 0)
 				input = input.replace(/\${random_number}/, this.getRandomNumber(1, 10))
 		}
+		if(input.includes('${random_percentage}'))
+		{
+			let index = 0
+			while((index = input.indexOf('${random_percentage}', index)) >= 0)
+				input = input.replace(/\${random_percentage}/, this.getRandomNumber(1, 100))
+		}
 		if(input.includes('${username}'))
-			input = this.replaceAll(input, /\${username}/g, sender.displayName)
+			input = this.replaceAll(input, /\${username}/g, ((user.casinoRewards || []).includes('customNickname') ? user.casinoNickname : sender.displayName) || sender.displayName)
 		if(input.includes('${insult}'))
 		{
 			let index = input.indexOf('${insult}', input[0] == '$' ? 1 : 0)
@@ -164,8 +171,13 @@ module.exports =
 			}
 		}
 		if(customs)
-			for(let i = 0; i < customs.length; i++)
-				input = this.replaceAll(input, '${custom_' + i + '}', customs[i], false)
+		{
+			if(!customs.length)
+				input = this.replaceAll(input, '${custom_0}', customs, false)
+			else
+				for(let i = 0; i < customs.length; i++)
+					input = this.replaceAll(input, `\${custom_${i}}`, customs[i], false)
+		}
 		return input
 	}
 }

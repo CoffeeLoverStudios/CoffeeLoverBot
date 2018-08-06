@@ -6,74 +6,26 @@
     "Discord.js (https://discord.js.org)",
     "LowDB (https://github.com/typicode/lowdb)"
   ],
+  "ignoredUsers": [
+    "Tatsumaki"
+  ],
   "users": [
     {
-      "id": "191069151505154048",
-      "name": "lcomstive",
+      "id": "332849703366426624",
+      "name": "caitlinnpage",
+      "nickname": "caitlinnpage",
+      "games": [],
+      "quotes": [],
       "currentlyPlaying": "",
-      "quotes": [
-        "(╯°□°）╯︵ ┻━┻",
-        "same"
-      ],
-      "canMessage": true,
-      "games": [
-        "Crawl",
-        "Black Desert Online",
-        "Hand of Fate",
-        "The Warlock of Firetop Mountain",
-        "Unity",
-        "Duelyst",
-        "M.U.G.E.N",
-        "Unity 2018.1.0b5",
-        "Space Engineers",
-        "Sakura Nova",
-        "League of Legends",
-        "Warhammer 40,000: Dawn of War - Dark Crusade",
-        "Fortnite",
-        "PLAYERUNKNOWN'S BATTLEGROUNDS"
-      ],
-      "nickname": "Klemze"
+      "canMessage": true
     },
     {
-      "id": "220860764976578561",
-      "name": "Multusvalde",
-      "currentlyPlaying": "",
-      "quotes": [
-        "DONT CALL ME HARRY",
-        "It's not weeb if it's french"
-      ],
-      "canMessage": true,
-      "games": [
-        "Town of Salem",
-        "M.U.G.E.N",
-        "Crunchyroll",
-        "Throwables Configuration",
-        "Spotify"
-      ],
-      "nickname": "Multusvalde"
-    },
-    {
-      "id": "210746479403335680",
-      "games": [
-        "Space Engineers",
-        "Grand Theft Auto V",
-        "SpaceEngineers",
-        "PAYDAY 2",
-        "Skullgirls",
-        "Doki Doki Literature Club"
-      ],
-      "name": "The QA Tester",
-      "quotes": [
-        "You're a lizard, Garry",
-        "YOU IDIOT",
-        "lots and lots of dicks",
-        "Tickle me, yeah right there ;)",
-        "masons just greedy",
-        "quare."
-      ],
-      "canMessage": true,
-      "currentlyPlaying": "",
-      "nickname": "The QA Tester"
+      "id": "331432058402373633",
+      "name": "bm90210",
+      "nickname": "bm90210",
+      "games": [],
+      "quotes": [],
+      "currentlyPlaying": ""
     },
     {
       "id": "244751835703934976",
@@ -98,7 +50,9 @@
         "Trove",
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
         "Call of Duty: Advanced Warfare - Multiplayer",
-        "Black Desert Online"
+        "Black Desert Online",
+        "Warframe",
+        "Warframe Launcher"
       ],
       "name": "blue6402",
       "quotes": [],
@@ -173,27 +127,13 @@
         "Minecraft",
         "Anno 2070",
         "PlanetSide 2",
-        "The Elder Scrolls Online"
+        "The Elder Scrolls Online",
+        "Warframe Launcher"
       ],
       "quotes": [],
       "name": "Heralias",
       "nickname": "Heralias",
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
-      "id": "178422841518063616",
-      "games": [
-        "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Warframe",
-        "League of Legends"
-      ],
-      "quotes": [
-        "CHINa"
-      ],
-      "name": "Chronicler",
-      "nickname": "Chronicler",
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Warframe",
       "canMessage": true
     },
     {
@@ -234,52 +174,11 @@
       "canMessage": true
     },
     {
-      "id": "290177072758784000",
-      "name": "South Korean Legend-Faker",
-      "nickname": "Faggot-Squad",
-      "games": [
-        "Grand Theft Auto V",
-        "League of Legends",
-        "PlanetSide 2",
-        "Overwatch",
-        "Counter-Strike Global Offensive",
-        "Paladins",
-        "Paladins: Champions of the Realm",
-        "Minecraft"
-      ],
-      "quotes": [
-        "Multu as your name but short version",
-        "Polish cocks right?",
-        "COCKS"
-      ],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
       "id": "362242590520770570",
       "name": "Im Not A Toxic Boy",
       "nickname": "Im Not A Toxic Boy",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
-      "id": "217396014645116929",
-      "games": [
-        "Garry's Mod",
-        "Starcraft II",
-        "ROBLOX",
-        "Stellaris",
-        "Hearts of Iron IV",
-        "Papers, Please",
-        "Watching Moana Songs",
-        "Warhammer 40K: Dawn of War Soulstorm",
-        "Warhammer 40,000: Dawn of War - Dark Crusade"
-      ],
-      "quotes": [],
-      "name": "Sergius Octavius",
-      "nickname": "sssffsdadasdasdasdasda",
       "currentlyPlaying": "",
       "canMessage": true
     },
@@ -340,7 +239,8 @@
         "The Sims 4",
         "This staus has been blocked by your ISP, Please contact your ISP and upgrade to the discord package for $29.99/mo",
         "with code",
-        "Peggle"
+        "Peggle",
+        "N++"
       ],
       "quotes": [
         "freedom is pain",
@@ -369,13 +269,12 @@
       "canMessage": true
     },
     {
-      "id": "332849703366426624",
-      "name": "caitlinnpage",
-      "nickname": "caitlinnpage",
+      "id": "409875266639495169",
+      "name": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
+      "nickname": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
+      "currentlyPlaying": ""
     },
     {
       "id": "170859544782700544",
@@ -391,15 +290,18 @@
         "Unity 2017.3.0f3",
         "Space Engineers",
         "Battlezone: Combat Commander",
-        "They Are Billions"
+        "They Are Billions",
+        "Spotify",
+        "Counter-Strike Global Offensive",
+        "Wolcen: Lords of Mayhem"
       ],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "Wolcen: Lords of Mayhem"
     },
     {
-      "id": "331432058402373633",
-      "name": "bm90210",
-      "nickname": "bm90210",
+      "id": "430602323601915904",
+      "name": "JustinTil2055",
+      "nickname": "JustinTil2055",
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
@@ -413,19 +315,14 @@
       "currentlyPlaying": ""
     },
     {
-      "id": "234512372197228544",
-      "nickname": "Snowbolt(Benjamin)",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": ""
-    },
-    {
       "id": "270721339332100096",
       "nickname": "EvO xOPTICSx",
       "games": [
         "Rocket League",
         "Duelyst",
-        "Space Engineers"
+        "Space Engineers",
+        "Tom Clancy's Rainbow Six Siege",
+        "Rocket League®"
       ],
       "quotes": [],
       "currentlyPlaying": ""
@@ -475,10 +372,32 @@
         "108113 users",
         "108115 users",
         "1856 guilds",
-        "1855 guilds"
+        "1855 guilds",
+        "109647 users",
+        "109678 users",
+        "109695 users",
+        "1978 guilds",
+        "109717 users",
+        "109730 users",
+        "109759 users",
+        "109803 users",
+        "109821 users",
+        "1979 guilds",
+        "1980 guilds",
+        "1981 guilds",
+        "110020 users",
+        "110144 users",
+        "110149 users",
+        "110161 users",
+        "1982 guilds",
+        "110180 users",
+        "110197 users",
+        "110236 users",
+        "110241 users",
+        "110248 users"
       ],
       "quotes": [],
-      "currentlyPlaying": "https://tatsumaki.xyz"
+      "currentlyPlaying": "Use t!help"
     },
     {
       "id": "259845581348929546",
@@ -499,7 +418,9 @@
       "id": "330711444465123348",
       "name": "Moon",
       "nickname": "Moon",
-      "games": [],
+      "games": [
+        "League of Legends"
+      ],
       "quotes": [],
       "currentlyPlaying": ""
     },
@@ -513,7 +434,10 @@
         "Warface",
         "Trove",
         "Mass Effect 3",
-        "Mass Effect 2"
+        "Mass Effect 2",
+        "Warframe Launcher",
+        "Warframe",
+        "Fallout New Vegas"
       ],
       "quotes": [],
       "currentlyPlaying": ""
@@ -542,10 +466,14 @@
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
         "Turbo Pug",
         "With Ur Mum",
-        "Borderlands 2"
+        "Borderlands 2",
+        "Grand Theft Auto V",
+        "Team Fortress 2",
+        "With an Oven",
+        "Paladins: Champions of the Realm"
       ],
       "quotes": [],
-      "currentlyPlaying": "Borderlands 2"
+      "currentlyPlaying": ""
     },
     {
       "id": "364987081409298434",
@@ -567,7 +495,11 @@
       "id": "295035320758435841",
       "name": "urnansabagofchips",
       "nickname": "urnansabagofchips",
-      "games": [],
+      "games": [
+        "Gay Nigger",
+        "Counter-Strike Global Offensive",
+        "Grand Theft Auto V"
+      ],
       "quotes": [],
       "currentlyPlaying": ""
     },
@@ -576,10 +508,17 @@
       "name": "DisSkies",
       "nickname": "DisSkies",
       "games": [
-        "League of Legends"
+        "League of Legends",
+        "The Elder Scrolls V: Skyrim Special Edition",
+        "Warframe Launcher",
+        "Warframe"
       ],
-      "quotes": [],
-      "currentlyPlaying": ""
+      "quotes": [
+        "DisSsᏆᎬᎥᏁ's Gate"
+      ],
+      "currentlyPlaying": "",
+      "canMessage": true,
+      "casinoLolis": 3
     },
     {
       "id": "211149605210030082",
@@ -592,12 +531,87 @@
       "currentlyPlaying": ""
     },
     {
-      "id": "430602323601915904",
-      "name": "JustinTil2055",
-      "nickname": "JustinTil2055",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": ""
+      "id": "220860764976578561",
+      "name": "Multusvalde",
+      "currentlyPlaying": "",
+      "quotes": [
+        "DONT CALL ME HARRY",
+        "It's not weeb if it's french"
+      ],
+      "canMessage": true,
+      "games": [
+        "Town of Salem",
+        "M.U.G.E.N",
+        "Crunchyroll",
+        "Throwables Configuration",
+        "Spotify"
+      ],
+      "nickname": "SnapJack CrackityBack",
+      "casinoLolis": 121,
+      "casinoRewards": [
+        "customNickname"
+      ],
+      "casinoNickname": "Master"
+    },
+    {
+      "id": "191069151505154048",
+      "name": "lcomstive",
+      "currentlyPlaying": "",
+      "quotes": [
+        "(╯°□°）╯︵ ┻━┻",
+        "same"
+      ],
+      "canMessage": true,
+      "games": [
+        "Crawl",
+        "Black Desert Online",
+        "Hand of Fate",
+        "The Warlock of Firetop Mountain",
+        "Unity",
+        "Duelyst",
+        "M.U.G.E.N",
+        "Unity 2018.1.0b5",
+        "Space Engineers",
+        "Sakura Nova",
+        "League of Legends",
+        "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "Fortnite",
+        "PLAYERUNKNOWN'S BATTLEGROUNDS"
+      ],
+      "nickname": "lcomstive",
+      "casinoLolis": 1000000,
+      "casinoRewards": [
+        "customNickname"
+      ],
+      "casinoNickname": ""
+    },
+    {
+      "id": "210746479403335680",
+      "games": [
+        "Space Engineers",
+        "Grand Theft Auto V",
+        "SpaceEngineers",
+        "PAYDAY 2",
+        "Skullgirls",
+        "Doki Doki Literature Club"
+      ],
+      "name": "The QA Tester",
+      "quotes": [
+        "You're a lizard, Garry",
+        "YOU IDIOT",
+        "lots and lots of dicks",
+        "Tickle me, yeah right there ;)",
+        "masons just greedy",
+        "quare."
+      ],
+      "canMessage": true,
+      "currentlyPlaying": "",
+      "nickname": "The QA Tester",
+      "casinoLolis": 605,
+      "casinoRewards": [
+        "customNickname"
+      ],
+      "casinoNickname": ""
     }
   ],
   "music": {
@@ -605,46 +619,9 @@
       {
         "guild": "349169223899283456",
         "volume": 100,
-        "songIndex": 6,
-        "removeWhenFinished": false,
-        "queue": [
-          {
-            "title": "QUIX - Riot Call (feat. Nevve)",
-            "url": "https://www.youtube.com/watch?v=JY5NVzHtA5o&hl=en"
-          },
-          {
-            "title": "Martin Garrix - Now That I've Found You (Dropwizz & Savagez Remix)",
-            "url": "https://www.youtube.com/watch?v=_Xj6iWDiBos&hl=en"
-          },
-          {
-            "title": "DISKORD - Want U",
-            "url": "https://www.youtube.com/watch?v=X9p1P8X-Hd0&hl=en"
-          },
-          {
-            "title": "Zedd, Kesha - True Colors (Nolan van Lith Remix)",
-            "url": "https://www.youtube.com/watch?v=TPZnDVnNZ6E&hl=en"
-          },
-          {
-            "title": "Galantis - Rich Boy (Zack Martino Remix)",
-            "url": "https://www.youtube.com/watch?v=F8oK8XT6el0&hl=en"
-          },
-          {
-            "title": "STéLOUSE - Sociopath (feat. Bryce Fox)",
-            "url": "https://www.youtube.com/watch?v=CCuxv2O1IIA&hl=en"
-          },
-          {
-            "title": "Blind Witness - All alone [added subtitles]",
-            "url": "https://www.youtube.com/watch?v=F9UKNwlhhpo&hl=en"
-          },
-          {
-            "title": "Childish Gambino - Redbone (Official Audio)",
-            "url": "https://www.youtube.com/watch?v=Kp7eSUU9oy8&hl=en"
-          },
-          {
-            "title": "Yultron - Ride With You (feat. Leah Culver)",
-            "url": "https://www.youtube.com/watch?v=yAhin3OB6lQ&hl=en"
-          }
-        ]
+        "songIndex": 0,
+        "removeWhenFinished": true,
+        "queue": []
       }
     ]
   },
@@ -653,7 +630,10 @@
     "Meat Manager"
   ],
   "insufficientRole": [
-    "I'm sorry ${username}, I can't let you do that"
+    "I'm sorry ${username}, I can't let you do that",
+    "You can't actually do that.. ",
+    "Admin privileges are required for that hack, sir",
+    "It's funny because you think you can do that"
   ],
   "statuses": [
     "with itself",
@@ -720,6 +700,11 @@
     "Psst, ${username}, I'll let you talk again",
     "Pfft, fine. ${username} you're free to go"
   ],
+  "shushNonAdmin": [
+    "No u",
+    "If only you were an admin, you could unshush yourself",
+    "\\*Reverse card\\*"
+  ],
   "notNSFW": [
     "Sorry, this chat is for youngin's",
     "I wish this was a NSFW chat so you could do that",
@@ -739,6 +724,41 @@
       "alias": "Chrome, the taker of RAM"
     }
   ],
+  "casinoDefaultLolis": 100,
+  "casinoTsundereValue": 5000,
+  "casinoRewardValues": {
+    "customNickname": 1200,
+    "gambleSimpleMultiplier": 1,
+    "gambleNumberGuessMultiplier": 4
+  },
+  "casinoJackpot": {
+    "number": 94,
+    "value": 3303,
+    "initialValue": 1000,
+    "costValue": 1000,
+    "strictValue": true,
+    "randomize": true
+  },
+  "casinoResponses": {
+    "win": [
+      "Congrats, you won ${custom_0}"
+    ],
+    "lose": [
+      "welp, you just lost ${custom_0} lolis.."
+    ],
+    "cheat": [
+      "OwO please no >o< baka!",
+      "Can you not?"
+    ],
+    "cheatSuccess": [
+      "I-it's not that I like you or anything! (gained ${custom_0} loli points)",
+      "Huh, I guess that does work.. Here's ${custom_0} lolis"
+    ],
+    "cheatFail": [
+      "Yeah no (lost ${custom_0} lolis)",
+      "Woah it worked. You just *lost* ${custom_0} lolis"
+    ]
+  },
   "giveawayWin": [
     "Congratulations ${custom_0}, you have won *${custom_1}*",
     "So umm... *${custom_1}* has been claimed by ${custom_0}",
@@ -753,6 +773,78 @@
     "No... just.. no",
     "I sincerely insist you *stop*",
     "I'm not even gonna question it"
+  ],
+  "filteredPhrases": [
+    {
+      "content": "loli",
+      "responses": [
+        "Why do you people always talk about this? *Damned lolicons*",
+        "***LOLI?!?!***",
+        "( ͡° ͜ʖ ͡°)",
+        "\\*FBI crash through door\\*",
+        "\\*Lewds\\*",
+        "Did someone say small tiddies?",
+        "Ah loli, my favourite",
+        "${username} is now being watched by the FBI.",
+        "${username} your browsing history has been flagged.",
+        "**LOLICON ALERT**",
+        "\\*dispatching lolicops to ${username}'s position\\*'"
+      ]
+    },
+    {
+      "content": "no homo",
+      "responses": [
+        "Well damn, this is the least gay guy I know",
+        "I guess ${username} isn't gay",
+        "You're right, it's only ${random_percentage}% homo",
+        "That last message was so gay it almost wasn't",
+        "And then god spoke... *\"this dude haveth noteth the gaey\"*",
+        "\\*Gracefully evades gayness\\*",
+        "1 gay notion retracted"
+      ]
+    },
+    {
+      "content": "consent",
+      "responses": [
+        "*Consent* is a myth."
+      ]
+    },
+    {
+      "content": [
+        "nigga",
+        "niga",
+        "nigger",
+        "nignig"
+      ],
+      "responses": [
+        "The *N word* has been played `adding 1 privilege point`."
+      ]
+    },
+    {
+      "content": "thot",
+      "responses": [
+        "***BEGONE***"
+      ]
+    },
+    {
+      "content": "trap",
+      "responses": [
+        "*You have activated my trap card*",
+        "are you talking about Felix?",
+        "Traps arent gay though.",
+        "A female with a dick is *still* female",
+        "It's not a trap - *it's an ambush*"
+      ]
+    },
+    {
+      "content": "fortnite",
+      "responses": [
+        "Fortnite is *traaaasshhh*",
+        "There's a ${random_percentage}% chance I'd play Fortnite, given it didn't suck ass",
+        "Sorry, I didn't know I had 12 year old attention seekers in my presence",
+        "Leave the server, ${username}"
+      ]
+    }
   ],
   "insults": {
     "genericResponse": "You're a ${insult}",
