@@ -111,6 +111,11 @@ module.exports = class Shush extends Command
 					if(params[i][0] == '@')
 						params[i] = params[i].substring(1)
 					let user = Utils.getUserByName(channel, params[i])
+					if(user.id == client.user.id)
+					{
+						message.channel.send('**I CANNOT BE SILENCED!**')
+						return
+					}
 					if(!user)
 					{
 						message.channel.send('Could not find user \'' + params[i] + '\'', channel)

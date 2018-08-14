@@ -151,7 +151,7 @@ module.exports =
 				input = input.replace(/\${random_percentage}/, this.getRandomNumber(1, 100))
 		}
 		if(input.includes('${username}'))
-			input = this.replaceAll(input, /\${username}/g, ((user.casinoRewards || []).includes('customNickname') ? user.casinoNickname : sender.displayName) || sender.displayName)
+			input = this.replaceAll(input, /\${username}/g, (user && (user.casinoRewards || []).includes('customNickname') ? user.casinoNickname : sender.displayName) || sender.displayName)
 		if(input.includes('${insult}'))
 		{
 			let index = input.indexOf('${insult}', input[0] == '$' ? 1 : 0)

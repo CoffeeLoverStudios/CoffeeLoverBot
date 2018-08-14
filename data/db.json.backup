@@ -19,14 +19,6 @@
       "currentlyPlaying": ""
     },
     {
-      "id": "430602323601915904",
-      "name": "JustinTil2055",
-      "nickname": "JustinTil2055",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": ""
-    },
-    {
       "id": "244751835703934976",
       "games": [
         "Unreal Tournament",
@@ -132,23 +124,9 @@
       "quotes": [],
       "name": "Heralias",
       "nickname": "Heralias",
-      "currentlyPlaying": "Grand Theft Auto V",
-      "canMessage": true
-    },
-    {
-      "id": "178422841518063616",
-      "games": [
-        "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Warframe",
-        "League of Legends"
-      ],
-      "quotes": [
-        "CHINa"
-      ],
-      "name": "Chronicler",
-      "nickname": "Chronicler",
-      "currentlyPlaying": "",
-      "canMessage": true
+      "currentlyPlaying": "Warframe",
+      "canMessage": true,
+      "casinoLolis": 10
     },
     {
       "id": "174397951370592256",
@@ -188,52 +166,11 @@
       "canMessage": true
     },
     {
-      "id": "290177072758784000",
-      "name": "South Korean Legend-Faker",
-      "nickname": "Faggot-Squad",
-      "games": [
-        "Grand Theft Auto V",
-        "League of Legends",
-        "PlanetSide 2",
-        "Overwatch",
-        "Counter-Strike Global Offensive",
-        "Paladins",
-        "Paladins: Champions of the Realm",
-        "Minecraft"
-      ],
-      "quotes": [
-        "Multu as your name but short version",
-        "Polish cocks right?",
-        "COCKS"
-      ],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
       "id": "362242590520770570",
       "name": "Im Not A Toxic Boy",
       "nickname": "Im Not A Toxic Boy",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
-      "id": "217396014645116929",
-      "games": [
-        "Garry's Mod",
-        "Starcraft II",
-        "ROBLOX",
-        "Stellaris",
-        "Hearts of Iron IV",
-        "Papers, Please",
-        "Watching Moana Songs",
-        "Warhammer 40K: Dawn of War Soulstorm",
-        "Warhammer 40,000: Dawn of War - Dark Crusade"
-      ],
-      "quotes": [],
-      "name": "Sergius Octavius",
-      "nickname": "sssffsdadasdasdasdasda",
       "currentlyPlaying": "",
       "canMessage": true
     },
@@ -250,7 +187,8 @@
         "Nah yeah or yeah nah, there is no what ya reckon kunt"
       ],
       "currentlyPlaying": "",
-      "canMessage": true
+      "canMessage": true,
+      "casinoLolis": 10
     },
     {
       "id": "222643403651809280",
@@ -301,7 +239,7 @@
         "freedom is pain",
         "I’ll always remember his last words ...  CHHina"
       ],
-      "currentlyPlaying": "Overwatch",
+      "currentlyPlaying": "",
       "canMessage": true
     },
     {
@@ -329,7 +267,8 @@
       "nickname": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "casinoLolis": 20
     },
     {
       "id": "170859544782700544",
@@ -351,28 +290,20 @@
         "Wolcen: Lords of Mayhem"
       ],
       "quotes": [],
-      "currentlyPlaying": "Spotify"
+      "currentlyPlaying": ""
     },
     {
-      "id": "332849703366426624",
-      "name": "caitlinnpage",
-      "nickname": "caitlinnpage",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
-      "id": "371903739184807950",
-      "name": "PIXELPUFF",
-      "nickname": "PIXELPUFF",
+      "id": "430602323601915904",
+      "name": "JustinTil2055",
+      "nickname": "JustinTil2055",
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
     },
     {
-      "id": "234512372197228544",
-      "nickname": "Snowbolt(Benjamin)",
+      "id": "371903739184807950",
+      "name": "PIXELPUFF",
+      "nickname": "PIXELPUFF",
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
@@ -396,68 +327,6 @@
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
-    },
-    {
-      "id": "172002275412279296",
-      "name": "Tatsumaki",
-      "nickname": "Tatsumaki",
-      "games": [
-        "90155 users",
-        "2288 guilds",
-        "Use t!help",
-        "2289 guilds",
-        "90355 users",
-        "https://tatsumaki.xyz",
-        "90938 users",
-        "2298 guilds",
-        "90947 users",
-        "90786 users",
-        "91458 users",
-        "93160 users",
-        "2335 guilds",
-        "93189 users",
-        "2336 guilds",
-        "93246 users",
-        "93300 users",
-        "93327 users",
-        "93370 users",
-        "1600 guilds",
-        "95456 users",
-        "1603 guilds",
-        "95489 users",
-        "95505 users",
-        "1676 guilds",
-        "105734 users",
-        "105761 users",
-        "1770 guilds",
-        "108051 users",
-        "108110 users",
-        "108113 users",
-        "108115 users",
-        "1856 guilds",
-        "1855 guilds",
-        "109647 users",
-        "109678 users",
-        "109695 users",
-        "1978 guilds",
-        "109717 users",
-        "109730 users",
-        "109759 users",
-        "109803 users",
-        "109821 users",
-        "1979 guilds",
-        "1980 guilds",
-        "1981 guilds",
-        "110020 users",
-        "110144 users",
-        "110149 users",
-        "110161 users",
-        "1982 guilds",
-        "110180 users",
-        "110197 users"
-      ],
-      "quotes": [],
-      "currentlyPlaying": "110197 users"
     },
     {
       "id": "259845581348929546",
@@ -500,7 +369,7 @@
         "Fallout New Vegas"
       ],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "Warframe"
     },
     {
       "id": "256742091034591232",
@@ -576,8 +445,9 @@
       "quotes": [
         "DisSsᏆᎬᎥᏁ's Gate"
       ],
-      "currentlyPlaying": "",
-      "canMessage": true
+      "currentlyPlaying": "Warframe",
+      "canMessage": true,
+      "casinoLolis": 10
     },
     {
       "id": "211149605210030082",
@@ -590,38 +460,27 @@
       "currentlyPlaying": ""
     },
     {
-      "id": "332849703366426624",
-      "name": "caitlinnpage",
-      "nickname": "caitlinnpage",
-      "games": [],
-      "quotes": [],
+      "id": "220860764976578561",
+      "name": "Multusvalde",
       "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
-      "id": "210746479403335680",
-      "games": [
-        "Space Engineers",
-        "Grand Theft Auto V",
-        "SpaceEngineers",
-        "PAYDAY 2",
-        "Skullgirls",
-        "Doki Doki Literature Club"
-      ],
-      "name": "The QA Tester",
       "quotes": [
-        "You're a lizard, Garry",
-        "YOU IDIOT",
-        "lots and lots of dicks",
-        "Tickle me, yeah right there ;)",
-        "masons just greedy",
-        "quare."
+        "DONT CALL ME HARRY",
+        "It's not weeb if it's french"
       ],
       "canMessage": true,
-      "currentlyPlaying": "",
-      "nickname": "The QA Tester",
-      "casinoLolis": 200,
-      "casinoRewards": []
+      "games": [
+        "Town of Salem",
+        "M.U.G.E.N",
+        "Crunchyroll",
+        "Throwables Configuration",
+        "Spotify"
+      ],
+      "nickname": "SnapJack CrackityBack",
+      "casinoLolis": 70000,
+      "casinoRewards": [
+        "customNickname"
+      ],
+      "casinoNickname": "Master"
     },
     {
       "id": "191069151505154048",
@@ -649,34 +508,39 @@
         "PLAYERUNKNOWN'S BATTLEGROUNDS"
       ],
       "nickname": "lcomstive",
-      "casinoLolis": 1100000,
+      "casinoLolis": 1360,
       "casinoRewards": [
         "customNickname"
       ],
-      "casinoNickname": "Creator"
+      "casinoNickname": ""
     },
     {
-      "id": "220860764976578561",
-      "name": "Multusvalde",
-      "currentlyPlaying": "",
+      "id": "210746479403335680",
+      "games": [
+        "Space Engineers",
+        "Grand Theft Auto V",
+        "SpaceEngineers",
+        "PAYDAY 2",
+        "Skullgirls",
+        "Doki Doki Literature Club"
+      ],
+      "name": "The QA Tester",
       "quotes": [
-        "DONT CALL ME HARRY",
-        "It's not weeb if it's french"
+        "You're a lizard, Garry",
+        "YOU IDIOT",
+        "lots and lots of dicks",
+        "Tickle me, yeah right there ;)",
+        "masons just greedy",
+        "quare."
       ],
       "canMessage": true,
-      "games": [
-        "Town of Salem",
-        "M.U.G.E.N",
-        "Crunchyroll",
-        "Throwables Configuration",
-        "Spotify"
-      ],
-      "nickname": "SnapJack CrackityBack",
-      "casinoLolis": 100,
+      "currentlyPlaying": "",
+      "nickname": "The QA Tester",
+      "casinoLolis": 310,
       "casinoRewards": [
         "customNickname"
       ],
-      "casinoNickname": "Master"
+      "casinoNickname": ""
     }
   ],
   "music": {
@@ -749,7 +613,7 @@
   ],
   "shushedResponses": [
     "Shushed '${username}'",
-    "*SILENCED THE PEASANT KNOWN AS '${username}'",
+    "*SILENCED THE PEASANT KNOWN AS '${username}'*",
     "rip ${username}",
     "Hey... hey ${username}, I **dare** you to speak"
   ],
@@ -790,17 +654,40 @@
     }
   ],
   "casinoDefaultLolis": 100,
+  "casinoMinimumLolis": 10,
+  "casinoTsundereValue": 5000,
   "casinoRewardValues": {
     "customNickname": 1200,
     "gambleSimpleMultiplier": 1,
-    "gambleNumberGuessMultiplier": 2
+    "gambleNumberGuessMultiplier": 4
   },
   "casinoJackpot": {
     "number": 94,
-    "value": 103,
+    "value": 3303,
     "initialValue": 1000,
     "costValue": 1000,
+    "strictValue": true,
     "randomize": true
+  },
+  "casinoResponses": {
+    "win": [
+      "Congrats, you won ${custom_0}"
+    ],
+    "lose": [
+      "welp, you just lost ${custom_0} lolis.."
+    ],
+    "cheat": [
+      "OwO please no >o< baka!",
+      "Can you not?"
+    ],
+    "cheatSuccess": [
+      "I-it's not that I like you or anything! (gained ${custom_0} loli points)",
+      "Huh, I guess that does work.. Here's ${custom_0} lolis"
+    ],
+    "cheatFail": [
+      "Yeah no (lost ${custom_0} lolis)",
+      "Woah it worked. You just *lost* ${custom_0} lolis"
+    ]
   },
   "giveawayWin": [
     "Congratulations ${custom_0}, you have won *${custom_1}*",
@@ -825,7 +712,13 @@
         "***LOLI?!?!***",
         "( ͡° ͜ʖ ͡°)",
         "\\*FBI crash through door\\*",
-        "\\*Lewds\\*"
+        "\\*Lewds\\*",
+        "Did someone say small tiddies?",
+        "Ah loli, my favourite",
+        "${username} is now being watched by the FBI.",
+        "${username} your browsing history has been flagged.",
+        "**LOLICON ALERT**",
+        "\\*dispatching lolicops to ${username}'s position\\*"
       ]
     },
     {
@@ -841,6 +734,23 @@
       ]
     },
     {
+      "content": "consent",
+      "responses": [
+        "*Consent* is a myth."
+      ]
+    },
+    {
+      "content": [
+        "nigga",
+        "niga",
+        "nigger",
+        "nignig"
+      ],
+      "responses": [
+        "The *N word* has been played `adding 1 privilege point`."
+      ]
+    },
+    {
       "content": "thot",
       "responses": [
         "***BEGONE***"
@@ -850,7 +760,7 @@
       "content": "trap",
       "responses": [
         "*You have activated my trap card*",
-        "are you talking about Felix?",
+        "Are you talking about Felix?",
         "Traps arent gay though.",
         "A female with a dick is *still* female",
         "It's not a trap - *it's an ambush*"
@@ -863,6 +773,24 @@
         "There's a ${random_percentage}% chance I'd play Fortnite, given it didn't suck ass",
         "Sorry, I didn't know I had 12 year old attention seekers in my presence",
         "Leave the server, ${username}"
+      ]
+    },
+    {
+      "content": [
+        "rule 34",
+        "rule34",
+        "hentai"
+      ],
+      "responses": [
+        "*Psst, just remember - I have a rule34 command*",
+        "I'm listening..."
+      ]
+    },
+    {
+      "content": "waifu",
+      "responses": [
+        "Your waifu is trash anyway",
+        "2D > 3D"
       ]
     }
   ],

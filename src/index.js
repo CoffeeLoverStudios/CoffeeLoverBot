@@ -58,6 +58,8 @@ setGame = (id, game) =>
 // *gets out binoculars*
 watch = (member) =>
 {
+	if(global.db.get('ignoredUsers').includes(member.name))
+		return
 	let users = global.db.get('users')
 	// Grab the user from our secret book of secrets
 	let user = users.find({ id: member.id }).value()
@@ -148,6 +150,13 @@ sendHelp = (message) =>
 	message.channel.send(helpMsg)
 }
 
+catchError = (message, error) =>
+{
+	console.log('\n\n' + JSON.stringify(error) + '\n\n')
+	console.log(`\nERROR:\n\t${error}\n\nUser: ${message.author.name}\nMessage: ${message.content}\n`)
+	message.channel.send(`Screw you, that caused an error. (<@191069151505154048>, '${error}')`)
+}
+
 // The big function-o-things
 setup = () =>
 {
@@ -193,7 +202,8 @@ setup = () =>
 		})
 
 		// Set Bot's game status ('Playing...')
-		client.user.setPresence({ status: 'online', game: { name: Utils.getRandom(global.db.get('statuses').value()), type: 0 }})
+		let status = Utils.getRandom(global.db.get('statuses').value())
+		client.user.setPresence({ status: 'online', game: { name: status.content, type: status.type }})
 
 		// Should probably let the console-onlooker know they can waste a few more hours of their life on Discord now.
 		//	At least this time it's because of something I did, and that's an achievement in my books
@@ -203,71 +213,78 @@ setup = () =>
 	// Capture all messages on the server(s)
 	client.on('message', (message) =>
 	{
-		// if it's a message from a bot (especially this one), ignore it
-		if(message.author.bot || message.member.id == client.user.id)
-			return
-		// Get the user's data from the book-o-secrets
-		let user = global.db.get('users').find({ id: message.member.id }).value()
-		// If the user cannot message, SHUSH THEMMMM!!! if they do an 'unshush' command,
-		//		we'll skip this and let them know they can't do that >:)
-		if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(global.tokens.command + 'unshush'))
+		try
 		{
-			Shush.shushMessage(message)
-			return
-		}
-		// Check if the message is a command
-		if(message.content[0] == global.tokens.command)
-		{
-			// Remove the command token, screw that thing
-			message.content = message.content.substring(global.tokens.command.length)
-			// Swap out iOS quote thingos because they screw everything over
-			message.content = Utils.replaceAll(message.content, /‘|’|“|”/g, '\"')
-			// Get the parameters, seperated by spaces (excluding words encapsulated in double quotes), using regex magic
-			//	e.g. '!someCommand parameter1 "some other parameter" another one'
-			//			=> [ 'someCommand', 'parameter1', 'some other parameter', 'another', 'one' ]
-			let params = Utils.getParams(message.content)
-			// Check for a refresh command, this is specific and can only be done from this file apparently
-			if(params[0].toLowerCase() == 'refresh')
+			// if it's a message from a bot (especially this one), ignore it
+			if(message.author.bot || message.member.id == client.user.id)
+				return
+			// Get the user's data from the book-o-secrets
+			let user = global.db.get('users').find({ id: message.member.id }).value()
+			// If the user cannot message, SHUSH THEMMMM!!! if they do an 'unshush' command,
+			//		we'll skip this and let them know they can't do that >:)
+			if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(global.tokens.command + 'unshush'))
 			{
-				// Re-read the secret book
-				global.db.read()
-				// Tell the commands to refresh all their things
-				commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
-
-				// Check for a new command token
-				global.tokens.command = global.db.get('commandToken').value()
-				if(!global.tokens.command)
-					global.tokens.command = '!'
-
-				// Let the console-peasant know we're done here
-				console.log('Refreshed')
+				Shush.shushMessage(message)
+				return
 			}
-			// Send help, or raygun
-			else if(params[0].toLowerCase() == 'help')
-				sendHelp(message)
-			else // otherwise check if another command wants to take the user up on that challenge
-				commands.forEach((command) =>
+			// Check if the message is a command
+			if(message.content[0] == global.tokens.command)
+			{
+				// Remove the command token, screw that thing
+				message.content = message.content.substring(global.tokens.command.length)
+				// Swap out iOS quote thingos because they screw everything over
+				message.content = Utils.replaceAll(message.content, /‘|’|“|”/g, '\"')
+				// Get the parameters, seperated by spaces (excluding words encapsulated in double quotes), using regex magic
+				//	e.g. '!someCommand parameter1 "some other parameter" another one'
+				//			=> [ 'someCommand', 'parameter1', 'some other parameter', 'another', 'one' ]
+				let params = Utils.getParams(message.content)
+				// Check for a refresh command, this is specific and can only be done from this file apparently
+				if(params[0].toLowerCase() == 'refresh')
 				{
-					// Check for tricky classes not implemented with everything (I'm looking at you, Garry)
-					if(typeof command.shouldCall === 'undefined' || typeof command.call === 'undefined') return
-					// The command class will tell us if it's ready for this battle
-					if(command.shouldCall(params[0]))
-						command.call(message, params, client) // FIGHT!
-				})
-		}
-		else // it's not a command, so let all the commands know we got a general message,
-		{	 // 	and they can do whatever the hell they want with it, like delete it
-			let handled = false
-			for(let i = 0; i < commands.length; i++)
-			{
-				if(typeof commands[i].gotMessage === 'undefined')
-					continue;
-				if(commands[i].gotMessage(message))
-					handled = true
+					// Re-read the secret book
+					global.db.read()
+					// Tell the commands to refresh all their things
+					commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
+
+					// Check for a new command token
+					global.tokens.command = global.db.get('commandToken').value()
+					if(!global.tokens.command)
+						global.tokens.command = '!'
+
+					// Let the peasant know we're done here
+					message.channel.send('Refreshed, thanks to Mountain Dew™')
+				}
+				// Send help, or raygun
+				else if(params[0].toLowerCase() == 'help')
+					sendHelp(message)
+				else // otherwise check if another command wants to take the user up on that challenge
+					commands.forEach((command) =>
+					{
+						// Check for tricky classes not implemented with everything (I'm looking at you, Garry)
+						if(typeof command.shouldCall === 'undefined' || typeof command.call === 'undefined') return
+						// The command class will tell us if it's ready for this battle
+						if(command.shouldCall(params[0]))
+						{
+							try { command.call(message, params, client) } // FIGHT!
+							catch(e) { catchError(message, e) }
+						}
+					})
 			}
-			if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(client.user.id))
-				cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output) })
+			else // it's not a command, so let all the commands know we got a general message,
+			{	 // 	and they can do whatever the hell they want with it, like delete it
+				let handled = false
+				for(let i = 0; i < commands.length; i++)
+				{
+					if(typeof commands[i].gotMessage === 'undefined')
+						continue;
+					if(commands[i].gotMessage(message))
+						handled = true
+				}
+				if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(client.user.id))
+					cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output) })
+			}
 		}
+		catch(e) { catchError(message, e) }
 	})
 	// Called when a user joins a Discord server, we'll use this event to get their information
 	//	and watch them like the creepy devs we are. But hey, at least we greet them!
@@ -326,11 +343,11 @@ setup = () =>
 			value.members.forEach((member, key, map) =>
 			{
 				// If this is the bot... well, it shouldn't watch itself. It's seen enough as it is...
-				if(member.id == client.user.id)
+				if(member.id == client.user.id || global.db.get('ignoredUsers').includes(member.name))
 					return
 				let user = global.db.get('users').find({ id: member.id }).value()
 				// Check game status
-				if(member.presence.game && user.currentlyPlaying != member.presence.game)
+				if(member.presence.game && (!member.currentlyPlaying || member.currentlyPlaying != member.presence.game))
 					setGame(member.id, member.presence.game.name)
 				else if((!member.presence.game && user.currentlyPlaying != 'None') || member.presence.status == 'offline')
 					setGame(member.id, '')

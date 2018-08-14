@@ -11,15 +11,6 @@
   ],
   "users": [
     {
-      "id": "332849703366426624",
-      "name": "caitlinnpage",
-      "nickname": "caitlinnpage",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
       "id": "331432058402373633",
       "name": "bm90210",
       "nickname": "bm90210",
@@ -84,7 +75,8 @@
         "Rocket League"
       ],
       "nickname": "cartower",
-      "canMessage": true
+      "canMessage": true,
+      "casinoLolis": 10
     },
     {
       "id": "244722885195726850",
@@ -134,7 +126,8 @@
       "name": "Heralias",
       "nickname": "Heralias",
       "currentlyPlaying": "Warframe",
-      "canMessage": true
+      "canMessage": true,
+      "casinoLolis": 40
     },
     {
       "id": "174397951370592256",
@@ -159,7 +152,8 @@
       "name": "BOBtheman2000",
       "nickname": "BOBtheman2000",
       "currentlyPlaying": "",
-      "canMessage": true
+      "canMessage": true,
+      "casinoLolis": 101
     },
     {
       "id": "218018036995719169",
@@ -195,7 +189,8 @@
         "Nah yeah or yeah nah, there is no what ya reckon kunt"
       ],
       "currentlyPlaying": "",
-      "canMessage": true
+      "canMessage": true,
+      "casinoLolis": 70
     },
     {
       "id": "222643403651809280",
@@ -274,7 +269,9 @@
       "nickname": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "casinoLolis": 20,
+      "canMessage": true
     },
     {
       "id": "170859544782700544",
@@ -296,7 +293,7 @@
         "Wolcen: Lords of Mayhem"
       ],
       "quotes": [],
-      "currentlyPlaying": "Wolcen: Lords of Mayhem"
+      "currentlyPlaying": ""
     },
     {
       "id": "430602323601915904",
@@ -304,7 +301,8 @@
       "nickname": "JustinTil2055",
       "games": [],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "",
+      "casinoLolis": 10
     },
     {
       "id": "371903739184807950",
@@ -333,71 +331,6 @@
       "games": [],
       "quotes": [],
       "currentlyPlaying": ""
-    },
-    {
-      "id": "172002275412279296",
-      "name": "Tatsumaki",
-      "nickname": "Tatsumaki",
-      "games": [
-        "90155 users",
-        "2288 guilds",
-        "Use t!help",
-        "2289 guilds",
-        "90355 users",
-        "https://tatsumaki.xyz",
-        "90938 users",
-        "2298 guilds",
-        "90947 users",
-        "90786 users",
-        "91458 users",
-        "93160 users",
-        "2335 guilds",
-        "93189 users",
-        "2336 guilds",
-        "93246 users",
-        "93300 users",
-        "93327 users",
-        "93370 users",
-        "1600 guilds",
-        "95456 users",
-        "1603 guilds",
-        "95489 users",
-        "95505 users",
-        "1676 guilds",
-        "105734 users",
-        "105761 users",
-        "1770 guilds",
-        "108051 users",
-        "108110 users",
-        "108113 users",
-        "108115 users",
-        "1856 guilds",
-        "1855 guilds",
-        "109647 users",
-        "109678 users",
-        "109695 users",
-        "1978 guilds",
-        "109717 users",
-        "109730 users",
-        "109759 users",
-        "109803 users",
-        "109821 users",
-        "1979 guilds",
-        "1980 guilds",
-        "1981 guilds",
-        "110020 users",
-        "110144 users",
-        "110149 users",
-        "110161 users",
-        "1982 guilds",
-        "110180 users",
-        "110197 users",
-        "110236 users",
-        "110241 users",
-        "110248 users"
-      ],
-      "quotes": [],
-      "currentlyPlaying": "Use t!help"
     },
     {
       "id": "259845581348929546",
@@ -440,7 +373,7 @@
         "Fallout New Vegas"
       ],
       "quotes": [],
-      "currentlyPlaying": ""
+      "currentlyPlaying": "Warframe"
     },
     {
       "id": "256742091034591232",
@@ -484,14 +417,6 @@
       "currentlyPlaying": ""
     },
     {
-      "id": "432801983917981696",
-      "name": "AsianCunt97",
-      "nickname": "AsianCunt97",
-      "games": [],
-      "quotes": [],
-      "currentlyPlaying": ""
-    },
-    {
       "id": "295035320758435841",
       "name": "urnansabagofchips",
       "nickname": "urnansabagofchips",
@@ -516,9 +441,9 @@
       "quotes": [
         "DisSsᏆᎬᎥᏁ's Gate"
       ],
-      "currentlyPlaying": "",
+      "currentlyPlaying": "Warframe",
       "canMessage": true,
-      "casinoLolis": 3
+      "casinoLolis": 370
     },
     {
       "id": "211149605210030082",
@@ -547,7 +472,7 @@
         "Spotify"
       ],
       "nickname": "SnapJack CrackityBack",
-      "casinoLolis": 121,
+      "casinoLolis": 10,
       "casinoRewards": [
         "customNickname"
       ],
@@ -579,11 +504,12 @@
         "PLAYERUNKNOWN'S BATTLEGROUNDS"
       ],
       "nickname": "lcomstive",
-      "casinoLolis": 1000000,
+      "casinoLolis": 130,
       "casinoRewards": [
-        "customNickname"
+        "customNickname",
+        "vip"
       ],
-      "casinoNickname": ""
+      "casinoNickname": "Creator"
     },
     {
       "id": "210746479403335680",
@@ -607,11 +533,18 @@
       "canMessage": true,
       "currentlyPlaying": "",
       "nickname": "The QA Tester",
-      "casinoLolis": 605,
+      "casinoLolis": 3010,
       "casinoRewards": [
-        "customNickname"
+        "customNickname",
+        "vip"
       ],
       "casinoNickname": ""
+    },
+    {
+      "id": "151656787404259328",
+      "nickname": "DinoHunter",
+      "games": [],
+      "quotes": []
     }
   ],
   "music": {
@@ -636,29 +569,114 @@
     "It's funny because you think you can do that"
   ],
   "statuses": [
-    "with itself",
-    "all the songs",
-    "TF2 on an alienware",
-    "definitely not porn",
-    "something worth playing",
-    "a game of will power",
-    "with a gun",
-    "with the bones of my enemies",
-    "with a small infant",
-    "my trap card",
-    "the spell Toadify",
-    "with the horniest pre-pubescent boy",
-    "lose lose",
-    "Cards Against Humanity",
-    "catch the knife",
-    "find the sausage",
-    "with gluten free flour",
-    "Supereme Comader",
-    "wheres jaxon at a lan-party",
-    "with definitely not milk",
-    "with people's feeling",
-    "connect flour",
-    "connect Führer"
+    {
+      "type": "PLAYING",
+      "content": "with itself"
+    },
+    {
+      "type": "PLAYING",
+      "content": "all the songs"
+    },
+    {
+      "type": "PLAYING",
+      "content": "TF2 on an alienware"
+    },
+    {
+      "type": "PLAYING",
+      "content": "definitely not porn"
+    },
+    {
+      "type": "PLAYING",
+      "content": "something worth playing"
+    },
+    {
+      "type": "PLAYING",
+      "content": "a game of will power"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with a gun"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with the bones of my enemies"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with a small infant"
+    },
+    {
+      "type": "PLAYING",
+      "content": "my trap card"
+    },
+    {
+      "type": "PLAYING",
+      "content": "the spell Toadify"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with the horniest pre-pubescent boy"
+    },
+    {
+      "type": "PLAYING",
+      "content": "lose lose"
+    },
+    {
+      "type": "PLAYING",
+      "content": "Cards Against Humanity"
+    },
+    {
+      "type": "PLAYING",
+      "content": "catch the knife"
+    },
+    {
+      "type": "PLAYING",
+      "content": "find the sausage"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with gluten free flour"
+    },
+    {
+      "type": "PLAYING",
+      "content": "Supereme Comader"
+    },
+    {
+      "type": "PLAYING",
+      "content": "wheres jaxon at a lan-party"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with definitely not milk"
+    },
+    {
+      "type": "PLAYING",
+      "content": "with people's feeling"
+    },
+    {
+      "type": "PLAYING",
+      "content": "connect flour"
+    },
+    {
+      "type": "PLAYING",
+      "content": "connect Führer"
+    },
+    {
+      "type": "LISTENING",
+      "content": "to the screams"
+    },
+    {
+      "type": "LISTENING",
+      "content": "to Mozart"
+    },
+    {
+      "type": "WATCHING",
+      "content": "you"
+    },
+    {
+      "type": "WATCHING",
+      "content": "from a distance"
+    }
   ],
   "greetings": [
     "Sup, ${username}",
@@ -684,7 +702,7 @@
   ],
   "shushedResponses": [
     "Shushed '${username}'",
-    "*SILENCED THE PEASANT KNOWN AS '${username}'",
+    "*SILENCED THE PEASANT KNOWN AS '${username}'*",
     "rip ${username}",
     "Hey... hey ${username}, I **dare** you to speak"
   ],
@@ -725,15 +743,18 @@
     }
   ],
   "casinoDefaultLolis": 100,
+  "casinoMinimumLolis": 10,
   "casinoTsundereValue": 5000,
+  "casinoVIPRole": "Casino VIP",
   "casinoRewardValues": {
     "customNickname": 1200,
+    "VIPRole": 3000,
     "gambleSimpleMultiplier": 1,
     "gambleNumberGuessMultiplier": 4
   },
   "casinoJackpot": {
     "number": 94,
-    "value": 3303,
+    "value": 18303,
     "initialValue": 1000,
     "costValue": 1000,
     "strictValue": true,
@@ -788,7 +809,7 @@
         "${username} is now being watched by the FBI.",
         "${username} your browsing history has been flagged.",
         "**LOLICON ALERT**",
-        "\\*dispatching lolicops to ${username}'s position\\*'"
+        "\\*dispatching lolicops to ${username}'s position\\*"
       ]
     },
     {
@@ -830,7 +851,7 @@
       "content": "trap",
       "responses": [
         "*You have activated my trap card*",
-        "are you talking about Felix?",
+        "Are you talking about Felix?",
         "Traps arent gay though.",
         "A female with a dick is *still* female",
         "It's not a trap - *it's an ambush*"
@@ -843,6 +864,24 @@
         "There's a ${random_percentage}% chance I'd play Fortnite, given it didn't suck ass",
         "Sorry, I didn't know I had 12 year old attention seekers in my presence",
         "Leave the server, ${username}"
+      ]
+    },
+    {
+      "content": [
+        "rule 34",
+        "rule34",
+        "hentai"
+      ],
+      "responses": [
+        "*Psst, just remember - I have a rule34 command*",
+        "I'm listening..."
+      ]
+    },
+    {
+      "content": "waifu",
+      "responses": [
+        "Your waifu is trash anyway",
+        "2D > 3D"
       ]
     }
   ],

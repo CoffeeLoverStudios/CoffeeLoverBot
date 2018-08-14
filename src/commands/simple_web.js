@@ -14,6 +14,7 @@ module.exports = class SimpleWeb extends Command
 		return [
 			`\`${token}yesorno\`: Returns either *yes* or *no* in .gif form`,
 		 	`\`${token}advice\`: Get some advice from a computer. Yeah, how does that make you feel? (*optionally add a word to search for*)`,
+			`\`${token}choose <option1> <option2>...\`: Chooses an option at random`,
 			{ usage: `\`${token}database\`: The database file is sent to you`, admin: true },
 			{ usage: `\`${token}cleanse\`: Cleans the database file`, admin: true }
 		]
@@ -22,7 +23,8 @@ module.exports = class SimpleWeb extends Command
 	shouldCall(command) { return command.toLowerCase() == 'yesorno' ||
 								 command.toLowerCase() == 'advice'  ||
 							 	 command.toLowerCase() == 'database' ||
-							 	 command.toLowerCase() == 'cleanse' }
+							 	 command.toLowerCase() == 'cleanse' ||
+							  	 command.toLowerCase() == 'choose' }
 
 	call(message, params, client)
 	{
@@ -68,18 +70,15 @@ module.exports = class SimpleWeb extends Command
 			// Cleanse members
 			let guildMemberIDs = [], users = global.db.get('users').value()
 			client.guilds.forEach((value, key, map) => { value.members.forEach((member, key, map) => { guildMemberIDs.push(member.id) })})
-			console.log(`Guild members: ${guildMemberIDs.length}\nUsers: ${users.length}`)
 
-			for(let i = users.length - 1; i > 0; i--)
+			let newUsers = [], ignoredUsers = global.db.get('ignoredUsers').value()
+			users.forEach(user =>
 			{
-				if(!guildMemberIDs.includes(users[i].id))
-				{
-					console.log(`Removing '${users[i].nickname || users[i].name}'...`)
-					users.splice(i, 1)
-				}
-			}
+				if(guildMemberIDs.includes(user.id) && !ignoredUsers.includes(user.name))
+					newUsers.push(user)
+			})
 
-			global.db.set('users', users).write()
+			global.db.set('users', newUsers).write()
 
 			let musicQueues = global.db.get('music').value().queues
 			for(let i = 0; i < musicQueues.length; i++)
@@ -88,6 +87,22 @@ module.exports = class SimpleWeb extends Command
 				musicQueues[i].songIndex = 0
 			}
 			global.db.get('music').set('queues', musicQueues).write()
+
+			message.channel.send('Cleansing complete')
+		}
+		else if(params[0].toLowerCase() == 'choose')
+		{
+			if(params.length <= 2)
+			{
+				message.channel.send('Usage: \`choose <option1> <option2>...\`')
+				return
+			}
+
+			let options = []
+			for(let i = 1; i < params.length; i++)
+				options.push(params[i])
+			message.channel.send('Your option, chosen at random is...')
+			message.channel.send(`*${Utils.process(Utils.getRandom(options), message.author, message.channel)}*`)
 		}
 	}
 }

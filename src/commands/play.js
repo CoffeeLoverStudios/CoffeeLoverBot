@@ -27,10 +27,8 @@ module.exports = class Play extends Command
 			message.channel.send(Utils.getRandom(this.adminRefusals), message.channel, message.member)
 			return
 		}
-		let game = Utils.getRandom(this.statuses)
-		if(params.length > 1)
-			game = message.content.substring(params[0].length + 1)
-		client.user.setPresence({ status: 'online', game: { name: game, type: 0 }})
-		message.channel.send('Now playing \'' + game + '\'')
+		let game = params.length > 1 ? { type: "PLAYING", content: message.content.substring(params[0].length + 1) } : Utils.getRandom(this.statuses)
+		client.user.setPresence({ status: 'online', game: { name: game.content, type: game.type } })
+		message.channel.send(`Now ${game.type.toLowerCase()} '${game.content}'`)
 	}
 }
