@@ -124,7 +124,7 @@
       ],
       "quotes": [],
       "name": "Heralias",
-      "nickname": "Heralias",
+      "nickname": "Heralias/CT",
       "currentlyPlaying": "Warframe",
       "canMessage": true,
       "casinoLolis": 40
@@ -178,7 +178,7 @@
     },
     {
       "id": "164396031113428992",
-      "nickname": "desaturatebeige6402",
+      "nickname": "name",
       "games": [
         "Ultra Street Fighter IV",
         "Warframe Launcher",
@@ -250,7 +250,8 @@
       "games": [],
       "quotes": [],
       "currentlyPlaying": "",
-      "canMessage": true
+      "canMessage": true,
+      "casinoLolis": 1100
     },
     {
       "id": "375299248327098369",
@@ -350,7 +351,7 @@
     {
       "id": "330711444465123348",
       "name": "Moon",
-      "nickname": "Moon",
+      "nickname": "Only On Saturdays",
       "games": [
         "League of Legends"
       ],
@@ -431,7 +432,7 @@
     {
       "id": "396713838990589955",
       "name": "DisSkies",
-      "nickname": "DisSkies",
+      "nickname": "Tall Roblox Nigga",
       "games": [
         "League of Legends",
         "The Elder Scrolls V: Skyrim Special Edition",
@@ -443,7 +444,7 @@
       ],
       "currentlyPlaying": "Warframe",
       "canMessage": true,
-      "casinoLolis": 370
+      "casinoLolis": 11
     },
     {
       "id": "211149605210030082",
@@ -471,7 +472,7 @@
         "Throwables Configuration",
         "Spotify"
       ],
-      "nickname": "SnapJack CrackityBack",
+      "nickname": "[BANNED USER]",
       "casinoLolis": 10,
       "casinoRewards": [
         "customNickname"
@@ -504,7 +505,7 @@
         "PLAYERUNKNOWN'S BATTLEGROUNDS"
       ],
       "nickname": "lcomstive",
-      "casinoLolis": 130,
+      "casinoLolis": 430,
       "casinoRewards": [
         "customNickname",
         "vip"
@@ -528,12 +529,13 @@
         "lots and lots of dicks",
         "Tickle me, yeah right there ;)",
         "masons just greedy",
-        "quare."
+        "quare.",
+        "It was too messy and barely worked."
       ],
       "canMessage": true,
       "currentlyPlaying": "",
-      "nickname": "The QA Tester",
-      "casinoLolis": 3010,
+      "nickname": "Ranger Rick Law Enforcer",
+      "casinoLolis": 10,
       "casinoRewards": [
         "customNickname",
         "vip"
@@ -543,6 +545,44 @@
     {
       "id": "151656787404259328",
       "nickname": "DinoHunter",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "309391215898656769",
+      "nickname": "megahermione",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "133138648228036608",
+      "nickname": "High Roller Kebbles",
+      "games": [],
+      "quotes": [
+        "This is Major Tom to Ground Control\nI'm stepping through the door\nAnd I'm floating in a most peculiar way\nAnd the stars look very different today"
+      ],
+      "canMessage": true,
+      "casinoLolis": 510,
+      "casinoRewards": [
+        "vip"
+      ]
+    },
+    {
+      "id": "206363813233033216",
+      "nickname": "Ahzul",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "198433521713283073",
+      "nickname": "NOMAD",
+      "games": [],
+      "quotes": [],
+      "canMessage": true
+    },
+    {
+      "id": "371086084551213056",
+      "nickname": "Praksys",
       "games": [],
       "quotes": []
     }
@@ -663,11 +703,11 @@
     },
     {
       "type": "LISTENING",
-      "content": "to the screams"
+      "content": "the screams"
     },
     {
       "type": "LISTENING",
-      "content": "to Mozart"
+      "content": "Mozart"
     },
     {
       "type": "WATCHING",
@@ -754,7 +794,7 @@
   },
   "casinoJackpot": {
     "number": 94,
-    "value": 18303,
+    "value": 21303,
     "initialValue": 1000,
     "costValue": 1000,
     "strictValue": true,
@@ -1030,7 +1070,10 @@
     "Itsa me... shitty bot",
     "The quotes... The terrible quotes...",
     "After losing most of my senses my other senses were heightened, like my sense of *bullshit*",
-    "*dialing up iiNet internet*"
+    "*dialing up iiNet internet*",
+    "<@!133138648228036608>",
+    "<@!133138648228036608>",
+    "see look"
   ],
   "tokens": {
     "discord": "",

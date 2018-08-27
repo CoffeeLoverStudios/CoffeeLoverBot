@@ -35,19 +35,10 @@ module.exports = class Rule34 extends Command
 		{
 			let url = BaseRule34URL
 			if(params.length > 1)
-			{
-				url += '&tags=' + params.slice(1, params.length - 1).join('+')
-				/*
-				let tag = ''
-				for(let i = 1; i < params.length; i++)
-					tag += params[i] + (i < params.length - 1 ? '+' : '')
-				url += '&tags=' + tag
-				*/
-			}
+				url += `&tags=${params.slice(1).join('+')}`
 
 			request(url, (error, response, body) =>
 			{
-				console.log(`Retrieving disappointing images from '${url}'...`)
 				if(response.statusCode != 200 || error)
 				{
 					console.log('Error retrieving from https://rule34.xxx/ - ' + error)

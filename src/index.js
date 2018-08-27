@@ -23,16 +23,13 @@ let client = new Discord.Client()
 let cleverbot = undefined
 
 // Some mandatory(?) redirect to add the bot
-app.get('/discord_redirect', function(req, res)
-{
-	res.send('Successfully joined server')
-})
+app.get('/discord_redirect', (req, res) => res.send('Successfully joined server'))
 
 // This is so we can go to something like 'localhost:3000/data/db.json' to view the database
 // Especially helpful for the site shown at 'localhost:3000' which shows players and their stats
 app.use('/data', Express.static(path.join(__dirname, '../data')))
 
-// Put the game against the user's name. Hpefully it isn't Huniepop, everyone would see ( ͡° ͜ʖ ͡°)
+// Put the game against the user's name. Hopefully it isn't Huniepop, everyone would see ( ͡° ͜ʖ ͡°)
 setGame = (id, game) =>
 {
 	let user = global.db.get('users').find({ id: id }).value()
@@ -321,8 +318,9 @@ setup = () =>
 		if(user.value() && user.value().nickname != newMember.displayName)
 			user.set('nickname', newMember.displayName).write()
 	})
-	// I... I can't handle the rejection... I LOVED HER MAN!! LOVED HER!!!
-	//	Also I'm passing the rejected thingo to the console's thingamabob
+	// client.on('debug', (msg) => console.log(`[${new Date().toLocaleTimeString()}][DEBUG]: ${msg}`))
+	client.on('warn', (warning) => console.log(`[${new Date().toLocaleTimeString()}][WARNING]: ${warning}`))
+	client.on('error', (err) => console.log(`[${new Date().toLocaleTimeString()}][ERROR]: ${err.message}` + (err.fileName ? ('\n\t' + (err.lineNumber ? `[${err.lineNumber}]` : '') + err.fileName) : '')))
 	client.on('unhandledRejection', console.error)
 	// Finally, the bot is set up and ready to tell the world that it LIVES!
 	client.login(process.env.BOT_TOKEN || global.tokens.discord)
@@ -353,6 +351,10 @@ setup = () =>
 					setGame(member.id, '')
 			})
 		})
+
+		// Update the bot's game status
+		let status = Utils.getRandom(global.db.get('statuses').value())
+		client.user.setPresence({ status: 'online', game: { name: status.content, type: status.type }})
 	}, process.env.UPDATE_INTERVAL || 120000)
 }
 
@@ -419,6 +421,6 @@ let server = app.listen(process.env.PORT || 3000, () =>
 {
 	host = server.address().address
 	port = server.address().port
-	console.log('Listening at \'%s:%s\'', host, port)
+	console.log(`Listening at '${server.address().address}:${server.address().port}'`)
 	console.log('To add the bot to your server go to\n\thttps://discordapp.com/oauth2/authorize?client_id=364367399538917377&scope=bot&permissions=1275579456')
 })
