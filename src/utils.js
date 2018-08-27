@@ -20,15 +20,23 @@ module.exports =
 	getRandomNumber: function(min, max) { return Math.floor(Math.random() * max) + min },
 	getRandomUser: function(guild, filteredIDs)
 	{
-		let members = [...guild.members.filter((user) => { return filteredIDs ? !filteredIDs.includes(user.id) : true }).values()];
-		let member = this.getRandom(members)
-		return member
+		if(!guild)
+		{
+			console.log('getRandomUser but no guild provided')
+			return []
+		}
+		let members = guild.members.filter((user) => { return filteredIDs ? !filteredIDs.includes(user.id) : true })
+		return members.random()
 	},
 	getRandomUserChannel: function(channel, filteredIDs)
 	{
-		let members = [...channel.members.filter((user) => { return filteredIDs ? !filteredIDs.includes(user.id) : true }).values()];
-		let member = this.getRandom(members)
-		return member
+		if(!channel)
+		{
+			console.log('getRandomUserChannel but no channel provided')
+			return undefined
+		}
+		let members = channel.members.filter((user) => { return filteredIDs ? !filteredIDs.includes(user.id) : true })
+		return members.random()
 	},
 
 	getRandomInsult: function()
@@ -69,62 +77,43 @@ module.exports =
 	getUser: function(guild, userID) { return guild.members.find({ id: userID }) },
 	getUserByName: function(guild, username)
 	{
+		if(!guild || !username) return undefined
 		let user = undefined
-		guild.members.forEach((member, key, map) =>
-		{
-			if(user)
-				return
-			if(member.displayName.toLowerCase() == username.toLowerCase() ||
-			  (member.nickname && member.nickname.toLowerCase() == username.toLowerCase()) ||
-		  	   member.user.username.toLowerCase() == username.toLowerCase() ||
-		   	   (username.startsWith('<@') && username.substring(2, username.length - 1) == member.id.toString()) ||
-		   	   (username.startsWith('<@!') && username.substring(3, username.length - 1) == member.id.toString()))
-				user = member
-		})
+		if(username.startsWith('<@'))
+			user = guild.members.get(username.substring(username.startsWith('<@!') ? 3 : 2, username.length - 1))
+		if(!user)
+			user = guild.members.find(member => member.displayName.toLowerCase() == username.toLowerCase() ||
+										(member.nickname && member.nickname.toLowerCase() == username.toLowerCase()) ||
+										(username.startsWith('<@!') && username.substring(3, username.length - 1) == member.id.toString()) ||
+										(username.startsWith('<@')  && username.substring(2, username.length - 1) == member.id.toString()))
 		return user
 	},
 	getRandomUserFromRole: function(channel, roleName)
 	{
-		let role = this.getRole(channel.guild, roleName)
-		if(!role)
-		{
-			channel.send('Role \'' + roleName + '\' not found')
+		let users = this.getRoleMembers(channel.guild, roleName)
+		if(!users || users.size == 0)
 			return undefined
-		}
-		let users = []
-		channel.guild.members.forEach((member, key, map) =>
-		{
-			if(member.roles.has(role.id))
-				users.push(member)
-		})
-		if(users.length == 0)
-			return undefined
-		return this.getRandom(users)
+		return users.random()
 	},
 	getRole: function(guild, roleName)
 	{
-		if(!roleName)
-			return
-		if(!guild)
-		{
-			console.log('No guild provided')
-			return
-		}
-		let foundRole = undefined
-		guild.roles.forEach((role, key, map) =>
-		{
-			if((role.name.toLowerCase() == roleName.toLowerCase()) ||
-				(role.name.toLowerCase() == "@everyone" && roleName.toLowerCase() == "everyone"))
-				foundRole = role
-		})
-		return foundRole
+		if(!roleName || !guild) return undefined
+		let role = undefined
+		if(roleName.startsWith('<@'))
+			role = guild.roles.get(roleName.substring(roleName.startsWith('<@&') ? 3 : 2, roleName.length - 1))
+		if(!role)
+			role = guild.roles.find(role => role.name.toLowerCase() == roleName.toLowerCase() ||
+									(roleName.startsWith('<@&') && roleName.substring(3, roleName.length - 1) == role.id.toString()) ||
+									(roleName.startsWith('<@') && roleName.substring(2, roleName.length - 1) == role.id.toString()))
+		return role
 	},
-	getRoleMembers: function(role)
+	getRoleMembers: function(guild, role)
 	{
-		let users = []
-		if(role)
-			role.members.forEach((member, id, map) => users.push(member))
-		return users
+		if(guild && role)
+			role = this.getRole(guild, role) // convert from String to DiscordRole
+		if(!role || !role.members || role.members.length == 0)
+			return []
+		return role.members
 	},
 
 	process: function(input, sender, channel, customs)

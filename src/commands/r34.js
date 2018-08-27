@@ -5,10 +5,8 @@ const global = require('../global.js')
 const Discord = require('discord.js')
 const Command = require('./command.js')
 
-const BaseRule34URL = 'https://rule34.xxx/index.php?page=dapi&s=post&q=index'
-
-const HentaiKey = '454D34850A07E454EFC17ACABB490F273B03C05A'
-const HentaiBaseURL = 'https://ibsearch.xxx/api/v1/images.format?parameters'
+const BaseRule34URL = 'https://rule34.xxx/'
+const BaseHentaiURL = 'https://gelbooru.com/'
 
 module.exports = class Rule34 extends Command
 {
@@ -18,11 +16,20 @@ module.exports = class Rule34 extends Command
 		this.refresh()
 	}
 
-	usage(token) { return { usage: `\`${token}r34\`, \`${token}rule34\`: Fetches a *rule34* image from the interwebs (*image is random if no parameters are given. e.g. \`r34 bunnies\`*)`, nsfw: true } }
+	usage(token)
+	{
+		return [
+			{ usage: `\`${token}r34\`, \`${token}rule34\`: Fetches a *rule34* image from the interwebs (*image is random if no parameters are given. e.g. \`r34 bunnies\`*)`, nsfw: true },
+			{ usage: `\`${token}hentai\`: Fetches a *"lewd anime"* image from the interwebs (*image is random if no parameters are given. e.g. \`hentai megumin\`*)`, nsfw: true }
+		]
+	}
 
 	refresh() { this.notNSFW = global.db.get('notNSFW').value() }
 
-	shouldCall(command) { return command.toLowerCase() == 'r34' || command.toLowerCase() == 'rule34' }
+	shouldCall(command) { return command.toLowerCase() == 'r34' ||
+								 command.toLowerCase() == 'rule34' ||
+							  	 command.toLowerCase() == 'hentai'
+							 }
 
 	call(message, params, client)
 	{
@@ -31,36 +38,47 @@ module.exports = class Rule34 extends Command
 			message.channel.send(Utils.process(Utils.getRandom(this.notNSFW), message.channel, message.member))
 			return
 		}
-		if(params[0].toLowerCase() == 'r34' || params[0].toLowerCase() == 'rule34')
+		if(params[0].toLowerCase() == 'r34' || params[0].toLowerCase() == 'rule34' || params[0].toLowerCase() == 'hentai')
 		{
-			let url = BaseRule34URL
+			let baseURL = params[0].toLowerCase() == 'hentai' ? BaseHentaiURL : BaseRule34URL
+			let url = baseURL + 'index.php?page=dapi&s=post&q=index&json=1'
 			if(params.length > 1)
 				url += `&tags=${params.slice(1).join('+')}`
 
-			request(url, (error, response, body) =>
+			try
 			{
-				if(response.statusCode != 200 || error)
+				request(url, (error, response, body) =>
 				{
-					console.log('Error retrieving from https://rule34.xxx/ - ' + error)
-					return
-				}
-				try
-				{
-					let json = JSON.parse(convert.xml2json(body, { compact: true, spaces: 2 }))
-					if(!json.posts || json.posts._attributes.count == 0)
+					if(error || response.statusCode != 200)
 					{
-						message.channel.send('Could not find anything')
+						console.log(`Error retrieving from ${baseURL} - ${error}`)
 						return
 					}
-					let post = json.posts.post[Math.floor(Math.random() * json.posts.post.length - 1)]
-					message.channel.send(new Discord.Attachment(post._attributes.file_url))
-				}
-				catch(e)
-				{
-					console.log(e)
-					message.channel.send(`Getting rule34 caused an error - ${e} (<@191069151505154048>)`)
-				}
-			})
+					try
+					{
+						let json = JSON.parse(body)
+						if(!json || json.length == 0)
+						{
+							message.channel.send('Could not find anything')
+							return
+						}
+						let post = json[Math.floor(Math.random() * json.length - 1)]
+						let image = params[0].toLowerCase() == 'hentai' ? post.file_url : `${baseURL}images/${post.directory}/${post.image}`
+						console.log(`Posting Image: ${image}`)
+						message.channel.send(new Discord.Attachment(image))
+					}
+					catch(e)
+					{
+						console.log(e)
+						message.channel.send(`Getting rule34/hentai caused an error - ${e} (<@191069151505154048>)`)
+					}
+				})
+			}
+			catch(e)
+			{
+				console.log(e)
+				message.channel.send(`Getting rule34/hentai caused an error - ${e} (<@191069151505154048>)`)
+			}
 		}
 	}
 }

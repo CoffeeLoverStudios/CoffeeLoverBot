@@ -2,7 +2,7 @@
 *The somewhat-sentient bot you'll never want to leave*
 
 ## Installation
-Make sure [Python 3.6](https://www.python.org/) and [FFMPEG](https://ffmpeg.org/download.html) are installed and added to your system `PATH`, then proceed.
+Have the `git` cli and `nodejs`/`npm` installed
 ```bash
 # Clone the repo any way you want, we'll be using the git cli
 git clone https://github.com/CoffeeLoverStudios/CoffeeLoverBot
@@ -10,7 +10,7 @@ cd CoffeeLoverBot
 npm install
 ```
 
-Go to your [Discord Apps](https://discordapp.com/developers/applications/me) and create a new app, give it a name and fill out the details (*optional*); when you're ready click
+Go to your [Discord Apps](https://discordapp.com/developers/applications/me) and create a new one, giving it a name and filling out the details (*optional*); when you're ready click
 `Create App`.
 
 ![Making a new app](./images/new_app.png)

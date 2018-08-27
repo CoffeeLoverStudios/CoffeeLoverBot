@@ -2,8 +2,9 @@ const Utils = require('../utils.js')
 const Command = require('./command.js')
 const global = require('../global.js')
 
-module.exports = class filteredPhrases
-extends Command
+let shouldRefresh = false
+
+module.exports = class Casino extends Command
 {
 	constructor()
 	{
@@ -33,6 +34,7 @@ extends Command
 					rewards: user.casinoRewards || []
 				})
 			}).value()
+		shouldRefresh = false
 	}
 
 	shouldCall(command) { return command.toLowerCase() == 'casino' || command.toLowerCase() == 'gamble' || command.toLowerCase() == 'jackpot' }
@@ -59,6 +61,18 @@ extends Command
         	user.lolis = 9999999
 		global.db.get('users').find({ id: user.id }).set('casinoLolis', user.lolis).write()
 		this.refresh
+	}
+
+	static giveLolis(member, amount)
+	{
+		let lolis = global.db.get('users').find({ id: member.id }).value().casinoLolis
+		lolis += amount
+		if(lolis <= 0)
+			lolis = this.minimumLoliValue
+		if(lolis > 9999999)
+        	lolis = 9999999
+		global.db.get('users').find({ id: member.id }).set('casinoLolis', lolis).write()
+		shouldRefresh = true
 	}
 
 	resetJackpot()
@@ -204,6 +218,8 @@ extends Command
 
 	call(message, params, client)
 	{
+		if(shouldRefresh)
+			this.refresh()
 		let channel = message.channel
 		let sender = message.member
 		let user = this.userData.find(x => x.id == sender.id)

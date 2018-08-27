@@ -149,8 +149,7 @@ sendHelp = (message) =>
 
 catchError = (message, error) =>
 {
-	console.log('\n\n' + JSON.stringify(error) + '\n\n')
-	console.log(`\nERROR:\n\t${error}\n\nUser: ${message.author.name}\nMessage: ${message.content}\n`)
+	console.log(`\nERROR: ${error}\n\nUser: ${message.author.username}\nMessage: ${message.content}\n`)
 	message.channel.send(`Screw you, that caused an error. (<@191069151505154048>, '${error}')`)
 }
 

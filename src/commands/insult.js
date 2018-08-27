@@ -11,7 +11,6 @@ module.exports = class insult extends Command
 	call(message, params, client)
     {
 		let insultObject = global.db.get('insults').value()
-		let response
 		if(params.length == 1)
 			message.channel.send(Utils.process(insultObject.genericResponse, client, message.channel))
 		else

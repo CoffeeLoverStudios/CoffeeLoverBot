@@ -18,10 +18,10 @@
 		"dotenv": "^6.0.0",
 		"express": "^4.16.3",
 		"lowdb": "^1.0.0",
-		"npm": "^5.8.0",
+		"npm": "^5.10.0",
 		"random-ext": "^2.6.1",
-		"request": "^2.85.0",
-		"seedrandom": "^2.4.3",
+		"request": "^2.88.0",
+		"seedrandom": "^2.4.4",
 		"xml-js": "^1.6.2"
 	}
 }
