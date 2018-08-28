@@ -1,4 +1,3 @@
-const convert = require('xml-js')
 const request = require('request')
 const Utils = require('../utils.js')
 const global = require('../global.js')

@@ -432,7 +432,7 @@
     {
       "id": "396713838990589955",
       "name": "DisSkies",
-      "nickname": "Tall Roblox Nigga",
+      "nickname": "w33b Sl4y3r",
       "games": [
         "League of Legends",
         "The Elder Scrolls V: Skyrim Special Edition",
@@ -504,8 +504,8 @@
         "Fortnite",
         "PLAYERUNKNOWN'S BATTLEGROUNDS"
       ],
-      "nickname": "lcomstive",
-      "casinoLolis": 630,
+      "nickname": "Mr. Steve",
+      "casinoLolis": 10,
       "casinoRewards": [
         "customNickname",
         "vip"
@@ -562,7 +562,7 @@
         "This is Major Tom to Ground Control\nI'm stepping through the door\nAnd I'm floating in a most peculiar way\nAnd the stars look very different today"
       ],
       "canMessage": true,
-      "casinoLolis": 510,
+      "casinoLolis": 10,
       "casinoRewards": [
         "vip"
       ]
@@ -585,6 +585,12 @@
       "nickname": "Praksys",
       "games": [],
       "quotes": []
+    },
+    {
+      "id": "453811513422118913",
+      "nickname": "THE_BRIGHT_LORD",
+      "games": [],
+      "quotes": []
     }
   ],
   "music": {
@@ -595,6 +601,22 @@
         "songIndex": 0,
         "removeWhenFinished": true,
         "queue": []
+      },
+      {
+        "guild": "483507827512705045",
+        "volume": 100,
+        "songIndex": 0,
+        "removeWhenFinished": false,
+        "queue": [
+          {
+            "title": "Crush",
+            "url": "https://www.youtube.com/watch?v=HEKMZWkHJUM"
+          },
+          {
+            "title": "Gimme Chocolate!!",
+            "url": "https://www.youtube.com/watch?v=dKwsxX_dV6M"
+          }
+        ]
       }
     ]
   },

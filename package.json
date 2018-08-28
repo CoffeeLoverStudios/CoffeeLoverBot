@@ -1,27 +1,33 @@
 {
-	"name": "coffeeloverbot",
-	"version": "1.0.0",
-	"description": "CoffeeLover Studio's own Discord bot",
-	"main": "src/index.js",
-	"scripts": {
-		"start": "node src/index.js",
-		"build": "node src/index.js",
-		"watch": "nodemon --watch src/ --exec \"heroku local\"",
-		"deploy": "now -E --public --npm"
-	},
-	"author": "lcomstive",
-	"repository": "https://github.com/CoffeeLoverStudios/CoffeeLoverBot",
-	"license": "ISC",
-	"dependencies": {
-		"cleverbot-node": "^0.3.11",
-		"discord.js": "^11.4.0",
-		"dotenv": "^6.0.0",
-		"express": "^4.16.3",
-		"lowdb": "^1.0.0",
-		"npm": "^5.10.0",
-		"random-ext": "^2.6.1",
-		"request": "^2.88.0",
-		"seedrandom": "^2.4.4",
-		"xml-js": "^1.6.2"
-	}
+  "name": "coffeeloverbot",
+  "version": "1.0.0",
+  "description": "CoffeeLover Studio's own Discord bot",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "node src/index.js",
+    "watch": "nodemon --watch src/ --exec \"heroku local\"",
+    "deploy": "now -E --public --npm"
+  },
+  "author": "lcomstive",
+  "repository": "https://github.com/CoffeeLoverStudios/CoffeeLoverBot",
+  "license": "ISC",
+  "dependencies": {
+    "cleverbot-node": "^0.3.11",
+    "discord.js": "^11.4.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "lowdb": "^1.0.0",
+    "npm": "^5.10.0",
+    "random-ext": "^2.6.1",
+    "request": "^2.88.0",
+    "seedrandom": "^2.4.4"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.0",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "node-opus": "^0.3.0",
+    "sodium": "^2.0.3",
+    "ytdl-core": "^0.24.0"
+  }
 }

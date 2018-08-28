@@ -2,7 +2,7 @@
 *The somewhat-sentient bot you'll never want to leave*
 
 ## Installation
-Have the `git` cli and `nodejs`/`npm` installed
+Have the `git` cli and `nodejs`/`npm` installed, along with [FFMPEG](http://ffmpeg.org/) in your `PATH`
 ```bash
 # Clone the repo any way you want, we'll be using the git cli
 git clone https://github.com/CoffeeLoverStudios/CoffeeLoverBot
