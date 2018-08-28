@@ -6,6 +6,7 @@ const Discord = require('discord.js')
 const FileSync = require('lowdb/adapters/FileSync')
 const Cleverbot = require('cleverbot-node')
 
+const global = require('./global.js')
 const Utils = require('./utils.js')
 const Command = require('./commands/command.js')
 const Shush = require('./commands/shush.js')
@@ -13,14 +14,9 @@ const Shush = require('./commands/shush.js')
 if(process.env.NODE_ENV !== 'production')
 	require('dotenv').load()
 
-// Some variable setup
-let DBPath = 'data/db.json'
-let global = require('./global.js')
-
-let commands = []
 let app = new Express()
-let client = new Discord.Client()
 let cleverbot = undefined
+global.client = new Discord.Client()
 
 // Some mandatory(?) redirect to add the bot
 app.get('/discord_redirect', (req, res) => res.send('Successfully joined server'))
@@ -101,7 +97,7 @@ sendHelp = (message) =>
 	let helpMsg = '*Commands*:'
 	helpMsg += '\n - `' + global.tokens.command + 'help`: Shows all available commands'
 	helpMsg += '\n - ' + getUsageFromObject({ usage: '`' + global.tokens.command + 'refresh`: Refreshes the database of stuffs', admin: true })
-	commands.forEach(command =>
+	global.commands.forEach(command =>
 	{
 		if(typeof command.usage === 'undefined') return
 		let usage = command.usage(global.tokens.command)
@@ -150,47 +146,52 @@ sendHelp = (message) =>
 catchError = (message, error) =>
 {
 	console.log(`\nERROR: ${error}\n\nUser: ${message.author.username}\nMessage: ${message.content}\n`)
-	message.channel.send(`Screw you, that caused an error. (<@191069151505154048>, '${error}')`)
+	message.channel.send(`Screw you, that caused an error. (${message.guild ? ('<@' + message.guild.ownerID + '> - ') : ''}'${error}')`)
+}
+
+// Load all commands in the './commands/' directory
+loadCommands = () =>
+{
+	console.log('\nLoading commands...')
+	var normalizedPath = path.join(__dirname, 'commands')
+	require('fs').readdirSync(normalizedPath).forEach((file) =>
+	{
+		if(!file.endsWith('.js'))
+			return
+		const required = require('./commands/' + file)
+		try
+		{
+			let instance = new required()
+			if(instance instanceof Command)
+			{
+				global.commands.push(instance)
+				console.log('Loaded \'' + file + '\'')
+			}
+		} catch (e)
+		{
+			console.log('Failed to load \'' + file + '\' - ' + e.message)
+		}
+	})
 }
 
 // The big function-o-things
 setup = () =>
 {
-	client.on('ready', () =>
+	global.client.on('ready', () =>
 	{
 		global.tokens.command = global.db.get('commandToken').value() || '!'
 
-		// Load all commands in the './commands/' directory
-		var normalizedPath = path.join(__dirname, 'commands')
-		require('fs').readdirSync(normalizedPath).forEach((file) =>
-		{
-			if(!file.endsWith('.js'))
-				return
-			const required = require('./commands/' + file)
-			try
-			{
-				let instance = new required()
-				if(instance instanceof Command)
-				{
-					commands.push(instance)
-					console.log('Loaded \'' + file + '\'')
-				}
-			} catch (e)
-			{
-				// *facepalm* okay, who broke my thing?
-				console.log('Failed to load \'' + file + '\' - ' + e.message)
-			}
-		})
+		loadCommands()
 
 		let ignoredUsers = global.db.get('ignoredUsers')
 		// Watch upon all existing members
-		client.guilds.forEach((value, key, map) =>
+		global.client.guilds.forEach((value, key, map) =>
 		{
 			// Yes, I do 'value' each and every one of you equally. Bad pun, sorry...
 			value.members.forEach((member, key, map) =>
 			{
 				// If this is the bot... well, it shouldn't watch itself. It's seen enough as it is...
-				if(member.id == client.user.id || ignoredUsers.includes(member.name))
+				if(member.id == global.client.user.id || ignoredUsers.includes(member.name))
 					return
 				// ( ͡° ͜ʖ ͡°)
 				watch(member)
@@ -199,7 +200,7 @@ setup = () =>
 
 		// Set Bot's game status ('Playing...')
 		let status = Utils.getRandom(global.db.get('statuses').value())
-		client.user.setPresence({ status: 'online', game: { name: status.content, type: status.type }})
+		global.client.user.setPresence({ status: 'online', game: { name: status.content, type: status.type }})
 
 		// Should probably let the console-onlooker know they can waste a few more hours of their life on Discord now.
 		//	At least this time it's because of something I did, and that's an achievement in my books
@@ -207,12 +208,12 @@ setup = () =>
 	})
 
 	// Capture all messages on the server(s)
-	client.on('message', (message) =>
+	global.client.on('message', (message) =>
 	{
 		try
 		{
 			// if it's a message from a bot (especially this one), ignore it
-			if(message.author.bot || message.member.id == client.user.id)
+			if(message.author.bot || message.member.id == global.client.user.id)
 				return
 			// Get the user's data from the book-o-secrets
 			let user = global.db.get('users').find({ id: message.member.id }).value()
@@ -240,7 +241,7 @@ setup = () =>
 					// Re-read the secret book
 					global.db.read()
 					// Tell the commands to refresh all their things
-					commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
+					global.commands.forEach((command) => { if(typeof command.refresh !== 'undefined') command.refresh() })
 
 					// Check for a new command token
 					global.tokens.command = global.db.get('commandToken').value()
@@ -254,14 +255,14 @@ setup = () =>
 				else if(params[0].toLowerCase() == 'help')
 					sendHelp(message)
 				else // otherwise check if another command wants to take the user up on that challenge
-					commands.forEach((command) =>
+					global.commands.forEach((command) =>
 					{
 						// Check for tricky classes not implemented with everything (I'm looking at you, Garry)
 						if(typeof command.shouldCall === 'undefined' || typeof command.call === 'undefined') return
 						// The command class will tell us if it's ready for this battle
 						if(command.shouldCall(params[0]))
 						{
-							try { command.call(message, params, client) } // FIGHT!
+							try { command.call(message, params, global.client) }
 							catch(e) { catchError(message, e) }
 						}
 					})
@@ -269,25 +270,25 @@ setup = () =>
 			else // it's not a command, so let all the commands know we got a general message,
 			{	 // 	and they can do whatever the hell they want with it, like delete it
 				let handled = false
-				for(let i = 0; i < commands.length; i++)
+				for(let i = 0; i < global.commands.length; i++)
 				{
-					if(typeof commands[i].gotMessage === 'undefined')
+					if(typeof global.commands[i].gotMessage === 'undefined')
 						continue;
-					if(commands[i].gotMessage(message))
+					if(global.commands[i].gotMessage(message))
 						handled = true
 				}
-				if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(client.user.id))
-					cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output) })
+				if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(global.client.user.id))
+					cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + global.client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output) })
 			}
 		}
 		catch(e) { catchError(message, e) }
 	})
 	// Called when a user joins a Discord server, we'll use this event to get their information
 	//	and watch them like the creepy devs we are. But hey, at least we greet them!
-	client.on('guildMemberAdd', (member) =>
+	global.client.on('guildMemberAdd', (member) =>
 	{
 		// Get the initial channel, set by the .json config (something like 'welcome' or 'new-members')
-		let channel = member.guild.channels.find('name', global.db.get('initialChannel').value())
+		let channel = member.guild.channels.find(x => x.name == global.db.get('initialChannel').value())
 		if(channel) // If the channel exists, then welcome them with a random greeting
 			channel.send(Utils.process(Utils.getRandom(global.db.get('greetings').value(), channel), member, channel))
 
@@ -301,15 +302,15 @@ setup = () =>
 		watch(member)
 	})
 	// Called when a user joins a server, we'll remove their data from existence and give them a nice(?) farewell
-	client.on('guildMemberRemove', (member) =>
+	global.client.on('guildMemberRemove', (member) =>
 	{
 		global.db.get('users').remove({ id: member.id }).write()
-		let channel = member.guild.channels.find('name', global.db.get('initialChannel').value())
+		let channel = member.guild.channels.find(x => x.name == global.db.get('initialChannel').value())
 		if(channel)
 			channel.send(Utils.process(Utils.getRandom(global.db.get('farewells').value(), channel), member, channel))
 	})
 	// Check for sneaky buggers changing their name on us
-	client.on('guildMemberUpdate', (oldMember, newMember) =>
+	global.client.on('guildMemberUpdate', (oldMember, newMember) =>
 	{
 		let user = global.db.get('users').find({ id: newMember.id })
 
@@ -317,12 +318,12 @@ setup = () =>
 		if(user.value() && user.value().nickname != newMember.displayName)
 			user.set('nickname', newMember.displayName).write()
 	})
-	// client.on('debug', (msg) => console.log(`[${new Date().toLocaleTimeString()}][DEBUG]: ${msg}`))
-	client.on('warn', (warning) => console.log(`[${new Date().toLocaleTimeString()}][WARNING]: ${warning}`))
-	client.on('error', (err) => console.log(`[${new Date().toLocaleTimeString()}][ERROR]: ${err.message}` + (err.fileName ? ('\n\t' + (err.lineNumber ? `[${err.lineNumber}]` : '') + err.fileName) : '')))
-	client.on('unhandledRejection', console.error)
+	// global.client.on('debug', (msg) => console.log(`[${new Date().toLocaleTimeString()}][DEBUG]: ${msg}`))
+	global.client.on('warn', (warning) => console.log(`[${new Date().toLocaleTimeString()}][WARNING]: ${warning}`))
+	global.client.on('error', (err) => console.log(`[${new Date().toLocaleTimeString()}][ERROR]: ${err.message}` + (err.fileName ? ('\n\t' + (err.lineNumber ? `[${err.lineNumber}]` : '') + err.fileName) : '')))
+	global.client.on('unhandledRejection', console.error)
 	// Finally, the bot is set up and ready to tell the world that it LIVES!
-	client.login(process.env.BOT_TOKEN || global.tokens.discord)
+	global.client.login(process.env.BOT_TOKEN || global.tokens.discord)
 
 	if(global.tokens.cleverbot)
 		cleverbot.configure({ botapi: global.tokens.cleverbot })
@@ -334,13 +335,13 @@ setup = () =>
 
 	this.updateInterval = setInterval(() =>
 	{
-		client.guilds.forEach((value, key, map) =>
+		global.client.guilds.forEach((value, key, map) =>
 		{
 			// Yes, I do 'value' each and every one of you equally. Bad pun, sorry...
 			value.members.forEach((member, key, map) =>
 			{
 				// If this is the bot... well, it shouldn't watch itself. It's seen enough as it is...
-				if(member.id == client.user.id || global.db.get('ignoredUsers').includes(member.name))
+				if(member.id == global.client.user.id || global.db.get('ignoredUsers').includes(member.name))
 					return
 				let user = global.db.get('users').find({ id: member.id }).value()
 				// Check game status
@@ -353,20 +354,8 @@ setup = () =>
 
 		// Update the bot's game status
 		let status = Utils.getRandom(global.db.get('statuses').value())
-		client.user.setPresence({ status: 'online', game: { name: status.content, type: status.type }})
+		global.client.user.setPresence({ status: 'online', game: { name: status.content, type: status.type }})
 	}, process.env.UPDATE_INTERVAL || 120000)
-}
-
-// Some database stuff
-try
-{
-	let adapter = new FileSync(DBPath)
-	global.db = low(adapter)
-}
-catch (e)
-{
-	console.log('Couldn\'t read database "' + DBPath + '" - ' + e.message)
-	return
 }
 
 // Set the defaults for the database, for if it doesn't exist yet

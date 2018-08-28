@@ -1,5 +1,6 @@
 const global = require('./global.js')
-const randomExt = require('random-ext');
+const randomExt = require('random-ext')
+const Discord = require('discord.js')
 
 let CommandRegex = /[^\s"]+|"[^"]+"/g // Split words by white-space, but leave words in quotes as a single parameter
 let ParamsReplaceRegex = /"|'/g // Replace all quotation marks, single or double
@@ -114,6 +115,17 @@ module.exports =
 		if(!role || !role.members || role.members.length == 0)
 			return []
 		return role.members
+	},
+
+	isAdmin: function(member)
+	{
+		return member.hasPermission(Discord.Permissions.FLAGS.ADMINISTRATOR, true, true, true)
+	},
+
+	send: function(channel, content, options = {})
+	{
+		channel.send(content, options)
+				.catch(error => console.log(`Failed to send message - ${error}`))
 	},
 
 	process: function(input, sender, channel, customs)

@@ -1,17 +1,16 @@
-const Command = require('./command.js')
+const Utils = require('../utils.js')
 const global = require('../global.js')
+const Command = require('./command.js')
+
+let technologies = [
+	'NodeJS (https://nodejs.org)',
+    'Discord.js (https://discord.js.org)',
+    'LowDB (https://github.com/typicode/lowdb)'
+]
 
 module.exports = class About extends Command
 {
-	constructor()
-	{
-		super()
-		this.refresh()
-	}
-
-	refresh() { this.technologies = global.db.get('technologies').value() }
-
-	usage(token) { return '`' + token + 'about`: Returns information about the bot' }
+	usage(token) { return `\`${token}about\`: Returns information about the bot` }
 
 	shouldCall(command) { return command.toLowerCase() == 'about' }
 
@@ -24,6 +23,6 @@ module.exports = class About extends Command
 			msg += '\n*Enabled*:\n'
 			msg += '\t- Cleverbot'
 		}
-		message.channel.send(msg)
+		Utils.send(message.channel, msg)
 	}
 }

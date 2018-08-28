@@ -462,7 +462,8 @@
       "currentlyPlaying": "",
       "quotes": [
         "DONT CALL ME HARRY",
-        "It's not weeb if it's french"
+        "It's not weeb if it's french",
+        "Good choice of name"
       ],
       "canMessage": true,
       "games": [
@@ -504,7 +505,7 @@
         "Fortnite",
         "PLAYERUNKNOWN'S BATTLEGROUNDS"
       ],
-      "nickname": "Mr. Steve",
+      "nickname": "lcomstive",
       "casinoLolis": 10,
       "casinoRewards": [
         "customNickname",
@@ -585,12 +586,6 @@
       "nickname": "Praksys",
       "games": [],
       "quotes": []
-    },
-    {
-      "id": "453811513422118913",
-      "nickname": "THE_BRIGHT_LORD",
-      "games": [],
-      "quotes": []
     }
   ],
   "music": {
@@ -598,14 +593,23 @@
       {
         "guild": "349169223899283456",
         "volume": 100,
-        "songIndex": 0,
+        "songIndex": 1,
         "removeWhenFinished": true,
-        "queue": []
+        "queue": [
+          {
+            "title": "Oshi - Whispers ft. Avonlea",
+            "url": "https://www.youtube.com/watch?v=pZ_V8eQPMSM"
+          },
+          {
+            "title": "Lil Miraie - Suwupreme (Official Video)",
+            "url": "https://www.youtube.com/watch?v=aSx404Gotos"
+          }
+        ]
       },
       {
         "guild": "483507827512705045",
         "volume": 100,
-        "songIndex": 0,
+        "songIndex": 1,
         "removeWhenFinished": false,
         "queue": [
           {
@@ -1095,7 +1099,8 @@
     "*dialing up iiNet internet*",
     "<@!133138648228036608>",
     "<@!133138648228036608>",
-    "see look"
+    "see look",
+    " <@220860764976578561>"
   ],
   "tokens": {
     "discord": "",

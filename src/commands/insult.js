@@ -1,8 +1,9 @@
 const Utils = require('../utils.js')
 const global = require('../global.js')
 const Command = require('./command.js')
+const Config = require('../config.js')
 
-module.exports = class insult extends Command
+module.exports = class Insult extends Command
 {
 	usage(token) { return '`' + token + 'insult <user>`: Insults the user, or the caller if none given' }
 

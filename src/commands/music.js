@@ -47,6 +47,8 @@ try
 			]
 		}
 
+		save() { this.writeQueue() }
+
 		shouldCall(command) { return command.toLowerCase() == 'music' }
 
 		writeQueue()

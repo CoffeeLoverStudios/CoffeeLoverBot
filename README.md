@@ -2,7 +2,24 @@
 *The somewhat-sentient bot you'll never want to leave*
 
 ## Installation
-Have the `git` cli and `nodejs`/`npm` installed, along with [FFMPEG](http://ffmpeg.org/) in your `PATH`
+Have the `git` cli and `nodejs`/`npm` installed
+
+> If you want voice chat support you'll need [FFMPEG](http://ffmpeg.org/) binaries in your `PATH`
+
+Some of the optional dependencies (*for voice support*) need to be built
+```bash
+# Windows (administrator powershell or cmd)
+#	Installs python 2.7 and Visual Studio build tools
+npm i -g --production windows-build-tools
+cd path/to/CoffeeLoverBot
+npm install # install all packages (best run as administrator when building node-opus)
+
+# Linux (Debian-based for examples)
+sudo apt-get install g++ autoconf automake libtool
+cd path/to/CoffeeLoverBot
+npm install # install all packages
+```
+
 ```bash
 # Clone the repo any way you want, we'll be using the git cli
 git clone https://github.com/CoffeeLoverStudios/CoffeeLoverBot
