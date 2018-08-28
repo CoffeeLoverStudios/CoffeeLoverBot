@@ -1,0 +1,78 @@
+{
+  "minimumLolis": 10,
+  "defaultLolis": 100,
+  "rewardValues": {
+    "customNickname": 1200,
+    "VIPRole": 3000
+  },
+  "VIPRole": "Casino VIP",
+  "gambleMultipliers": {
+    "simple": 1,
+    "numberGuess": 4
+  },
+  "jackpot": {
+    "value": 3700,
+    "initialValue": 100,
+    "costValue": 100,
+    "strictValue": true,
+    "randomize": true,
+    "number": 13
+  },
+  "responses": {
+    "win": [
+      "Congrats, you won ${custom_0}"
+    ],
+    "lose": [
+      "Well, you just lost ${custom_0} lolis.."
+    ],
+    "cheat": [
+      "Can you not?"
+    ],
+    "cheatSuccess": [
+      "Huh, I guess that worked.. here's ${custom_0} lolis"
+    ],
+    "cheatFail": [
+      "Woah it worked?! You just *lost* ${custom_0} lolis"
+    ]
+  },
+  "users": [
+    {
+      "id": "191069151505154048",
+      "lolis": 100,
+      "nickname": "Creator",
+      "rewards": [
+        "customNickname",
+        "vip"
+      ]
+    },
+    {
+      "id": "174397951370592256",
+      "lolis": 101,
+      "nickname": "",
+      "rewards": []
+    },
+    {
+      "id": "327761922701262849",
+      "lolis": 1100,
+      "nickname": "",
+      "rewards": []
+    },
+    {
+      "id": "210746479403335680",
+      "lolis": 110,
+      "nickname": "",
+      "rewards": [
+        "customNickname",
+        "vip"
+      ]
+    },
+    {
+      "id": "133138648228036608",
+      "lolis": 110,
+      "nickname": "",
+      "rewards": [
+		  "vip"
+	  ]
+    }
+  ]
+}
