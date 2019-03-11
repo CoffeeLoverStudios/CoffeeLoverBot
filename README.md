@@ -74,4 +74,4 @@ Technologies used:
  - [Discord.js](https://discord.js.org/)
  - [Node.js](https://nodejs.org/)
  - [LowDB](https://github.com/typicode/lowdb)
- - [Cleverbot](www.cleverbot.com)
+ - [Cleverbot](https://www.cleverbot.com)
