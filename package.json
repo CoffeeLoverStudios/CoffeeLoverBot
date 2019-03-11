@@ -15,8 +15,8 @@
   "dependencies": {
     "cleverbot-node": "^0.3.11",
     "discord.js": "^11.4.0",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "lowdb": "^1.0.0",
     "npm": "^5.10.0",
     "random-ext": "^2.6.1",

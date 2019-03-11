@@ -55,28 +55,27 @@ module.exports = class Rule34 extends Command
 					}
 					try
 					{
-						let json = JSON.parse(body)
-						if(!json || json.length == 0)
+						let json
+						if(!body || (response && response.statusCode != 200) || !(json = JSON.parse(body)) || json.length == 0)
 						{
 							message.channel.send('Could not find anything')
 							return
 						}
-						let post = json[Math.floor(Math.random() * json.length - 1)]
+						let post = json[Math.floor(Math.random() * json.length)]
 						let image = params[0].toLowerCase() == 'hentai' ? post.file_url : `${baseURL}images/${post.directory}/${post.image}`
-						console.log(`Posting Image: ${image}`)
 						message.channel.send(new Discord.Attachment(image))
 					}
 					catch(e)
 					{
 						console.log(e)
-						message.channel.send(`Getting rule34/hentai caused an error - ${e} (<@191069151505154048>)`)
+						message.channel.send(`Getting rule34/hentai caused an error - ${e} (<@${message.guild.ownerID}>)`)
 					}
 				})
 			}
 			catch(e)
 			{
 				console.log(e)
-				message.channel.send(`Getting rule34/hentai caused an error - ${e} (<@191069151505154048>)`)
+				message.channel.send(`Getting rule34/hentai caused an error - ${e} (<@${message.guild.ownerID}>)`)
 			}
 		}
 	}

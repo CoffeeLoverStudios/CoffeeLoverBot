@@ -16,7 +16,6 @@ if(process.env.NODE_ENV !== 'production')
 
 let app = new Express()
 let cleverbot = undefined
-global.client = new Discord.Client()
 
 // Some mandatory(?) redirect to add the bot
 app.get('/discord_redirect', (req, res) => res.send('Successfully joined server'))
@@ -152,6 +151,12 @@ catchError = (message, error) =>
 // Load all commands in the './commands/' directory
 loadCommands = () =>
 {
+	if(global.commands && global.commands.length > 0)
+	{
+		for(let command in global.commands)
+			command.save()
+		global.commands = []
+	}
 	console.log('\nLoading commands...')
 	var normalizedPath = path.join(__dirname, 'commands')
 	require('fs').readdirSync(normalizedPath).forEach((file) =>
@@ -177,6 +182,7 @@ loadCommands = () =>
 // The big function-o-things
 setup = () =>
 {
+	global.client = new Discord.Client()
 	global.client.on('ready', () =>
 	{
 		global.tokens.command = global.db.get('commandToken').value() || '!'
@@ -210,6 +216,7 @@ setup = () =>
 	// Capture all messages on the server(s)
 	global.client.on('message', (message) =>
 	{
+		console.log(`Got message - ${message.content}`)
 		try
 		{
 			// if it's a message from a bot (especially this one), ignore it
@@ -276,6 +283,7 @@ setup = () =>
 						continue;
 					if(global.commands[i].gotMessage(message))
 						handled = true
+					// handled = true
 				}
 				if(!handled && cleverbot && message.mentions.members && message.mentions.members.has(global.client.user.id))
 					cleverbot.write(Utils.replaceAll(message.content, "(\s+|)<@" + global.client.user.id + ">(\s+|)", ''), (response) => { message.channel.send(response.output) })
@@ -410,5 +418,5 @@ let server = app.listen(process.env.PORT || 3000, () =>
 	host = server.address().address
 	port = server.address().port
 	console.log(`Listening at '${server.address().address}:${server.address().port}'`)
-	console.log('To add the bot to your server go to\n\thttps://discordapp.com/oauth2/authorize?client_id=364367399538917377&scope=bot&permissions=1275579456')
+	console.log('To add the bot to your server go to\n\thttps://discordapp.com/oauth2/authorize?client_id=509706823281147927&scope=bot&permissions=1275579456')
 })

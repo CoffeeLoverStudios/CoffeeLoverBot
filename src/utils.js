@@ -54,7 +54,7 @@ module.exports =
 	getParams: function(input)
 	{
 		let matches, params = []
-		while(matches = CommandRegex.exec(input))
+		while((matches = CommandRegex.exec(input)))
 			params.push(matches[0].replace(ParamsReplaceRegex, ''))
 		return params
 	},
@@ -92,14 +92,14 @@ module.exports =
 	getRandomUserFromRole: function(channel, roleName)
 	{
 		let users = this.getRoleMembers(channel.guild, roleName)
-		if(!users || users.size == 0)
+		if(!users || users.size === 0)
 			return undefined
 		return users.random()
 	},
 	getRole: function(guild, roleName)
 	{
 		if(!roleName || !guild) return undefined
-		let role = undefined
+		let role
 		if(roleName.startsWith('<@'))
 			role = guild.roles.get(roleName.substring(roleName.startsWith('<@&') ? 3 : 2, roleName.length - 1))
 		if(!role)
@@ -112,7 +112,7 @@ module.exports =
 	{
 		if(guild && role)
 			role = this.getRole(guild, role) // convert from String to DiscordRole
-		if(!role || !role.members || role.members.length == 0)
+		if(!role || !role.members || role.members.length === 0)
 			return []
 		return role.members
 	},
@@ -130,55 +130,69 @@ module.exports =
 
 	process: function(input, sender, channel, customs)
 	{
-		if(input == undefined)
+		if(!input)
 			return ''
-		let user = global.db.get('users').find(x => x.id == sender.id).value()
-		if(input.includes('${random_member}'))
+		else
+			console.log('Input')
+		try
 		{
-			let index = 0
-			while((index = input.indexOf('${random_member}', index)) >= 0)
-				input = input.replace(/\${random_member}/, this.getRandomUser(sender.guild, [ sender.id ]).displayName || "someone")
-		}
-		if(input.includes('${random_number}'))
-		{
-			let index = 0
-			while((index = input.indexOf('${random_number}', index)) >= 0)
-				input = input.replace(/\${random_number}/, this.getRandomNumber(1, 10))
-		}
-		if(input.includes('${random_percentage}'))
-		{
-			let index = 0
-			while((index = input.indexOf('${random_percentage}', index)) >= 0)
-				input = input.replace(/\${random_percentage}/, this.getRandomNumber(1, 100))
-		}
-		if(input.includes('${username}'))
-			input = this.replaceAll(input, /\${username}/g, (user && (user.casinoRewards || []).includes('customNickname') ? user.casinoNickname : sender.displayName) || sender.displayName)
-		if(input.includes('${insult}'))
-		{
-			let index = input.indexOf('${insult}', input[0] == '$' ? 1 : 0)
-			while(index > 0)
+			let user = global.db.get('users').find(x => x.id == sender.id).value()
+			let username = sender.displayName
+			if(input.includes('${random_member}'))
 			{
-				let insult = this.getRandomInsult().toLowerCase()
-				if(input.substring(0, index).endsWith('a ') && (
-					insult[0] == 'a' ||
-					insult[0] == 'e' ||
-					insult[0] == 'i' ||
-					insult[0] == 'o' ||
-					insult[0] == 'u'
-					))
-					input = input.substring(0, index - 2) + 'an ' + input.substring(index)
-				input = input.replace(/\${insult}/, insult)
-				index = input.indexOf('${insult}', index)
+				let index = 0
+				while((index = input.indexOf('${random_member}', index)) >= 0)
+				{
+					let randomUser = this.getRandomUser(sender.guild, [ sender.id ])
+					let randomUsername = randomUser.displayName
+					input = input.replace(/\${random_member}/, randomUsername || "someone")
+				}
 			}
-		}
-		if(customs)
-		{
-			if(!customs.length)
-				input = this.replaceAll(input, '${custom_0}', customs, false)
-			else
+			if(input.includes('${random_number}'))
+			{
+				let index = 0
+				while((index = input.indexOf('${random_number}', index)) >= 0)
+					input = input.replace(/\${random_number}/, this.getRandomNumber(1, 10))
+			}
+			if(input.includes('${random_percentage}'))
+			{
+				let index = 0
+				while((index = input.indexOf('${random_percentage}', index)) >= 0)
+					input = input.replace(/\${random_percentage}/, this.getRandomNumber(1, 100))
+			}
+			if(input.includes('${username}'))
+				input = this.replaceAll(input, /\${username}/g, username)
+			if(input.includes('${insult}'))
+			{
+				let index = input.indexOf('${insult}', input[0] == '$' ? 1 : 0)
+				while(index > 0)
+				{
+					let insult = this.getRandomInsult().toLowerCase()
+					if(input.substring(0, index).endsWith('a ') && (
+						insult[0] == 'a' ||
+						insult[0] == 'e' ||
+						insult[0] == 'i' ||
+						insult[0] == 'o' ||
+						insult[0] == 'u'
+						))
+						input = input.substring(0, index - 2) + 'an ' + input.substring(index)
+					input = input.replace(/\${insult}/, insult)
+					index = input.indexOf('${insult}', index)
+				}
+			}
+			if(customs)
+			{
+				if(!Array.isArray(customs))
+					customs = [ customs ]
 				for(let i = 0; i < customs.length; i++)
 					input = this.replaceAll(input, `\${custom_${i}}`, customs[i], false)
+			}
+			return input
 		}
-		return input
+		catch(e)
+		{
+			console.log(`ERROR[utils.process]: ${e}`)
+			return `Failed - ${e}`
+		}
 	}
 }

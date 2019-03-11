@@ -1,0 +1,42 @@
+New config at '/home/lcomstive/CoffeeLoverBot/data/db.json'
+Listening at ':::3000'
+To add the bot to your server go to
+	https://discordapp.com/oauth2/authorize?client_id=509706823281147927&scope=bot&permissions=1275579456
+
+Loading commands...
+New config at '/home/lcomstive/CoffeeLoverBot/data/commands/eightball.json'
+Loaded '8ball.js'
+Loaded 'about.js'
+New config at '/home/lcomstive/CoffeeLoverBot/data/commands/casino.json'
+Loaded 'casino.js'
+Loaded 'command.js'
+Loaded 'die.js'
+Loaded 'filtered_phrases.js'
+Loaded 'flip.js'
+Loaded 'games.js'
+Loaded 'generic_responses.js'
+Loaded 'giveaway.js'
+Loaded 'insult.js'
+Loaded 'lmgtfy.js'
+Loaded 'music.js'
+Loaded 'play.js'
+Loaded 'poems.js'
+Loaded 'quote.js'
+Loaded 'r34.js'
+Loaded 'ship.js'
+Loaded 'shush.js'
+Loaded 'simple_web.js'
+
+CoffeeLoverBot is ready
+Got message - 
+Got message - XD
+Got message - 
+Input
+Got message - I've had 4 fucking spiders run me down in 10mins
+Got message - What the actual fuck
+Got message - who the fuck decided some japanese characters should have five strokes
+Got message - like why would you do that to yourself, your country and your entire ancestryhood
+Got message - oh never mind there's one that has six strokes
+Got message - why
+Got message - the
+Got message - fuck

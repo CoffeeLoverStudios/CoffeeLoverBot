@@ -76,6 +76,15 @@ module.exports = class Casino extends Command
 		config.set('users', this.users)
 	}
 
+	getUsername(casinoUser, guildMember)
+	{
+		return ((casinoUser.rewards || []).includes('customNickname') && casinoUser.nickname) ?
+					casinoUser.nickname :
+					guildMember.displayName
+	}
+
+	getUsername(guildMember) { return this.getUsername(this._getUser(guildMember.id, guildMember.displayName || ''), guildMember) }
+
 	resetJackpot()
 	{
 		this.jackpot.number = Utils.getRandomNumber(0, 100)
@@ -226,7 +235,8 @@ module.exports = class Casino extends Command
 		let channel = message.channel
 		let sender = message.member
 		let user = this._getUser(sender.id, sender.displayName)
-		let name = ((user.rewards || []).includes('customNickname') && user.nickname) ? user.nickname : message.sender.displayName
+		// let name = this.getUsername(user, sender)
+		let name = ((user.rewards || []).includes('customNickname') && user.nickname) ? user.nickname : sender.displayName
 
 		if(params.length < 2 && params[0] != 'jackpot')
 		{
@@ -335,7 +345,7 @@ module.exports = class Casino extends Command
 				return
 			}
 
-			if(message.content.substring('!gamble'.length).match(/(kick|shake|move|attack|violate|lewd|touch|choke|hit|threaten|beat|kill|destroy|assault|insult|stalk).+(machine|bot|loli)/gi))
+			if(message.content.substring('!gamble'.length).match(/(kick|shake|move|attack|violate|lewd|touch|choke|hit|threaten|beat|kill|destroy|assault|insult|stalk|rape).+(machine|bot|loli)/gi))
 			{
 				let cheatNumber = Utils.getRandomNumber(0, 100), cheatValue = Utils.getRandom([100, 200, 300, 500])
 				if(cheatNumber < 10)
@@ -362,18 +372,26 @@ module.exports = class Casino extends Command
 			params[2] = params[2].toLowerCase()
 			if(params[2] == 'heads' || params[2] == 'tails' || params[2] == 'red' || params[2] == 'black')
 			{
-				let generated = Utils.getRandomNumber(1, 100) > 50 ? 1 : 0
-				if(generated == 0 && (params[2] == 'heads' || params[2] == 'red') ||
-					generated == 1 && (params[2] == 'tails' || params[2] == 'black'))
+				try
 				{
-					let prize = value * this.rewardValues.gambleSimpleMultiplier
-					this.changeLolis(sender.id, prize)
-					Utils.send(channel, Utils.process(Utils.getRandom(this.casinoResponses.win), sender, channel, prize))
+					let generated = Utils.getRandomNumber(1, 100) > 50 ? 1 : 0
+					if(generated == 0 && (params[2] == 'heads' || params[2] == 'red') ||
+						generated == 1 && (params[2] == 'tails' || params[2] == 'black'))
+					{
+						let prize = value * (this.rewardValues.gambleSimpleMultiplier || 1)
+						this.changeLolis(sender.id, prize)
+						Utils.send(channel, Utils.process(Utils.getRandom(this.casinoResponses.win), sender, channel, prize))
+					}
+					else
+					{
+						this.changeLolis(sender.id, -value)
+						Utils.send(channel, Utils.process(Utils.getRandom(this.casinoResponses.lose), sender, channel, value))
+					}
 				}
-				else
+				catch(e)
 				{
-					this.changeLolis(sender.id, -value)
-					Utils.send(channel, Utils.process(Utils.getRandom(this.casinoResponses.lose), sender, channel, value))
+					console.log(`Failed to change lolis - ${e}`)
+					channel.send(`Failed to change lolis - ${e}`)
 				}
 			}
 			else
@@ -439,7 +457,7 @@ module.exports = class Casino extends Command
 		let user = {
 			id: memberID,
 			name: username,
-			lolis: this.defaultLoliValue,
+			lolis: this.defaultLoliValue || 100,
 			nickname: '',
 			rewards: []
 		}
@@ -448,5 +466,10 @@ module.exports = class Casino extends Command
 		return user
 	}
 
-	_getUser(memberID, username) { return this.users.find(x => x.id == memberID) || this._createUser(memberID, username) }
+	_getUser(memberID, username)
+	{
+		let user = this.users.find(x => x.id == memberID) || this._createUser(memberID, username)
+		user.lolis = user.lolis || this.defaultLoliValue || 100
+		return user
+	}
 }

@@ -343,13 +343,43 @@ try
 							message.channel.send('No volume, no queue. Try `music queue add <url>`')
 						break
 					}
-					params[2] = Utils.replaceAll(params[2], '%', '')
-					if(isNaN(params[2])) // isNotANumber
+					params[2] = Utils.replaceAll(params[2], '%', '').toLowerCase()
+
+					let volume = null
+					switch(params[2])
 					{
-						message.channel.send('Volume must be a number')
-						break
+						case 'alia':
+						case 'ali-a':
+						case 'ali a':
+							volume = 420
+							break
+						case 'max':
+						case 'high':
+						case 'highest':
+							volume = 100
+							break
+						case 'min':
+						case 'minimum':
+							volume = 0
+							break
+						case 'low':
+						case 'lowest':
+							volume = 20
+							break
+						case 'default':
+							volume = 50
+							break
+						default:
+							if(isNaN(params[2])) // isNotANumber
+							{
+								message.channel.send('Volume must be a number')
+								break
+							}
+							volume = parseInt(params[2])
+							if(volume < 0)
+								volume = 0
+							break
 					}
-					let volume = parseInt(params[2])
 					if(!this.queues.has(message.member.guild.id))
 						this.queues.set(message.member.guild.id, {
 							volume: 100,
