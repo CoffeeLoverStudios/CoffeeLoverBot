@@ -1,0 +1,161 @@
+New config at '/home/lcomstive/CoffeeLoverBot/data/db.json'
+Listening at ':::3000'
+To add the bot to your server go to
+	https://discordapp.com/oauth2/authorize?client_id=509706823281147927&scope=bot&permissions=1275579456
+
+Loading commands...
+New config at '/home/lcomstive/CoffeeLoverBot/data/commands/eightball.json'
+Loaded '8ball.js'
+Loaded 'about.js'
+New config at '/home/lcomstive/CoffeeLoverBot/data/commands/casino.json'
+Loaded 'casino.js'
+Loaded 'command.js'
+Loaded 'die.js'
+Loaded 'filtered_phrases.js'
+Loaded 'flip.js'
+Loaded 'games.js'
+Loaded 'generic_responses.js'
+Loaded 'giveaway.js'
+Loaded 'insult.js'
+Loaded 'lmgtfy.js'
+Loaded 'music.js'
+Loaded 'play.js'
+Loaded 'poems.js'
+Loaded 'quote.js'
+Loaded 'r34.js'
+Loaded 'ship.js'
+Loaded 'shush.js'
+Loaded 'simple_web.js'
+
+CoffeeLoverBot is ready
+Got message - 
+Got message - Fukin normies
+Got message - Siege's golden gun mode
+<@!259845581348929546>
+Got message - i want to ask a guy out pls halp
+Got message - how would you like to be asked out
+Got message - lkke
+Got message - hhhhh
+Got message - By taking an axe to the chest and sold into slavery
+Got message - <:pepeironcomp:689471472707698759>
+Got message - that's sadly not on the options lisg
+Got message - but if you were to ask someone out
+Got message - how would you do it ;-;
+Got message - Bruh
+Got message - Guys are easy as fuck
+Got message - Remember to compliment something about him atleast once every two days
+Got message - Then bam, he’s yours
+Got message - now that you mentioned it
+Got message - I know this because I’m a bloke
+Got message - i just wanted a straight opinion
+Got message - Just to make sure
+Got message - in all senses of *straight*
+Got message - Are you of the homo variety or of the penes and vachina variety
+Got message - <:WeirdChamp:580633934602436608>
+Got message - I'm the exquisite homo variety of people who need to be purged
+Got message - the other guys make us look bad
+Got message - Ah, and you’re interested in another bloke?
+Got message - yus
+Got message - Is he into other guys?
+Got message - yes
+Got message - <:PeepoThink:596488852164706315>
+Got message - since you're straight
+Got message - I hope this isn’t some year 7’s love story
+Got message - and he is feminine as all fuck
+Got message - nono
+Got message - i just want a partner ;-;
+Got message - <:cooming:676838698972610601>
+Got message - Well, do as I said earlier
+Got message - Remember to compliment him frequently
+Got message - Fellas are love starved
+Got message - i will non-stop compliment him
+Got message - if that's what it takes
+Got message - thank you
+Got message - this means alot
+Got message - Try to keep it casual though
+Got message - Forcing a compliment can give the opposite idea
+Got message - If someone was constantly saying “bro your hair sick bro” every day you’d get a bit of a :think: going
+Got message - *true*
+Got message - and that bro variety is *essentially* what i am
+Got message - Also is this an *in school* thing or an *outside of school* thing
+Got message - why not both
+Got message - <:grill:673571961305300992>
+Got message - yes
+Got message - no
+Got message - maybe
+Got message - Well it should go alright, I don’t have much knowledge between home of sexual relationships
+Got message - Ask <@!210746479403335680> if you need any other help with a gay relationship
+Got message - Since he’s into traps
+Input
+Got message - *You have activated my trap card*
+Got message - <:WeirdChamp:580633934602436608>
+Got message - OwO
+Got message - Femboys are cute as fuck
+Got message - that's literally the guy i want to ask out
+Input
+Got message - 
+Got message - <@!244722885195726850>
+Got message - Why yes?
+Got message - jjjjjjjjjjjoin the chat
+Got message - https://www.youtube.com/watch?v=o8-jQTJnXKY&feature=share
+Got message - Corona?
+Got message - Reeeeeeee
+Got message - You asked for me?
+Got message - Uh oh its the drink
+Got message - Posioned with other corona
+Got message - oop
+Got message - https://youtu.be/gAsSO8FeLmQ
+Got message - Whats goin on?
+Got message - C U M
+Got message - i finished my anime
+Got message - and now im depresso
+Got message - Imagine depression
+Got message - Imagine
+Input
+Got message - Made a clicker game and want feedback as well as ideas for what to do next.
+Was thinking of doing HuniePop-esque dating game but clicking instead of Candy Crush puzzles.
+
+(*No art is mine, found it all for free on itch.io - I can't draw*)
+
+***Waifu Clicker v0.0.1c***
+https://mega.nz/#!wcQSxQAR!xnGSfam-VcFfdTbMo93hycwJgbOsBL8wZO82LmxVbA4
+Input
+Got message - 2D > 3D
+Got message - Check out <#370588708967284736> for link to game I'm making - looking for feedback and ideas
+Got message - #ripthrowables
+Got message - 
+Got message - 
+Got message - Marcus you always depressed
+Got message - <:GWatproHyperPoggers:405316678507823124>
+Got message - https://m.youtube.com/watch?v=BHHJaEqMSqQ
+Got message - https://www.youtube.com/watch?v=s8cG3AZjaD8
+Got message - nut
+Got message - excuse me python, the *what* parameter?
+Got message - *cum_weights*
+Got message - I HAVE SEVERAL QUESTIONS
+Got message - What, you don't weigh your cum to help with daily decisions?
+Got message - <@!259845581348929546> https://www.epicgames.com/store/en-US/product/satisfactory/home?sessionInvalidated=true
+Got message - ᕦ( ͡° ͜ʖ ͡°)ᕤ
+Got message - <@!210746479403335680> we should play town of salem next time
+Got message - yes
+Got message - also read your chat you basic bitch
+Got message - i am reading it
+Got message - check the time i sent that message you twat
+Got message - dont care
+Input
+Input
+Got message - 
+Got message - Someone donates $100
+Ricky:
+Got message - <:alabama:677191540476608564>
+Got message - Someone donates $200
+Ricky:
+Got message - <:glare:674237143022829578>
+Got message - Someone donates a pair of thongs and a can of aerogard
+Ricky:
+Got message - <:shock:677190556677439529>
+Got message - <@!244751835703934976>
+Got message - https://www.twitch.tv/aurizer
+Got message - Wtf
+Got message - U nibbas up to
+Got message - <:GWchadThonkery:366999788803325952>

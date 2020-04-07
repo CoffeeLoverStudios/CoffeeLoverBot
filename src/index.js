@@ -12,7 +12,7 @@ const Command = require('./commands/command.js')
 const Shush = require('./commands/shush.js')
 
 if(process.env.NODE_ENV !== 'production')
-	require('dotenv').load()
+	require('dotenv').config()
 
 let app = new Express()
 let cleverbot = undefined
@@ -179,6 +179,18 @@ loadCommands = () =>
 	})
 }
 
+addNewUser = (member) =>
+{
+	// Set the new user's role
+	let role = Utils.getRole(member.guild, global.db.get('initialRole').value())
+	if(role)
+		member.setRoles([ role ])
+	// Store their data in our secret file full of secret stuff
+	global.db.get('users').push({ id: member.id, name: member.name, nickname: member.displayName, games: [], quotes: [] }).write()
+	// Watch them intently so that we can know their every move/message
+	watch(member)
+}
+
 // The big function-o-things
 setup = () =>
 {
@@ -224,6 +236,16 @@ setup = () =>
 				return
 			// Get the user's data from the book-o-secrets
 			let user = global.db.get('users').find({ id: message.member.id }).value()
+			if(!user)
+			{
+				addNewUser(message.member)
+				user = global.db.get('users').find({ id: message.member.id }).value()
+				if(!user)
+				{
+					message.channel.send(`Something went wrong, couldn't find user, breaking....`)
+					return
+				}
+			}
 			// If the user cannot message, SHUSH THEMMMM!!! if they do an 'unshush' command,
 			//		we'll skip this and let them know they can't do that >:)
 			if(user.canMessage !== undefined && !user.canMessage && !message.content.toLowerCase().startsWith(global.tokens.command + 'unshush'))
@@ -300,14 +322,7 @@ setup = () =>
 		if(channel) // If the channel exists, then welcome them with a random greeting
 			channel.send(Utils.process(Utils.getRandom(global.db.get('greetings').value(), channel), member, channel))
 
-		// Set the new user's role
-		let role = Utils.getRole(member.guild, global.db.get('initialRole').value())
-		if(role)
-			member.setRoles([ role ])
-		// Store their data in our secret file full of secret stuff
-		global.db.get('users').push({ id: member.id, name: member.name, nickname: member.displayName, games: [], quotes: [] }).write()
-		// Watch them intently so that we can know their every move/message
-		watch(member)
+		addNewUser(member)
 	})
 	// Called when a user joins a server, we'll remove their data from existence and give them a nice(?) farewell
 	global.client.on('guildMemberRemove', (member) =>

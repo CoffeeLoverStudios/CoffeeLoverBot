@@ -11,33 +11,6 @@
   ],
   "users": [
     {
-      "id": "230526318872231938",
-      "name": "cartower",
-      "shushed": false,
-      "quotes": [],
-      "currentlyPlaying": "",
-      "games": [
-        "GearUp",
-        "Atlas Reactor",
-        "wallpaper_engine",
-        "TerraTech Beta",
-        "Assassin's Creed III",
-        "TerraTech",
-        "Divide by Sheep",
-        "Watch Dogs",
-        "League of Legends",
-        "Rivals of Aether",
-        "Poly Bridge",
-        "Fallout 4",
-        "Spotify",
-        "Fortnite",
-        "Rocket League"
-      ],
-      "nickname": "ஜ۩۞( ͡° ͜ʖ ͡°)۞۩ஜ",
-      "canMessage": true,
-      "casinoLolis": 10
-    },
-    {
       "id": "244722885195726850",
       "name": "SquidBomb",
       "nickname": "SquidBomb",
@@ -83,7 +56,7 @@
       ],
       "quotes": [],
       "name": "Heralias",
-      "nickname": "Heralias/CT",
+      "nickname": "Corona",
       "currentlyPlaying": "Warframe",
       "canMessage": true,
       "casinoLolis": 40
@@ -111,7 +84,7 @@
     },
     {
       "id": "164396031113428992",
-      "nickname": "jKing",
+      "nickname": "Rice",
       "games": [
         "Ultra Street Fighter IV",
         "Warframe Launcher",
@@ -179,7 +152,7 @@
     },
     {
       "id": "327761922701262849",
-      "nickname": "Owlenstein",
+      "nickname": "Owlenstein™",
       "games": [],
       "quotes": [
         "Ricky Thiccy 👅💦💦👌"
@@ -189,47 +162,14 @@
       "casinoLolis": 1100
     },
     {
-      "id": "375299248327098369",
-      "nickname": "Dragonsskull140",
-      "games": [
-        "Google Chrome",
-        "Skullgirls"
-      ],
-      "quotes": [],
-      "currentlyPlaying": "",
-      "canMessage": true
-    },
-    {
       "id": "409875266639495169",
       "name": "☭ ˢᵖᵃʳᵏ-ᵗᵒ-ᶠʸʳᵉ ☭",
-      "nickname": "Fursuasive",
+      "nickname": "Far and Few",
       "games": [],
       "quotes": [],
       "currentlyPlaying": "",
       "casinoLolis": 20,
       "canMessage": true
-    },
-    {
-      "id": "170859544782700544",
-      "name": "dooly123",
-      "nickname": "dooly123",
-      "games": [
-        "Starcraft II",
-        "EVE Online",
-        "Unity Package Manager",
-        "Unity Hub",
-        "Titanfall 2",
-        "Planetside 2",
-        "Unity 2017.3.0f3",
-        "Space Engineers",
-        "Battlezone: Combat Commander",
-        "They Are Billions",
-        "Spotify",
-        "Counter-Strike Global Offensive",
-        "Wolcen: Lords of Mayhem"
-      ],
-      "quotes": [],
-      "currentlyPlaying": ""
     },
     {
       "id": "430602323601915904",
@@ -250,19 +190,6 @@
       "currentlyPlaying": ""
     },
     {
-      "id": "270721339332100096",
-      "nickname": "EvO xOPTICSx",
-      "games": [
-        "Rocket League",
-        "Duelyst",
-        "Space Engineers",
-        "Tom Clancy's Rainbow Six Siege",
-        "Rocket League®"
-      ],
-      "quotes": [],
-      "currentlyPlaying": ""
-    },
-    {
       "id": "366835077147131907",
       "nickname": "Whale (Of a Good Time)",
       "games": [],
@@ -272,7 +199,7 @@
     {
       "id": "259845581348929546",
       "name": "iSkitzophreniac",
-      "nickname": "iSkitzophreniac",
+      "nickname": "●_●",
       "games": [
         "Warhammer 40,000: Dawn of War - Dark Crusade",
         "PLAYERUNKNOWN'S BATTLEGROUNDS",
@@ -293,24 +220,6 @@
       ],
       "quotes": [],
       "currentlyPlaying": ""
-    },
-    {
-      "id": "249845195959566347",
-      "name": "DARKNESS117235",
-      "nickname": "DARKNESS117235",
-      "games": [
-        "Warhammer 40,000: Dawn of War - Dark Crusade",
-        "Team Fortress 2",
-        "Warface",
-        "Trove",
-        "Mass Effect 3",
-        "Mass Effect 2",
-        "Warframe Launcher",
-        "Warframe",
-        "Fallout New Vegas"
-      ],
-      "quotes": [],
-      "currentlyPlaying": "Warframe"
     },
     {
       "id": "145452536600461312",
@@ -360,31 +269,6 @@
       "currentlyPlaying": "Warframe",
       "canMessage": true,
       "casinoLolis": 11
-    },
-    {
-      "id": "220860764976578561",
-      "name": "Multusvalde",
-      "currentlyPlaying": "",
-      "quotes": [
-        "DONT CALL ME HARRY",
-        "It's not weeb if it's french",
-        "Good choice of name",
-        "(i am by no means a virgin to Nintendo)"
-      ],
-      "canMessage": true,
-      "games": [
-        "Town of Salem",
-        "M.U.G.E.N",
-        "Crunchyroll",
-        "Throwables Configuration",
-        "Spotify"
-      ],
-      "nickname": "SnapJack CrackityBack",
-      "casinoLolis": 10,
-      "casinoRewards": [
-        "customNickname"
-      ],
-      "casinoNickname": "Master"
     },
     {
       "id": "191069151505154048",
@@ -437,7 +321,8 @@
         "Tickle me, yeah right there ;)",
         "masons just greedy",
         "quare.",
-        "It was too messy and barely worked."
+        "It was too messy and barely worked.",
+        "userquote <@!210746479403335680>"
       ],
       "canMessage": true,
       "currentlyPlaying": "",
@@ -456,14 +341,8 @@
       "quotes": []
     },
     {
-      "id": "309391215898656769",
-      "nickname": "megahermione",
-      "games": [],
-      "quotes": []
-    },
-    {
       "id": "133138648228036608",
-      "nickname": "Rich Kid Kebbles",
+      "nickname": "DI MOLTO!!",
       "games": [],
       "quotes": [
         "This is Major Tom to Ground Control\nI'm stepping through the door\nAnd I'm floating in a most peculiar way\nAnd the stars look very different today",
@@ -490,7 +369,7 @@
     },
     {
       "id": "489688843491082251",
-      "nickname": "NOMAD",
+      "nickname": "nomad",
       "games": [],
       "quotes": []
     },
@@ -520,7 +399,7 @@
     },
     {
       "id": "503752829291462659",
-      "nickname": "Klemze",
+      "nickname": "Steven Walking",
       "games": [],
       "quotes": [],
       "canMessage": true
@@ -539,13 +418,7 @@
     },
     {
       "id": "280277473780826122",
-      "nickname": "Nyorn Bud",
-      "games": [],
-      "quotes": []
-    },
-    {
-      "id": "164170300097822721",
-      "nickname": "No.Shields",
+      "nickname": "Bud",
       "games": [],
       "quotes": []
     },
@@ -554,55 +427,225 @@
       "nickname": "LittleLizzie",
       "games": [],
       "quotes": []
+    },
+    {
+      "id": "331812789469577216",
+      "nickname": "Johnathan Sins",
+      "games": [],
+      "quotes": [],
+      "canMessage": true
+    },
+    {
+      "id": "199560076497780736",
+      "nickname": "Jonco",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "220860764976578561",
+      "nickname": "SnapJack CrackityBack",
+      "games": [],
+      "quotes": [],
+      "canMessage": true
+    },
+    {
+      "id": "304970451141263362",
+      "nickname": "undertaker",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "394739660208734208",
+      "nickname": "Giliam",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "276642862211268608",
+      "nickname": "KingBee",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "383633186938290176",
+      "nickname": "Rookieryder",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "234502812728426496",
+      "nickname": "mexicantaco",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "561400169040707588",
+      "nickname": "BubblyDreamer",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "415792621299040256",
+      "nickname": "Madmuffin284",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "246220711142752256",
+      "nickname": "The Kid",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "585751684836491284",
+      "nickname": "kappacino",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "647052580345741313",
+      "nickname": "TheGigaGay",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "256742091034591232",
+      "nickname": "Oni-Mulfie",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "377012073722544129",
+      "nickname": "RonaldTheGangster",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "307264548707106816",
+      "nickname": "HyDrO_Hoodlum",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "257718857135947778",
+      "nickname": "F3rnihough",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "395477951484919809",
+      "nickname": "Minty",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "335537126588284938",
+      "nickname": "WadeFury",
+      "games": [],
+      "quotes": []
+    },
+    {
+      "id": "230526318872231938",
+      "nickname": "twig",
+      "games": [],
+      "quotes": []
     }
   ],
   "music": {
     "queues": [
       {
         "guild": "349169223899283456",
-        "volume": 100,
-        "songIndex": 2,
+        "volume": 10,
+        "songIndex": 1,
         "removeWhenFinished": true,
         "queue": [
           {
-            "title": "青春ブタ野郎はバニーガール先輩の夢を見ない「BABY!」",
-            "url": "https://www.youtube.com/watch?v=sh1MGa8AJu0"
+            "title": "Welcome",
+            "url": "https://www.youtube.com/watch?v=AgleELPY2As"
           },
           {
-            "title": "Make It Bun Dem",
-            "url": "https://www.youtube.com/watch?v=vY6B8uj1plY"
+            "title": "Yellow Hearts",
+            "url": "https://www.youtube.com/watch?v=dEZi9BvAJnk"
           },
           {
-            "title": "Lately",
-            "url": "https://www.youtube.com/watch?v=y07ETt8TR0g"
+            "title": "Vocal Chops",
+            "url": "https://www.youtube.com/watch?v=EH1Ntkou4Is"
           },
           {
-            "title": "Flight Facilities - Crave You (Adventure Club Dubstep Remix)",
-            "url": "https://www.youtube.com/watch?v=ZeaIvjoH1FY"
+            "title": "BABYMETAL - PA PA YA!! (feat. F.HERO)  (OFFICIAL)",
+            "url": "https://www.youtube.com/watch?v=oO7Y8NsnkRg"
           },
           {
-            "title": "KFC AND WATERMELON FLUTE DROP BUT ONLY RACISM IS EARRAPE *funny*",
-            "url": "https://www.youtube.com/watch?v=XTjN78LmkFY"
+            "title": "Maniac",
+            "url": "https://www.youtube.com/watch?v=64V0bE_Lbpg"
           },
           {
-            "title": "神山 羊 - YELLOW【Music Video】/ Yoh Kamiyama - YELLOW",
-            "url": "https://www.youtube.com/watch?v=1_lap6dzSUc"
+            "title": "Up & Down",
+            "url": "https://www.youtube.com/watch?v=jLqrx4Vr43Y"
           },
           {
-            "title": "Life Will Change ( Instrumental ver.) - Persona 5 OST",
-            "url": "https://www.youtube.com/watch?v=QfGL8jx36Ik"
+            "title": "Honeypie",
+            "url": "https://www.youtube.com/watch?v=CQtvNyXYCpM"
           },
           {
-            "title": "Crossfire",
-            "url": "https://www.youtube.com/watch?v=LEQE3c_QJes"
+            "title": "Armin van Buuren - Turn It Up [#ASOT2019]",
+            "url": "https://www.youtube.com/watch?v=lOyz0MUDUlU"
           },
           {
-            "title": "Earth, Wind & Fire - September (JNATHYN Remix)",
-            "url": "https://www.youtube.com/watch?v=VWl6tGgWV_w"
+            "title": "Mr. Roboto",
+            "url": "https://www.youtube.com/watch?v=3n_7acSpvuo"
           },
           {
-            "title": "Justin OH - Loving Her Loving U (ft. Delaney Kai)",
-            "url": "https://www.youtube.com/watch?v=1WrQgtigmGc"
+            "title": "TeZATalks - Beg",
+            "url": "https://www.youtube.com/watch?v=HHGbWNUmpUY"
+          },
+          {
+            "title": "Nightcore - Cradles (Lyrics)",
+            "url": "https://www.youtube.com/watch?v=9zqFlhOhK98"
+          },
+          {
+            "title": "Nightcore - Lily  (Alan Walker) Lyrics",
+            "url": "https://www.youtube.com/watch?v=fhsbgtdPvOo"
+          },
+          {
+            "title": "Nightcore - The devil within - (Lyrics)",
+            "url": "https://www.youtube.com/watch?v=Z9W2Xe1Xu8c"
+          },
+          {
+            "title": "Nightcore - Love The Way You Lie // lyrics",
+            "url": "https://www.youtube.com/watch?v=WMxF6YeMUiU"
+          },
+          {
+            "title": "◤Nightcore◢ ↬ Everybody gets high [lyrics]",
+            "url": "https://www.youtube.com/watch?v=ANbsWxib2tk"
+          },
+          {
+            "title": "Nightcore - Let me down slowly (Lyrics)",
+            "url": "https://www.youtube.com/watch?v=SgUuANZT8_E"
+          },
+          {
+            "title": "Nightcore ↬ angry too [NV]",
+            "url": "https://www.youtube.com/watch?v=_w9wT03atEQ"
+          },
+          {
+            "title": "Nightcore - On My Way (Alan Walker, Sabrina Carpenter & Farruko) - (Lyrics)",
+            "url": "https://www.youtube.com/watch?v=cABpfUBJYR8"
+          },
+          {
+            "title": "succducc - me & u",
+            "url": "https://www.youtube.com/watch?v=F6NnGEzQpPQ"
+          },
+          {
+            "title": "Confetti - Rob A Bank",
+            "url": "https://www.youtube.com/watch?v=naP_Lt6OJWQ"
+          },
+          {
+            "title": "Neovaii - At The End",
+            "url": "https://www.youtube.com/watch?v=0G7kkaplRt0"
+          },
+          {
+            "title": "Oliver Tree - Cash Machine [Official Music Video]",
+            "url": "https://www.youtube.com/watch?v=U1vGosMScjM"
           }
         ]
       },
@@ -827,6 +870,9 @@
     {
       "game": "Google Chrome",
       "alias": "Chrome, the taker of RAM"
+    },
+    {
+      "game": "yeet"
     }
   ],
   "casinoDefaultLolis": 100,

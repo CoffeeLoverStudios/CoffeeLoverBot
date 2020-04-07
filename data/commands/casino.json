@@ -73,7 +73,7 @@
     },
     {
       "id": "210746479403335680",
-      "lolis": 310,
+      "lolis": 620,
       "nickname": "",
       "rewards": [
         "customNickname",
@@ -105,7 +105,7 @@
     {
       "id": "220860764976578561",
       "name": "[BANNED USER]",
-      "lolis": 992,
+      "lolis": 10,
       "nickname": "Master",
       "rewards": [
         "customNickname",
@@ -252,7 +252,7 @@
     },
     {
       "id": "164396031113428992",
-      "lolis": 100,
+      "lolis": 40,
       "nickname": "",
       "rewards": []
     },
@@ -313,6 +313,13 @@
     {
       "name": "",
       "lolis": 100,
+      "nickname": "",
+      "rewards": []
+    },
+    {
+      "id": "503752829291462659",
+      "name": "Manly Man",
+      "lolis": 150,
       "nickname": "",
       "rewards": []
     }

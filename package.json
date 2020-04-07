@@ -14,20 +14,20 @@
   "license": "ISC",
   "dependencies": {
     "cleverbot-node": "^0.3.11",
-    "discord.js": "^11.4.0",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.4",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "lowdb": "^1.0.0",
     "npm": "^5.10.0",
     "random-ext": "^2.6.1",
     "request": "^2.88.0",
-    "seedrandom": "^2.4.4"
+    "seedrandom": "^3.0.5"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.0",
-    "erlpack": "github:hammerandchisel/erlpack",
-    "node-opus": "^0.3.0",
+    "erlpack": "^0.1.3",
+    "node-opus": "^0.3.3",
     "sodium": "^2.0.3",
-    "ytdl-core": "^0.24.0"
+    "ytdl-core": "^1.0.0"
   }
 }

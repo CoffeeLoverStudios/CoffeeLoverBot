@@ -49,7 +49,7 @@ try
 
 		save() { this.writeQueue() }
 
-		shouldCall(command) { return command.toLowerCase() == 'music' }
+		shouldCall(command) { return [ 'music', 'skip', 'next', 'prev', 'back' ].includes(command.toLowerCase()) }
 
 		writeQueue()
 		{
@@ -81,7 +81,7 @@ try
 				info.connection.dispatcher.end()
 			info.playing = true
 			info.songIndex = index
-			this.queues.get(id).connection.playStream(ytdl(info.queue[info.songIndex].url, { filter: 'audioonly' }).on('finish', () => { if(info.playing) this.playNext(id) }))
+			this.queues.get(id).connection.playStream(ytdl(info.queue[info.songIndex].url, { filter: 'audioonly' }).on('end', () => { if(info.playing) this.playNext(id) }))
 			this.queues.get(id).connection.dispatcher.setVolumeLogarithmic(info.volume / 100)
 			info.textChannel.send('Now playing: *' + info.queue[info.songIndex].title + '*')
 		}
@@ -107,7 +107,7 @@ try
 		call(message, params, client)
 		{
 			if(params[0].toLowerCase() != 'music')
-				return
+				params = [ 'music', params[0] ]
 			if(params.length == 1)
 			{
 				message.channel.send(this.usage(global.tokens.command))
@@ -233,11 +233,13 @@ try
 						message.channel.send('Not connected to a voice channel')
 					break
 				}
+				case 'skip':
 				case 'next':
 				{
 					this.playNext(message.member.guild.id)
 					break
 				}
+				case 'back':
 				case 'prev':
 				case 'previous':
 				{
@@ -387,7 +389,8 @@ try
 							removeWhenFinished: false,
 							queue: []
 						})
-					if(this.queues.get(message.member.guild.id).connection)
+					if(this.queues.get(message.member.guild.id).connection &&
+						this.queues.get(message.member.guild.id).connection.dispatcher)
 						this.queues.get(message.member.guild.id).connection.dispatcher.setVolumeLogarithmic(volume / 100)
 					this.queues.get(message.member.guild.id).volume = volume
 					message.channel.send('Volume set to ' + volume + '%')
@@ -410,6 +413,7 @@ try
 							break
 					}
 					global.db.get('music').set('removeWhenFinished', this.removeWhenFinished).write()
+					message.channel.send('Consider it done')
 					break
 				}
 			}
